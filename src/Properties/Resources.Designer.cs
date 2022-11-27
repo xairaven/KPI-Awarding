@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace src.Properties
+namespace Program.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -45,7 +45,7 @@ namespace src.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("src.Properties.Resources",
+                        new global::System.Resources.ResourceManager("project.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
