@@ -14,3 +14,9 @@
 - DB: SQLite
 - ADO.NET
 - Windows Forms
+
+<h2>Authors:</h2>
+
+- Alex Kovalyov
+- Volodymyr Karkushevskiy
+...
