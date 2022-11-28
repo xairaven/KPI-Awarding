@@ -20,3 +20,5 @@
 - Alex Kovalyov
 - Volodymyr Karkushevskiy
 ...
+
+some text
