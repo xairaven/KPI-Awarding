@@ -31,6 +31,7 @@ namespace Program.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DevelopersForm));
             this.dataDev = new System.Windows.Forms.DataGridView();
             this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +98,7 @@ namespace Program.Forms
             this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.backBut);
             this.Controls.Add(this.dataDev);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "DevelopersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
