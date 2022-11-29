@@ -11,14 +11,14 @@ namespace Program.Forms
 
         private void devBut_MouseClick(object sender, MouseEventArgs e)
         {
-            DevelopersForm developersForm = new DevelopersForm();
+            var developersForm = new DevelopersForm();
             developersForm.Show();
             Hide();
         }
 
         private void startBut_MouseClick(object sender, MouseEventArgs e)
         {
-            ChangeDataUploadForm changeDataUploadForm = new ChangeDataUploadForm();
+            var changeDataUploadForm = new ChangeDataUploadForm();
             changeDataUploadForm.Show();
             Hide();
         }
