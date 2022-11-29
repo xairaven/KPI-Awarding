@@ -73,6 +73,7 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="UI\ButtonDesign.cs" />
         <EmbeddedResource Include="Forms\ChangeDataUploadForm.resx">
           <DependentUpon>ChangeDataUploadForm.cs</DependentUpon>
         </EmbeddedResource>
