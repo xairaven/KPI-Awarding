@@ -14,7 +14,7 @@ namespace Program.Forms
         {
             dataDev.Rows.Add("Владислав", "Каркушевський", "@vlad_karkushevskiy");
             dataDev.Rows.Add("Артем", "Діковський", "@UncleFitz ");
-            dataDev.Rows.Add("Олександр", "Ковальов", "@xaireven");
+            dataDev.Rows.Add("Олександр", "Ковальов", "@xairaven");
             dataDev.Rows.Add("Єлизавета", "Дреля", "@liza_drelya ");
             dataDev.Rows.Add("Данило", "Жуковський", "@Etherwoood ");
         }
