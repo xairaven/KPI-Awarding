@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Program.Forms
 {
@@ -22,7 +24,7 @@ namespace Program.Forms
 
             base.Dispose(disposing);
         }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace Program.Forms
             // 
             // backBut
             // 
-            this.backBut.BackColor = System.Drawing.Color.Lavender;
+            this.backBut.BackColor = System.Drawing.Color.RosyBrown;
             this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.backBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backBut.Location = new System.Drawing.Point(995, 55);

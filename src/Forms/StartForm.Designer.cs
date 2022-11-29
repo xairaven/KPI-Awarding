@@ -1,4 +1,7 @@
-﻿namespace Program.Forms
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Program.Forms
 {
     partial class StartForm
     {
