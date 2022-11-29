@@ -47,11 +47,23 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Forms\ChangeDataUploadForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\ChangeDataUploadForm.Designer.cs">
+          <DependentUpon>ChangeDataUploadForm.cs</DependentUpon>
+        </Compile>
         <Compile Include="Forms\DevelopersForm.cs">
           <SubType>Form</SubType>
         </Compile>
         <Compile Include="Forms\DevelopersForm.Designer.cs">
           <DependentUpon>DevelopersForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Forms\ManualFillingForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\ManualFillingForm.Designer.cs">
+          <DependentUpon>ManualFillingForm.cs</DependentUpon>
         </Compile>
         <Compile Include="Forms\StartForm.cs">
           <SubType>Form</SubType>
@@ -61,8 +73,14 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <EmbeddedResource Include="Forms\ChangeDataUploadForm.resx">
+          <DependentUpon>ChangeDataUploadForm.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Forms\DevelopersForm.resx">
           <DependentUpon>DevelopersForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Forms\ManualFillingForm.resx">
+          <DependentUpon>ManualFillingForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Forms\StartForm.resx">
           <DependentUpon>StartForm.cs</DependentUpon>
