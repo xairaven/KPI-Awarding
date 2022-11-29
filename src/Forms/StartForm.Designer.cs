@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.startBut = new System.Windows.Forms.Button();
             this.devBut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,7 +36,7 @@
             // 
             // startBut
             // 
-            this.startBut.BackColor = System.Drawing.Color.PaleGreen;
+            this.startBut.BackColor = System.Drawing.Color.SpringGreen;
             this.startBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.startBut.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.startBut.Location = new System.Drawing.Point(435, 257);
@@ -46,6 +45,7 @@
             this.startBut.TabIndex = 0;
             this.startBut.Text = "Розпочати";
             this.startBut.UseVisualStyleBackColor = false;
+            this.startBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startBut_MouseClick);
             // 
             // devBut
             // 
@@ -78,7 +78,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.devBut);
             this.Controls.Add(this.startBut);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StartForm";

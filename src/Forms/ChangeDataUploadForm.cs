@@ -11,7 +11,9 @@ namespace Program.Forms
 
         private void manuallyBut_MouseClick(object sender, MouseEventArgs e)
         {
-            
+            ManualFillingForm manualFillingForm = new ManualFillingForm();
+            manualFillingForm.Show();
+            Hide();
         }
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)

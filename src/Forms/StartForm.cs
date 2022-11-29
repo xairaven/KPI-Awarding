@@ -15,5 +15,12 @@ namespace Program.Forms
             developersForm.Show();
             Hide();
         }
+
+        private void startBut_MouseClick(object sender, MouseEventArgs e)
+        {
+            ChangeDataUploadForm changeDataUploadForm = new ChangeDataUploadForm();
+            changeDataUploadForm.Show();
+            Hide();
+        }
     }
 }
