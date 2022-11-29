@@ -7,21 +7,21 @@ namespace Program.Forms
         public DevelopersForm()
         {
             InitializeComponent();
-            addInfo();
+            AddInfo();
         }
 
-        private void addInfo()
+        private void AddInfo()
         {
-            dataDev.Rows.Add("Владислав", "Каркушевський", "@vlad_karkushevskiy");
-            dataDev.Rows.Add("Артем", "Діковський", "@UncleFitz ");
-            dataDev.Rows.Add("Олександр", "Ковальов", "@xairaven");
-            dataDev.Rows.Add("Єлизавета", "Дреля", "@liza_drelya ");
-            dataDev.Rows.Add("Данило", "Жуковський", "@Etherwoood ");
+            dataDev.Rows.Add("Владислав", "Каркушевський", "@vlad_karkushevskiy","Desktop Developer");
+            dataDev.Rows.Add("Артем", "Діковський", "@UncleFitz","Database Engineer");
+            dataDev.Rows.Add("Олександр", "Ковальов", "@xairaven","DevOps");
+            dataDev.Rows.Add("Єлизавета", "Дреля", "@liza_drelya","Frontend, Design");
+            dataDev.Rows.Add("Данило", "Жуковський", "@Etherwoood","Frontend");
         }
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
-            StartForm startForm = new StartForm();
+            var startForm = new StartForm();
             startForm.Show();
             Hide();
         }

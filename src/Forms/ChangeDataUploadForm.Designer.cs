@@ -60,6 +60,7 @@ namespace Program.Forms
             this.excelBut.TabIndex = 4;
             this.excelBut.Text = "Вибрати Excel файл";
             this.excelBut.UseVisualStyleBackColor = false;
+            this.excelBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.excelBut_MouseClick);
             // 
             // manuallyBut
             // 
@@ -83,9 +84,9 @@ namespace Program.Forms
             this.Controls.Add(this.manuallyBut);
             this.Controls.Add(this.excelBut);
             this.Controls.Add(this.backBut);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ChangeDataUploadForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChangeDataUploadForm";
             this.ResumeLayout(false);
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Program.Forms
 {
@@ -19,7 +15,8 @@ namespace Program.Forms
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Якщо ви вийдете, ви втратите всі дані.\n Ви впевнені?", 
+                @"Якщо ви вийдете, ви втратите всі дані.
+Ви впевнені?", 
                 "", 
                 MessageBoxButtons.YesNo, 
                 MessageBoxIcon.Question, 
@@ -28,10 +25,20 @@ namespace Program.Forms
 
             if (result == DialogResult.Yes)
             {
-                ChangeDataUploadForm changeDataUploadForm = new ChangeDataUploadForm();
+                var changeDataUploadForm = new ChangeDataUploadForm();
+                changeDataUploadForm.TopMost = true;
                 changeDataUploadForm.Show();
+                changeDataUploadForm.TopMost = false;
+
                 Hide();
             }
+            else
+            {
+                TopMost = true;
+                TopMost = false;
+            }        
+
+
 
         }
     }
