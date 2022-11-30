@@ -85,6 +85,18 @@
         <Compile Include="DataBase\DataWork.cs" />
         <Compile Include="DataBase\Rewards.cs" />
         <Compile Include="DataBase\Users.cs" />
+        <Compile Include="Forms\AddPersonForm.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\AddPersonForm.Designer.cs">
+            <DependentUpon>AddPersonForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Forms\AddRewardsForm.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\AddRewardsForm.Designer.cs">
+            <DependentUpon>AddRewardsForm.cs</DependentUpon>
+        </Compile>
         <Compile Include="Forms\ChangeDataUploadForm.cs">
             <SubType>Form</SubType>
         </Compile>
@@ -120,6 +132,12 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Properties\EntryAssemblyInfo.cs" />
         <Compile Include="UI\ButtonDesign.cs" />
+        <EmbeddedResource Include="Forms\AddPersonForm.resx">
+            <DependentUpon>AddPersonForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Forms\AddRewardsForm.resx">
+            <DependentUpon>AddRewardsForm.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Forms\ChangeDataUploadForm.resx">
             <DependentUpon>ChangeDataUploadForm.cs</DependentUpon>
         </EmbeddedResource>
