@@ -89,6 +89,7 @@ namespace Program.Forms
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ChangeDataUploadForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
         }
 

@@ -14,7 +14,11 @@ namespace Program
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            FormUtils.SetDefaultIcon();
+
             Application.Run(new StartForm());
+            Application.Exit();
         }
     }
 }

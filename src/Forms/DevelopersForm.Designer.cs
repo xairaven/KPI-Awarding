@@ -142,6 +142,7 @@ namespace Program.Forms
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "DevelopersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "KPI-Awarding";
             ((System.ComponentModel.ISupportInitialize)(this.dataDev)).EndInit();
             this.ResumeLayout(false);
         }
