@@ -40,7 +40,7 @@ namespace Program.Forms
             // 
             // backBut
             // 
-            this.backBut.BackColor = System.Drawing.Color.RosyBrown;
+            this.backBut.BackColor = System.Drawing.Color.Lavender;
             this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.backBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backBut.Location = new System.Drawing.Point(995, 55);
@@ -89,7 +89,6 @@ namespace Program.Forms
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ChangeDataUploadForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
         }
 
