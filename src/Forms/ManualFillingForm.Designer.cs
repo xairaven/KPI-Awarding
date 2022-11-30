@@ -284,7 +284,7 @@ namespace Program.Forms
             this.Controls.Add(this.lastNameText);
             this.Name = "ManualFillingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ManualFillingForm";
+            this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
             this.PerformLayout();
         }

@@ -53,6 +53,7 @@ namespace Program.Forms
             // devBut
             // 
             this.devBut.BackColor = System.Drawing.Color.Lavender;
+            this.devBut.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.devBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.devBut.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.devBut.Location = new System.Drawing.Point(1002, 473);
@@ -83,7 +84,7 @@ namespace Program.Forms
             this.Controls.Add(this.startBut);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StartForm";
+            this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
         }
 

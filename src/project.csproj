@@ -71,8 +71,10 @@
         <Compile Include="Forms\StartForm.Designer.cs">
           <DependentUpon>StartForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="FormUtils.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Properties\EntryAssemblyInfo.cs" />
         <Compile Include="UI\ButtonDesign.cs" />
         <EmbeddedResource Include="Forms\ChangeDataUploadForm.resx">
           <DependentUpon>ChangeDataUploadForm.cs</DependentUpon>
