@@ -3,9 +3,9 @@
     public struct Users
     {
         public string Name { get; set; }
-        public string Fac { get; set; }
+        public int Fac { get; set; }
 
-        public Users(string name, string fac)
+        public Users(string name, int fac)
         {
             Name = name;
             Fac = fac;

@@ -2,13 +2,19 @@
 { 
     public struct Rewards
         {
-            public string Id{ get; set; }
-            public string Name{ get; set; }
-        
-            public Rewards(string name, string id)
+            public int Id{ get; set; }
+            public int Name{ get; set; }
+            public int Year { get; set; }
+            public int Prot { get; set; }
+            public Rewards(int id)
             {
-                Name = name;
+                Name = 0;
+                //Id = id;
+                //Year = year;
+                // Prot = protocol;
                 Id = id;
+                Year = 0;
+                Prot = 0;
             }
         }
 }
