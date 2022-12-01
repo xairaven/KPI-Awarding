@@ -91,14 +91,9 @@ namespace Program.Forms
             }
             
             dataGridView1.DataSource = dt; //заполняем dataGridView
-        }
 
-        private void addPersonBut_MouseClick(object sender, MouseEventArgs e)
-        {
-            var addPersonForm = new AddPersonForm();
-            addPersonForm.Show();
-            Hide();
         }
+        
 
         private void addRewardBut_MouseClick(object sender, MouseEventArgs e)
         {
@@ -116,8 +111,34 @@ namespace Program.Forms
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
-            StartForm startForm = new StartForm();
-            startForm.Show();
+            DialogResult result = MessageBox.Show(
+                @"Якщо ви вийдете, ви втратите всі дані.
+Ви впевнені?",
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2,
+                MessageBoxOptions.DefaultDesktopOnly);
+
+            if (result == DialogResult.Yes)
+            {
+                var startForm = new StartForm();
+                startForm.TopMost = true;
+                startForm.Show();
+                startForm.TopMost = false;
+                Hide();
+            }
+            else
+            {
+                TopMost = true;
+                TopMost = false;
+            }
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            FullScreenForm fullScreenForm = new FullScreenForm();
+            fullScreenForm.Show();
             Hide();
         }
     }

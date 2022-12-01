@@ -38,9 +38,9 @@ namespace Program.Forms
             this.protocolNumberLabel = new System.Windows.Forms.Label();
             this.protocolNumberText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.rewardCountryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rewardKpiComboBox = new System.Windows.Forms.ComboBox();
             this.personListBox = new System.Windows.Forms.ListBox();
             this.backBut = new System.Windows.Forms.Button();
             this.startBut = new System.Windows.Forms.Button();
@@ -106,17 +106,17 @@ namespace Program.Forms
             this.label2.TabIndex = 24;
             this.label2.Text = "Державна нагорода:";
             // 
-            // comboBox2
+            // rewardCountryComboBox
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.DropDownWidth = 450;
-            this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] { "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
-            this.comboBox2.Location = new System.Drawing.Point(506, 334);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(196, 30);
-            this.comboBox2.TabIndex = 23;
+            this.rewardCountryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rewardCountryComboBox.DropDownWidth = 450;
+            this.rewardCountryComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rewardCountryComboBox.FormattingEnabled = true;
+            this.rewardCountryComboBox.Items.AddRange(new object[] { "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
+            this.rewardCountryComboBox.Location = new System.Drawing.Point(506, 334);
+            this.rewardCountryComboBox.Name = "rewardCountryComboBox";
+            this.rewardCountryComboBox.Size = new System.Drawing.Size(196, 30);
+            this.rewardCountryComboBox.TabIndex = 23;
             // 
             // label1
             // 
@@ -127,17 +127,17 @@ namespace Program.Forms
             this.label1.TabIndex = 22;
             this.label1.Text = "Нагорода:";
             // 
-            // comboBox1
+            // rewardKpiComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.DropDownWidth = 450;
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] { "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
-            this.comboBox1.Location = new System.Drawing.Point(506, 255);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 30);
-            this.comboBox1.TabIndex = 21;
+            this.rewardKpiComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rewardKpiComboBox.DropDownWidth = 450;
+            this.rewardKpiComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rewardKpiComboBox.FormattingEnabled = true;
+            this.rewardKpiComboBox.Items.AddRange(new object[] { "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
+            this.rewardKpiComboBox.Location = new System.Drawing.Point(506, 255);
+            this.rewardKpiComboBox.Name = "rewardKpiComboBox";
+            this.rewardKpiComboBox.Size = new System.Drawing.Size(196, 30);
+            this.rewardKpiComboBox.TabIndex = 21;
             // 
             // personListBox
             // 
@@ -194,9 +194,9 @@ namespace Program.Forms
             this.Controls.Add(this.protocolNumberLabel);
             this.Controls.Add(this.protocolNumberText);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.rewardCountryComboBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.rewardKpiComboBox);
             this.Name = "AddRewardsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddRewardsForm";
@@ -217,9 +217,9 @@ namespace Program.Forms
         private System.Windows.Forms.Label protocolNumberLabel;
         private System.Windows.Forms.TextBox protocolNumberText;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox rewardCountryComboBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox rewardKpiComboBox;
 
         #endregion
     }
