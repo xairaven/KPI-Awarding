@@ -26,7 +26,12 @@
 *.suo
 *.user
 .vs/
-[Bb]in/
+
+src/bin/Debug/*
+!src/bin/Debug/Rewards*
+src/bin/Release/*
+!src/bin/Release/Rewards*
+
 [Oo]bj/
 _UpgradeReport_Files/
 [Pp]ackages/
