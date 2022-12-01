@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Windows.Forms;
 
 namespace Program.Forms
@@ -11,7 +10,7 @@ namespace Program.Forms
             InitializeComponent();
             for (var i = 0; i < StartForm.MainForm.dataGridView1.RowCount; i++)
             {
-                personListBox.Items.Add(StartForm.MainForm.dataGridView1[0, i].Value);
+                personListBox.Items.Add(StartForm.MainForm.dataGridView1[1, i].Value);
             }
         }
 
@@ -25,7 +24,6 @@ namespace Program.Forms
         {
             var dt = new DataTable();
 
-            var a = new List<string>();
             for (var i = 0; i < StartForm.MainForm.dataGridView1.Columns.Count; i++)
             {
                 dt.Columns.Add(StartForm.MainForm.dataGridView1.Columns[i].Name);
@@ -43,8 +41,8 @@ namespace Program.Forms
                 dt.Rows.Add(dtRow);
             }
 
-            dt.Rows.Add(StartForm.MainForm.dataGridView1[0, personListBox.SelectedIndex].Value,
-                StartForm.MainForm.dataGridView1[1, personListBox.SelectedIndex].Value, rewardKpiComboBox.Text,
+            dt.Rows.Add(StartForm.MainForm.dataGridView1.Rows.Count+1,StartForm.MainForm.dataGridView1[1, personListBox.SelectedIndex].Value,
+                StartForm.MainForm.dataGridView1[2, personListBox.SelectedIndex].Value, rewardKpiComboBox.Text,
                 rewardCountryComboBox.Text, protocolNumberText.Text,
                 yearsKPIText.Text, yearsStateText.Text);
             

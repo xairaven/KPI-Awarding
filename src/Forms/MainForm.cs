@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Data;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -11,6 +10,11 @@ namespace Program.Forms
         public MainForm()
         {
             InitializeComponent();
+            for (var i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                searchComboBox.Items.Add(dataGridView1.Columns[i].HeaderText);
+
+            }
         }
 
 
@@ -33,20 +37,21 @@ namespace Program.Forms
 
         private void importExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
-
             var ofd = new OpenFileDialog();
-            ofd.Multiselect =false;
+            ofd.Multiselect = false;
             ofd.DefaultExt = "*.xls;*.xlsx";
-            ofd.Filter = "Microsoft Excel (*.xls*)|*.xls*";
-            ofd.Title = "Выберите документ Excel";
+            ofd.Filter = @"Microsoft Excel (*.xls*)|*.xls*";
+            ofd.Title = @"Выберите документ Excel";
             if (ofd.ShowDialog() != DialogResult.OK)
             {
-                MessageBox.Show("Вы не выбрали файл для открытия", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(@"Вы не выбрали файл для открытия", @"Внимание", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 return;
             }
+
+            dataGridView1.Columns.Clear();
             var xlFileName = ofd.FileName; //имя нашего Excel файла
-            
+
             //рабоата с Excel
 
             var xlApp = new Excel.Application(); //создаём приложение Excel
@@ -55,45 +60,47 @@ namespace Program.Forms
 
             var iLastRow = xlSht.UsedRange.Rows.Count;
             var iLastCol = xlSht.UsedRange.Columns.Count;
-            
 
-            var rng = xlSht.Range["A1", xlSht.Cells[iLastRow, iLastCol]]; //пример записи диапазона ячеек в переменную Rng
-            //Rng = xlSht.get_Range("A1", "D4"); //пример записи диапазона ячеек в переменную Rng
-            
-            
+
+            var rng = xlSht.Range["A1",
+                xlSht.Cells[iLastRow, iLastCol]]; //пример записи диапазона ячеек в переменную Rng
+
+
             var dataArr = (object[,])rng.Value; //чтение данных из ячеек в массив            
-            //xlSht.get_Range("K1").get_Resize(dataArr.GetUpperBound(0), dataArr.GetUpperBound(1)).Value = dataArr; //выгрузка массива на лист
- 
+
             //закрытие Excel
             xlWb.Close(true); //сохраняем и закрываем файл
             xlApp.Quit();
             ReleaseObject(xlSht);
             ReleaseObject(xlWb);
             ReleaseObject(xlApp);
- 
+
             //заполняем DataTable для последующего заполнения dataGridView
-            DataTable dt = new DataTable();
-            DataRow dtRow;
+            var dt = new DataTable();
+
+            dt.Columns.Add("№");
+            var count = 1;
             //добавляем столбцы в DataTable
-            for (int i = 1; i <= dataArr.GetUpperBound(1); i++)
-                dt.Columns.Add((string)dataArr[1, i]);            
-            
+            for (var i = 1; i <= dataArr.GetUpperBound(1); i++)
+                dt.Columns.Add((string)dataArr[1, i]);
+
             //цикл по строкам массива
-            for (int i = 2; i <= dataArr.GetUpperBound(0); i++)
+            for (var i = 2; i <= dataArr.GetUpperBound(0); i++)
             {
-                dtRow = dt.NewRow();
+                var dtRow = dt.NewRow();
+                dtRow[0] = count++;
                 //цикл по столбцам массива
-                for (int n = 1; n <= dataArr.GetUpperBound(1); n++)
+                for (var n = 1; n <= dataArr.GetUpperBound(1); n++)
                 {
-                    dtRow[n-1] = dataArr[i, n];
+                    dtRow[n] = dataArr[i, n];
                 }
+
                 dt.Rows.Add(dtRow);
             }
-            
-            dataGridView1.DataSource = dt; //заполняем dataGridView
 
+            dataGridView1.DataSource = dt; //заполняем dataGridView
         }
-        
+
 
         private void addRewardBut_MouseClick(object sender, MouseEventArgs e)
         {
@@ -137,9 +144,67 @@ namespace Program.Forms
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-            FullScreenForm fullScreenForm = new FullScreenForm();
+            var fullScreenForm = new FullScreenForm();
             fullScreenForm.Show();
             Hide();
         }
+
+        private void exportExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+
+            try
+            {
+                var worksheet = (Excel._Worksheet)workbook.ActiveSheet;
+
+                worksheet.Name = "ExportedFromDatGrid";
+
+                var cellRowIndex = 1;
+                var cellColumnIndex = 1;
+
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    worksheet.Cells[cellRowIndex, cellColumnIndex] =
+                        dataGridView1.Columns[i].HeaderText;
+                    cellColumnIndex++;
+                }
+
+                cellColumnIndex = 1;
+                cellRowIndex++;
+
+
+                for (var i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    for (var j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        worksheet.Cells[cellRowIndex, cellColumnIndex] =
+                            dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        cellColumnIndex++;
+                    }
+
+                    cellColumnIndex = 1;
+                    cellRowIndex++;
+                }
+
+
+                var saveDialog = new SaveFileDialog();
+                saveDialog.Filter = @"Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+
+                if (saveDialog.ShowDialog() != DialogResult.OK) return;
+                workbook.SaveAs(saveDialog.FileName);
+                MessageBox.Show(@"Export Successful");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+            }
+        }
+
     }
 }
