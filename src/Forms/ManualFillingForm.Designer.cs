@@ -49,7 +49,7 @@ namespace Program.Forms
             this.yearsKPILabel = new System.Windows.Forms.Label();
             this.protocolNumberLabel = new System.Windows.Forms.Label();
             this.protocolNumberText = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.saveBut = new System.Windows.Forms.Button();
             this.backBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -139,7 +139,7 @@ namespace Program.Forms
             this.rewardKpiComboBox.DropDownWidth = 450;
             this.rewardKpiComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rewardKpiComboBox.FormattingEnabled = true;
-            this.rewardKpiComboBox.Items.AddRange(new object[] { "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
+            this.rewardKpiComboBox.Items.AddRange(new object[] { "", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
             this.rewardKpiComboBox.Location = new System.Drawing.Point(343, 215);
             this.rewardKpiComboBox.Name = "rewardKpiComboBox";
             this.rewardKpiComboBox.Size = new System.Drawing.Size(196, 30);
@@ -160,7 +160,7 @@ namespace Program.Forms
             this.rewardCountryComboBox.DropDownWidth = 450;
             this.rewardCountryComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rewardCountryComboBox.FormattingEnabled = true;
-            this.rewardCountryComboBox.Items.AddRange(new object[] { "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
+            this.rewardCountryComboBox.Items.AddRange(new object[] { "", "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
             this.rewardCountryComboBox.Location = new System.Drawing.Point(343, 294);
             this.rewardCountryComboBox.Name = "rewardCountryComboBox";
             this.rewardCountryComboBox.Size = new System.Drawing.Size(196, 30);
@@ -217,18 +217,18 @@ namespace Program.Forms
             this.protocolNumberText.Size = new System.Drawing.Size(273, 30);
             this.protocolNumberText.TabIndex = 15;
             // 
-            // button1
+            // saveBut
             // 
-            this.button1.BackColor = System.Drawing.Color.SpringGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(432, 409);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 100);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Зберегти дані";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
+            this.saveBut.BackColor = System.Drawing.Color.SpringGreen;
+            this.saveBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBut.Location = new System.Drawing.Point(432, 409);
+            this.saveBut.Name = "saveBut";
+            this.saveBut.Size = new System.Drawing.Size(300, 100);
+            this.saveBut.TabIndex = 22;
+            this.saveBut.Text = "Зберегти дані";
+            this.saveBut.UseVisualStyleBackColor = false;
+            this.saveBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveBut_MouseClick);
             // 
             // backBut
             // 
@@ -241,7 +241,7 @@ namespace Program.Forms
             this.backBut.TabIndex = 23;
             this.backBut.Text = "Назад";
             this.backBut.UseVisualStyleBackColor = false;
-            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBut_MouseClick_1);
+            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBut_MouseClick);
             // 
             // ManualFillingForm
             // 
@@ -250,7 +250,7 @@ namespace Program.Forms
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.backBut);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.saveBut);
             this.Controls.Add(this.yearsStateText);
             this.Controls.Add(this.yearsKPIText);
             this.Controls.Add(this.yearsStateLabel);
@@ -278,7 +278,7 @@ namespace Program.Forms
 
         private System.Windows.Forms.Button backBut;
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveBut;
 
         private System.Windows.Forms.TextBox yearsStateText;
         private System.Windows.Forms.TextBox yearsKPIText;
