@@ -33,7 +33,6 @@ namespace Program.Forms
         {
             this.backBut = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.numberRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rewardKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,23 +60,14 @@ namespace Program.Forms
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.numberRow, this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
             this.dataGridView1.Location = new System.Drawing.Point(50, 97);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1331, 714);
             this.dataGridView1.TabIndex = 11;
-            // 
-            // numberRow
-            // 
-            this.numberRow.FillWeight = 30F;
-            this.numberRow.HeaderText = "№";
-            this.numberRow.Name = "numberRow";
-            this.numberRow.ReadOnly = true;
             // 
             // fullName
             // 
