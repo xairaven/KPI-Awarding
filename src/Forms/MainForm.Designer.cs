@@ -32,6 +32,14 @@ namespace Program.Forms
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.numberRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facultet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rewardKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rewardCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.miniToolStrip = new System.Windows.Forms.MenuStrip();
             this.importExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +50,6 @@ namespace Program.Forms
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
-            this.numberRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facultet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rewardKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rewardCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.miniToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,55 @@ namespace Program.Forms
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(927, 548);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // numberRow
+            // 
+            this.numberRow.FillWeight = 30F;
+            this.numberRow.HeaderText = "№";
+            this.numberRow.Name = "numberRow";
+            this.numberRow.ReadOnly = true;
+            // 
+            // fullName
+            // 
+            this.fullName.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
+            this.fullName.Name = "fullName";
+            this.fullName.ReadOnly = true;
+            // 
+            // facultet
+            // 
+            this.facultet.HeaderText = "Факультет/ННІ";
+            this.facultet.Name = "facultet";
+            this.facultet.ReadOnly = true;
+            // 
+            // rewardKpi
+            // 
+            this.rewardKpi.HeaderText = "Нагорода (Почесне звання, відзнака та грамота)";
+            this.rewardKpi.Name = "rewardKpi";
+            this.rewardKpi.ReadOnly = true;
+            // 
+            // rewardCountry
+            // 
+            this.rewardCountry.HeaderText = "Державна нагорода";
+            this.rewardCountry.Name = "rewardCountry";
+            this.rewardCountry.ReadOnly = true;
+            // 
+            // numberProtocol
+            // 
+            this.numberProtocol.HeaderText = "№ протоколу ВР КПІ ім. Ігоря Сікорського про відзначення";
+            this.numberProtocol.Name = "numberProtocol";
+            this.numberProtocol.ReadOnly = true;
+            // 
+            // yearKpi
+            // 
+            this.yearKpi.HeaderText = "Рік відзначення КПІ";
+            this.yearKpi.Name = "yearKpi";
+            this.yearKpi.ReadOnly = true;
+            // 
+            // yearCountry
+            // 
+            this.yearCountry.HeaderText = "Рік призначення державою";
+            this.yearCountry.Name = "yearCountry";
+            this.yearCountry.ReadOnly = true;
             // 
             // miniToolStrip
             // 
@@ -170,55 +219,6 @@ namespace Program.Forms
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(302, 30);
             this.searchComboBox.TabIndex = 14;
-            // 
-            // numberRow
-            // 
-            this.numberRow.FillWeight = 30F;
-            this.numberRow.HeaderText = "№";
-            this.numberRow.Name = "numberRow";
-            this.numberRow.ReadOnly = true;
-            // 
-            // fullName
-            // 
-            this.fullName.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
-            this.fullName.Name = "fullName";
-            this.fullName.ReadOnly = true;
-            // 
-            // facultet
-            // 
-            this.facultet.HeaderText = "Факультет/ННІ";
-            this.facultet.Name = "facultet";
-            this.facultet.ReadOnly = true;
-            // 
-            // rewardKpi
-            // 
-            this.rewardKpi.HeaderText = "Нагорода (Почесне звання, відзнака та грамота)";
-            this.rewardKpi.Name = "rewardKpi";
-            this.rewardKpi.ReadOnly = true;
-            // 
-            // rewardCountry
-            // 
-            this.rewardCountry.HeaderText = "Державна нагорода";
-            this.rewardCountry.Name = "rewardCountry";
-            this.rewardCountry.ReadOnly = true;
-            // 
-            // numberProtocol
-            // 
-            this.numberProtocol.HeaderText = "№ протоколу ВР КПІ ім. Ігоря Сікорського про відзначення";
-            this.numberProtocol.Name = "numberProtocol";
-            this.numberProtocol.ReadOnly = true;
-            // 
-            // yearKpi
-            // 
-            this.yearKpi.HeaderText = "Рік відзначення КПІ";
-            this.yearKpi.Name = "yearKpi";
-            this.yearKpi.ReadOnly = true;
-            // 
-            // yearCountry
-            // 
-            this.yearCountry.HeaderText = "Рік призначення державою";
-            this.yearCountry.Name = "yearCountry";
-            this.yearCountry.ReadOnly = true;
             // 
             // MainForm
             // 
