@@ -19,6 +19,9 @@ namespace Program
 
             Application.Run(new StartForm());
             Application.Exit();
+
+            
+            Console.WriteLine((int)Faculty.ІАТ);
         }
     }
 }

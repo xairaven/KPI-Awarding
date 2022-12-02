@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using Program.DataBase;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Program.Forms
@@ -34,6 +37,7 @@ namespace Program.Forms
                 GC.Collect();
             }
         }
+        public static Dictionary<int,Users> UserList;
 
 
         private void importExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,8 +100,50 @@ namespace Program.Forms
                     dtRow[n] = dataArr[i, n];
                 }
 
+
+                
+                var row = UserList.Take(UserList.Count).Count(x => x.Value.Name == dtRow[1].ToString());
+
+
+                //список факультетів
+                List<string> list = new List<string>();
+                
+                int indexFac = list.IndexOf(dtRow[2].ToString());
+
+
+                int id;
+                if (row == 0)
+                {
+                     id = DataWork.Adduser(new Users(dtRow[1].ToString(), indexFac));
+                    
+                }
+                else
+                {
+                    id = DataWork.GetIdUser(dtRow[1].ToString());
+                }
+                
+                
+                var reward1 = new Rewards(id)
+                {
+                    //список нагород державних
+                    Name = list.IndexOf(dtRow[4].ToString()),
+                    //список років
+                    Year = list.IndexOf(dtRow[7].ToString())
+                };
+
+                var reward2 = new Rewards(id)
+                {
+                    Name = list.IndexOf(dtRow[3].ToString()),
+                    //список років
+                    Year = list.IndexOf(dtRow[6].ToString())
+                };
+
+                DataWork.AddReward(reward1,reward2,(int) dtRow[0]);
+
+
                 dt.Rows.Add(dtRow);
             }
+            
 
             dataGridView1.DataSource = dt; //заполняем dataGridView
         }
