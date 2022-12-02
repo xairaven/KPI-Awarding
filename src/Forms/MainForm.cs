@@ -119,7 +119,7 @@ namespace Program.Forms
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                @"Якщо ви вийдете, ви втратите всі дані.
+                @"При виході втрачаються всі дані.
 Ви впевнені?",
                 "",
                 MessageBoxButtons.YesNo,

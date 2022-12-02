@@ -76,7 +76,7 @@ namespace Program.Forms
             // 
             // fullName
             // 
-            this.fullName.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
+            this.fullName.HeaderText = "Прізвище, ім\'я, по батькові співробітника";
             this.fullName.Name = "fullName";
             this.fullName.ReadOnly = true;
             // 
@@ -148,7 +148,7 @@ namespace Program.Forms
             this.addRewardBut.Name = "addRewardBut";
             this.addRewardBut.Size = new System.Drawing.Size(150, 74);
             this.addRewardBut.TabIndex = 7;
-            this.addRewardBut.Text = "Добавити нагороду";
+            this.addRewardBut.Text = "Додати нагороду";
             this.addRewardBut.UseVisualStyleBackColor = false;
             this.addRewardBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addRewardBut_MouseClick);
             // 
@@ -206,7 +206,7 @@ namespace Program.Forms
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 30);
             this.button2.TabIndex = 13;
-            this.button2.Text = "button2";
+            this.button2.Text = "Пошук";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // searchComboBox
