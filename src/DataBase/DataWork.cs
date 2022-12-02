@@ -103,10 +103,11 @@ namespace Program.DataBase
                     //Console.WriteLine("Добавлено нагород: {0}", number);
                 }
                 /*
-                 * Метод GetUsers використовується для виводу всіх користувачів.
+                 * Метод GetUsers використовується для виводу імені користувача та його факультету.
                  */
-                public static void GetUsers()
+                public static string[] GetUsers()
                 {
+                    string[] row = new string[2];
                     string sqlExpression = "SELECT U.Username,F.Fac FROM Users U INNER JOIN Facultets F ON U.Fac=F.ID";
                     var command = new SQLiteCommand(sqlExpression, Connection);
                     SQLiteDataReader reader = command.ExecuteReader();
@@ -116,10 +117,14 @@ namespace Program.DataBase
                         while (reader.Read())
                         {
                             string name = reader.GetString(0);
+                            row[0] = name;
                             string fac = reader.GetString(1);
+                            row[1] = fac;
                             //Console.WriteLine("{0}\t{1}",name,fac);
                         }
                     }
+
+                    return row;
                 }
         
                 /*
@@ -243,5 +248,165 @@ namespace Program.DataBase
         
                     return fac;
                 }
+                
+        /*
+         * Всі методи наведені далі шукають та зберігають в список одновимірних масивів
+         * типу string інформацію по заданим полям та їх значенням
+         */        
+        public static List<string[]> FindUser(int id)
+        {
+            var UserInfo = new List<string[]>();
+            string[] row = new string[6];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.User=" + id.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[2] = reward;
+                    string yearR = reader.GetString(3);
+                    row[3] = yearR;
+                    string yearK = reader.GetString(4);
+                    row[4] = yearK;
+                    string kpi = reader.GetString(5);
+                    row[5] = kpi;
+                    UserInfo.Add(row);
+                }
+            }
+
+            return UserInfo;
+        }
+
+        public List<string[]> FindFac(int id)
+        {
+            var FacInfo = new List<string[]>();
+            string[] row = new string[6];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE U.Fac=" + id.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[2] = reward;
+                    string yearR = reader.GetString(3);
+                    row[3] = yearR;
+                    string yearK = reader.GetString(4);
+                    row[4] = yearK;
+                    string kpi = reader.GetString(5);
+                    row[5] = kpi;
+                    FacInfo.Add(row);
+                }
+            }
+
+            return FacInfo;
+        }
+        
+        public List<string[]> FindRew(int id)
+        {
+            var RewInfo = new List<string[]>();
+            string[] row = new string[6];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.Reward=" + id.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[2] = reward;
+                    string yearR = reader.GetString(3);
+                    row[3] = yearR;
+                    string yearK = reader.GetString(4);
+                    row[4] = yearK;
+                    string kpi = reader.GetString(5);
+                    row[5] = kpi;
+                    RewInfo.Add(row);
+                }
+            }
+
+            return RewInfo;
+        }
+        
+        public List<string[]> FindKPI(int id)
+        {
+            var KPIInfo = new List<string[]>();
+            string[] row = new string[6];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.KPI=" + id.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[2] = reward;
+                    string yearR = reader.GetString(3);
+                    row[3] = yearR;
+                    string yearK = reader.GetString(4);
+                    row[4] = yearK;
+                    string kpi = reader.GetString(5);
+                    row[5] = kpi;
+                    KPIInfo.Add(row);
+                }
+            }
+
+            return KPIInfo;
+        }
     }
 }
