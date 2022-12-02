@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Program.DataBase;
 using Program.Forms;
 
 namespace Program
@@ -12,6 +13,7 @@ namespace Program
         [STAThread]
         static void Main()
         {
+            DataWork.RunDB();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
@@ -21,7 +23,6 @@ namespace Program
             Application.Exit();
 
             
-            Console.WriteLine((int)Faculty.ІАТ);
         }
     }
 }
