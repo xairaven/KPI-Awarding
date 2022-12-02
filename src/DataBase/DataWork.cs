@@ -83,25 +83,99 @@ namespace Program.DataBase
                  * reward1 - державна нагорода, reward2 - нагорода КПІ. int id - айді користувача котрому
                  * додаються нагороди.
                  */
-                public static void AddReward(Rewards reward1,Rewards reward2,int id)
+        public static void AddReward(Rewards reward1, Rewards reward2, int id)
+        {
+            string sqlExpression;
+            int name1 = reward1.Name;
+            int user = reward1.Id;
+            int year1 = reward1.Year;
+            int prot1 = reward1.Prot;
+
+            int name2 = reward2.Name;
+            int year2 = reward2.Year;
+            int prot2 = reward2.Prot;
+            sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                            "'" + id.ToString() + "','" + user.ToString() + "','" +
+                            name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                            year2.ToString() + "'" + ")";
+            var command = new SQLiteCommand(sqlExpression,Connection);
+            if (name1 != 0 && name2 != 0)
+            {
+                 sqlExpression = "INSERT INTO BadUsers (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                                       "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                       name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                       year2.ToString() + "'" + ")";
+            }
+            else if(name1!=0)
+            {
+                sqlExpression = "SELECT MAX(Reward) FROM RewardsAllNames " +
+                                "WHERE User =" + user.ToString() + " AND Reward <>" +  0.ToString();
+                command.CommandText = sqlExpression;
+                command = new SQLiteCommand(sqlExpression, Connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    int name1 = reward1.Name;
-                    int user = reward1.Id;
-                    int year1 = reward1.Year;
-                    int prot1 = reward1.Prot;
-                    
-                    int name2 = reward2.Name;
-                    int year2 = reward2.Year;
-                    int prot2 = reward2.Prot;
-                    
-                    string sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI) VALUES ("  + 
-                                           "'" + id.ToString() +"','" + user.ToString() + "','" +
-                                           name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" + year2.ToString() + "'" + ")";
-                    var command = new SQLiteCommand(sqlExpression, Connection);
-                    int number = command.ExecuteNonQuery();
-                    //RewardList.Add(reward);
-                    //Console.WriteLine("Добавлено нагород: {0}", number);
+                    while (reader.Read())
+                    {
+                        int lvl = reader.GetInt32(0);
+                        if (reward1.Name - lvl > 1)
+                        {
+                            sqlExpression = "INSERT INTO BadUsers (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                                            "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                            name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                            year2.ToString() + "'" + ")";
+                        }
+                        else sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                                             "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                             year2.ToString() + "'" + ")";
+                    }
                 }
+                reader.Close();
+                command.Cancel();
+            }
+            else if (name2!=0)
+            {
+                sqlExpression = "SELECT MAX(KPI) FROM RewardsAllNames " +
+                                "WHERE User =" + user.ToString() + " AND KPI !=" +  0.ToString();
+                command.CommandText = sqlExpression;
+                command = new SQLiteCommand(sqlExpression, Connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int lvl = reader.GetInt32(0);
+                        if (reward2.Name - lvl > 1)
+                        {
+                            sqlExpression = "INSERT INTO BadUsers (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                                            "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                            name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                            year2.ToString() + "'" + ")";
+                        }
+                        else sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                                             "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                             year2.ToString() + "'" + ")";
+                    }
+                }
+                reader.Close();
+                command.Cancel();
+            }
+            else
+            {
+                sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI) VALUES (" +
+                                "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                year2.ToString() + "'" + ")";
+            }
+            command.CommandText = sqlExpression;
+            command = new SQLiteCommand(sqlExpression, Connection);
+            command.ExecuteNonQuery();
+            //int number = command.ExecuteNonQuery();
+            //RewardList.Add(reward);
+            //Console.WriteLine("Добавлено нагород: {0}", number);
+        }
                 /*
                  * Метод GetUsers використовується для виводу імені користувача та його факультету.
                  */
