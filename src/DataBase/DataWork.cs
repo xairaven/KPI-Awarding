@@ -482,5 +482,37 @@ namespace Program.DataBase
 
             return KPIInfo;
         }
+        
+        public static int GetBadNum()
+        {
+            int n = 0;
+            string sqlExpression = "SELECT COUNT(Id) FROM BadUsers ";
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    n = reader.GetInt32(0);
+                }
+            }
+            return n;
+        }
+        
+        public static int GetRewdNum()
+        {
+            int n = 0;
+            string sqlExpression = "SELECT COUNT(Id) FROM RewardsAllNames ";
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    n = reader.GetInt32(0);
+                }
+            }
+            return n;
+        }
     }
 }
