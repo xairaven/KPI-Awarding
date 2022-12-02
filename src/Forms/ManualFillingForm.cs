@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Program.Forms
@@ -31,7 +32,8 @@ namespace Program.Forms
                 dt.Rows.Add(dtRow);
             }
 
-            dt.Rows.Add(StartForm.MainForm.dataGridView1.Rows.Count+1,$"{firstNameText.Text} {lastNameText.Text} {middleNameText.Text}",
+            dt.Rows.Add(StartForm.MainForm.dataGridView1.Rows.Count + 1,
+                $"{firstNameText.Text} {lastNameText.Text} {middleNameText.Text}",
                 facultyComboBox.Text, rewardKpiComboBox.Text, rewardCountryComboBox.Text, protocolNumberText.Text,
                 yearsKPIText.Text, yearsStateText.Text);
             StartForm.MainForm.dataGridView1.Columns.Clear();
@@ -46,5 +48,56 @@ namespace Program.Forms
             Hide();
         }
 
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeVisibleCountry(true);
+            ChangeVisibleKpi(false);
+        }
+
+        private void KpiRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeVisibleCountry(false);
+            ChangeVisibleKpi(true);
+        }
+
+        private void ChangeVisibleCountry(bool boolean)
+        {
+            rewardCountryLabel.Visible = boolean;
+            rewardCountryComboBox.Visible = boolean;
+            yearsStateLabel.Visible = boolean;
+            yearsStateText.Visible = boolean;
+        }
+
+        private void ChangeVisibleKpi(bool boolean)
+        {
+            rewardKpiLabel.Visible = boolean;
+            rewardKpiComboBox.Visible = boolean;
+            yearsKPILabel.Visible = boolean;
+            yearsKPIText.Visible = boolean;
+            if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)") && boolean)
+            {
+                protocolNumberLabel.Visible = true;
+                protocolNumberText.Visible = true;
+            }
+            else
+            {
+                protocolNumberLabel.Visible = false;
+                protocolNumberText.Visible = false;
+            }
+        }
+
+        private void rewardKpiComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)"))
+            {
+                protocolNumberLabel.Visible = true;
+                protocolNumberText.Visible = true;
+            }
+            else
+            {
+                protocolNumberLabel.Visible = false;
+                protocolNumberText.Visible = false;
+            }
+        }
     }
 }
