@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -206,5 +207,22 @@ namespace Program.Forms
             }
         }
 
+        private void searchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var source = new AutoCompleteStringCollection();
+            for (var i = 0; i < dataGridView1.RowCount; i++)
+            {
+                source.Add(dataGridView1[searchComboBox.SelectedIndex, i].Value.ToString());
+            }
+
+            searchTextBox.AutoCompleteCustomSource = source;
+        }
+
+
+        private DataTable _defaultData;
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+            _defaultData = (DataTable)dataGridView1.DataSource;
+        }
     }
 }

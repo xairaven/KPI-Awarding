@@ -47,7 +47,7 @@ namespace Program.Forms
             this.addNew = new System.Windows.Forms.Button();
             this.backBut = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -191,18 +191,19 @@ namespace Program.Forms
             this.button1.UseVisualStyleBackColor = false;
             this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
-            // textBox1
+            // searchTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(214, 54);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(440, 33);
-            this.textBox1.TabIndex = 11;
+            this.searchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.searchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchTextBox.Location = new System.Drawing.Point(37, 54);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(332, 34);
+            this.searchTextBox.TabIndex = 11;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(543, 105);
+            this.button2.Location = new System.Drawing.Point(258, 105);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 30);
             this.button2.TabIndex = 13;
@@ -215,10 +216,11 @@ namespace Program.Forms
             this.searchComboBox.DropDownWidth = 420;
             this.searchComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(214, 105);
+            this.searchComboBox.Location = new System.Drawing.Point(37, 105);
             this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(302, 30);
+            this.searchComboBox.Size = new System.Drawing.Size(190, 30);
             this.searchComboBox.TabIndex = 14;
+            this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -228,7 +230,7 @@ namespace Program.Forms
             this.ClientSize = new System.Drawing.Size(1182, 753);
             this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.backBut);
             this.Controls.Add(this.addNew);
@@ -250,7 +252,7 @@ namespace Program.Forms
 
         private System.Windows.Forms.ToolStripMenuItem exportExcelFileToolStripMenuItem;
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button button2;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn numberRow;

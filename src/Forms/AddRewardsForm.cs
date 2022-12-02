@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Program.Forms
@@ -53,5 +54,59 @@ namespace Program.Forms
             StartForm.MainForm.Show();
             Hide();
         }
+        
+        private void countryRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeVisibleCountry(true);
+            ChangeVisibleKpi(false);
+        }
+
+        private void KpiRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeVisibleCountry(false);
+            ChangeVisibleKpi(true);
+        }
+
+        private void ChangeVisibleCountry(bool boolean)
+        {
+            rewardCountryLabel.Visible = boolean;
+            rewardCountryComboBox.Visible = boolean;
+            yearsStateLabel.Visible = boolean;
+            yearsStateText.Visible = boolean;
+        }
+
+        private void ChangeVisibleKpi(bool boolean)
+        {
+            rewardKpiLabel.Visible = boolean;
+            rewardKpiComboBox.Visible = boolean;
+            yearsKPILabel.Visible = boolean;
+            yearsKPIText.Visible = boolean;
+            if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)") && boolean)
+            {
+                protocolNumberLabel.Visible = true;
+                protocolNumberText.Visible = true;
+            }
+            else
+            {
+                protocolNumberLabel.Visible = false;
+                protocolNumberText.Visible = false;
+            }
+        }
+
+        private void rewardKpiComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)"))
+            {
+                protocolNumberLabel.Visible = true;
+                protocolNumberText.Visible = true;
+            }
+            else
+            {
+                protocolNumberLabel.Visible = false;
+                protocolNumberText.Visible = false;
+            }
+        }
+
+
     }
 }
