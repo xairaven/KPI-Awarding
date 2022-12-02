@@ -38,7 +38,10 @@ namespace Program.Forms
             }
         }
         public static Dictionary<int,Users> UserList;
-
+        public static List<string> FacList = DataWork.GetFacs();
+        public static List<string> RewList = DataWork.GetRews();
+        public static List<string> KPIList = DataWork.GetKPI();
+        public static List<string> YearsList = DataWork.GetYears();
 
         private void importExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -105,12 +108,9 @@ namespace Program.Forms
 
                 
                 var row = UserList.Take(UserList.Count).Count(x => x.Value.Name == dtRow[1].ToString());
-
-
-                //список факультетів
-                List<string> list = new List<string>();
                 
-                int indexFac = list.IndexOf(dtRow[2].ToString());
+
+                int indexFac = FacList.IndexOf(dtRow[2].ToString());
 
 
                 int id;
@@ -124,32 +124,31 @@ namespace Program.Forms
                 {
                     id = DataWork.GetIdUser(dtRow[1].ToString());
                 }
-                
-                
-                var reward1 = new Rewards(id)
-                {
-                    //список нагород державних
-                    Name = list.IndexOf(dtRow[4].ToString()),
-                    //список років
-                    Year = list.IndexOf(dtRow[7].ToString())
-                };
 
-                var reward2 = new Rewards(id)
-                {
-                    Name = list.IndexOf(dtRow[3].ToString()),
-                    //список років
-                    Year = list.IndexOf(dtRow[6].ToString())
-                };
-
-                DataWork.AddReward(reward1,reward2, Int32.Parse(dtRow[0].ToString()));
-
+                int nu, y;
+                nu=RewList.IndexOf(dtRow[4].ToString());
+                if (nu == -1) nu++;
+                y = YearsList.IndexOf(dtRow[7].ToString());
+                if (y == -1) y++;
+                var reward1 = new Rewards(id);
+                reward1.Name = nu;
+                reward1.Year = y;
                 
-             
+                nu = KPIList.IndexOf(dtRow[3].ToString());
+                if (nu == -1) nu++;
+                y = YearsList.IndexOf(dtRow[6].ToString());
+                if (y == -1) y++;
+                var reward2 = new Rewards(id);
+                reward2.Name = nu;
+                reward2.Year = y;
+
+                DataWork.AddReward(reward1,reward2);
+
             }
             
-            for (int i = 0; i < DataWork.GetRewdNum(); i++)
+            for (int i = 1; i <= DataWork.GetRewdNum(); i++)
             {
-                string[] arr =  DataWork.GetUsRewards(i,i);
+                string[] arr =  DataWork.GetUsRewards(i);
                
                 var dtRow = dt.NewRow();
 
