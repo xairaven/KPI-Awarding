@@ -42,6 +42,8 @@ namespace Program.Forms
 
         private void importExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            UserList = new Dictionary<int, Users>();
             var ofd = new OpenFileDialog();
             ofd.Multiselect = false;
             ofd.DefaultExt = "*.xls;*.xlsx";
@@ -114,7 +116,8 @@ namespace Program.Forms
                 int id;
                 if (row == 0)
                 {
-                     id = DataWork.Adduser(new Users(dtRow[1].ToString(), indexFac));
+                    Users user = new Users(dtRow[1].ToString(), 1);
+                     id = DataWork.Adduser(user);
                     
                 }
                 else
@@ -138,12 +141,27 @@ namespace Program.Forms
                     Year = list.IndexOf(dtRow[6].ToString())
                 };
 
-                DataWork.AddReward(reward1,reward2,(int) dtRow[0]);
+                DataWork.AddReward(reward1,reward2, Int32.Parse(dtRow[0].ToString()));
 
-
-                dt.Rows.Add(dtRow);
+                
+             
             }
             
+            for (int i = 0; i < DataWork.GetRewdNum(); i++)
+            {
+                string[] arr =  DataWork.GetUsRewards(i,i);
+               
+                var dtRow = dt.NewRow();
+
+                dtRow[0] = (i + 1).ToString();
+                
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    dtRow[j + 1] = arr[j];
+                }
+                
+                dt.Rows.Add(dtRow);
+            }
 
             dataGridView1.DataSource = dt; //заполняем dataGridView
         }

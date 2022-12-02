@@ -59,7 +59,7 @@ namespace Program.DataBase
                     
                     string sqlExpression = "INSERT INTO Users (UserName, Fac) VALUES ("  + "'" + name +"','" + fac.ToString() + "'" + ")";
                     var command = new SQLiteCommand(sqlExpression, Connection);
-                    int number = command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
                     //Console.WriteLine("Додано користувачів: {0}", number);
                     
                     sqlExpression = "SELECT MAX(Id) FROM  Users";
