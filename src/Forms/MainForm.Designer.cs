@@ -223,7 +223,7 @@ namespace Program.Forms
             this.searchComboBox.TabIndex = 14;
             this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
             // 
-            // MainForm
+            // badUserBut
             // 
             this.badUserBut.BackColor = System.Drawing.Color.Lavender;
             this.badUserBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -235,6 +235,9 @@ namespace Program.Forms
             this.badUserBut.Text = "Bad users";
             this.badUserBut.UseVisualStyleBackColor = false;
             this.badUserBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.badUserBut_MouseClick);
+            // 
+            // MainForm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;

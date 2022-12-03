@@ -8,6 +8,14 @@ namespace Program.Forms
         {
             InitializeComponent();
             AddInfo();
+
+            // for (var i = 0; i < dataDev.RowCount; i++)
+            // {
+            //     var row = dataDev.Rows[i];
+            //     row.Height = 50;
+            // }
+
+            
         }
 
         private void AddInfo()
