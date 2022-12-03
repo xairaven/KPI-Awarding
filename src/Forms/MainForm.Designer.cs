@@ -50,6 +50,7 @@ namespace Program.Forms
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
+            this.badUserBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.miniToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -224,10 +225,21 @@ namespace Program.Forms
             // 
             // MainForm
             // 
+            this.badUserBut.BackColor = System.Drawing.Color.Lavender;
+            this.badUserBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.badUserBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.badUserBut.Location = new System.Drawing.Point(1005, 563);
+            this.badUserBut.Name = "badUserBut";
+            this.badUserBut.Size = new System.Drawing.Size(150, 74);
+            this.badUserBut.TabIndex = 15;
+            this.badUserBut.Text = "Bad users";
+            this.badUserBut.UseVisualStyleBackColor = false;
+            this.badUserBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.badUserBut_MouseClick);
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.badUserBut);
             this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.searchTextBox);
@@ -248,6 +260,7 @@ namespace Program.Forms
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button badUserBut;
         private System.Windows.Forms.ComboBox searchComboBox;
 
         private System.Windows.Forms.ToolStripMenuItem exportExcelFileToolStripMenuItem;

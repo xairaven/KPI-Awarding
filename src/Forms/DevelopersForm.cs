@@ -16,7 +16,7 @@ namespace Program.Forms
             dataDev.Rows.Add("Артем", "Діковський", "@UncleFitz","Database Engineer");
             dataDev.Rows.Add("Олександр", "Ковальов", "@xairaven","DevOps");
             dataDev.Rows.Add("Єлизавета", "Дреля", "@liza_drelya","Frontend, Design");
-            dataDev.Rows.Add("Данило", "Жуковський", "@Etherwoood","Frontend");
+            dataDev.Rows.Add("Данило", "Жуковський", "@Etherwoood","Frontend, Design");
         }
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
