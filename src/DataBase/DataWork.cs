@@ -101,6 +101,7 @@ namespace Program.DataBase
             int id = 0;
             int id1 = 0;
             string sqlExpression;
+            string sqlExxpression1;
             int name1 = reward1.Name;
             int user = reward1.Id;
             int year1 = reward1.Year;
@@ -112,6 +113,7 @@ namespace Program.DataBase
 
             sqlExpression = "SELECT COUNT(Id) FROM RewardsAllNames";
             var command = new SQLiteCommand(sqlExpression, Connection);
+            var command1 = new SQLiteCommand(sqlExpression, Connection);
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
@@ -120,7 +122,6 @@ namespace Program.DataBase
                     id = reader.GetInt32(0);
                 }
             }
-
             id++;
             reader.Close();
             command.Cancel();
@@ -172,6 +173,10 @@ namespace Program.DataBase
                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                             "','" +
                                             year2.ToString() + "'" + ")";
+                            sqlExxpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() +")";
+                            command1 = new SQLiteCommand(sqlExxpression1, Connection);
+                            command1.ExecuteNonQuery();
+                            command1.Cancel();
                             break;
                         }
                         int lvl = (int)lvlt;
@@ -209,6 +214,11 @@ namespace Program.DataBase
                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                             "','" +
                                             year2.ToString() + "'" + ")";
+                            sqlExxpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() +")";
+                            command1 = new SQLiteCommand(sqlExxpression1, Connection);
+                            command1.ExecuteNonQuery();
+                            command1.Cancel();
+                            
                             break;
                         }
                         int lvl = (int)lvlt;
@@ -232,6 +242,10 @@ namespace Program.DataBase
                                 "'" + id.ToString() + "','" + user.ToString() + "','" +
                                 name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
                                 year2.ToString() + "'" + ")";
+                sqlExxpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() +")";
+                command1 = new SQLiteCommand(sqlExxpression1, Connection);
+                command1.ExecuteNonQuery();
+                command1.Cancel();
             }
 
             command.CommandText = sqlExpression;
@@ -249,7 +263,7 @@ namespace Program.DataBase
         {
             List<string[]> list = new List<string[]>();
             string[] row = new string[2];
-            string sqlExpression = "SELECT U.UserName, F.Fac FROM RewardsAllNames RE " +
+            string sqlExpression = "SELECT U.UserName, F.Fac FROM GoodUsers RE " +
                                    "INNER JOIN Users U ON RE.User=U.Id " +
                                    "INNER JOIN Facultets F ON U.Fac=F.Id";
             var command = new SQLiteCommand(sqlExpression, Connection);
@@ -462,6 +476,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
+                    row = new string[6];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -501,6 +516,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
+                    row = new string[6];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -540,6 +556,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
+                    row = new string[6];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -579,6 +596,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
+                    row = new string[6];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
