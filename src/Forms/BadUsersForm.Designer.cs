@@ -31,122 +31,183 @@ namespace Program.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.backBut = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rewardKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rewardCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rewardsKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rewardsCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearsKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearsCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backBut = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // backBut
-            // 
-            this.backBut.BackColor = System.Drawing.Color.Lavender;
-            this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.backBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backBut.Location = new System.Drawing.Point(737, 28);
-            this.backBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.backBut.Name = "backBut";
-            this.backBut.Size = new System.Drawing.Size(112, 41);
-            this.backBut.TabIndex = 3;
-            this.backBut.Text = "Назад";
-            this.backBut.UseVisualStyleBackColor = false;
-            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBut_MouseClick);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.number, this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
-            this.dataGridView1.Location = new System.Drawing.Point(39, 97);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeight = 129;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.number, this.fullName, this.facultet, this.rewardsKpi, this.rewardsCountry, this.numberProtocol, this.yearsKpi, this.yearsCountry });
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.GridColor = System.Drawing.Color.DarkGray;
+            this.dataGridView1.Location = new System.Drawing.Point(47, 133);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(811, 486);
-            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.Size = new System.Drawing.Size(1389, 663);
+            this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.dataGridView1.ThemeStyle.GridColor = System.Drawing.Color.DarkGray;
+            this.dataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.RosyBrown;
+            this.dataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Transparent;
+            this.dataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dataGridView1.ThemeStyle.HeaderStyle.Height = 129;
+            this.dataGridView1.ThemeStyle.ReadOnly = true;
+            this.dataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Single;
+            this.dataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dataGridView1.ThemeStyle.RowsStyle.Height = 30;
+            this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.Black;
+            this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // number
             // 
+            this.number.FillWeight = 20F;
             this.number.HeaderText = "№";
             this.number.Name = "number";
             this.number.ReadOnly = true;
             // 
             // fullName
             // 
-            this.fullName.HeaderText = "Прізвище, ім\'я, по батькові співробітника";
+            this.fullName.FillWeight = 120F;
+            this.fullName.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
             this.fullName.Name = "fullName";
             this.fullName.ReadOnly = true;
             // 
             // facultet
             // 
-            this.facultet.HeaderText = "Факультет/ННІ";
+            this.facultet.FillWeight = 50F;
+            this.facultet.HeaderText = "Факультет /ННІ";
             this.facultet.Name = "facultet";
             this.facultet.ReadOnly = true;
             // 
-            // rewardKpi
+            // rewardsKpi
             // 
-            this.rewardKpi.HeaderText = "Нагорода (Почесне звання, відзнака та грамота)";
-            this.rewardKpi.Name = "rewardKpi";
-            this.rewardKpi.ReadOnly = true;
+            this.rewardsKpi.FillWeight = 90F;
+            this.rewardsKpi.HeaderText = "Нагорода (Почесне звання, відзнака та грамота)";
+            this.rewardsKpi.Name = "rewardsKpi";
+            this.rewardsKpi.ReadOnly = true;
             // 
-            // rewardCountry
+            // rewardsCountry
             // 
-            this.rewardCountry.HeaderText = "Державна нагорода";
-            this.rewardCountry.Name = "rewardCountry";
-            this.rewardCountry.ReadOnly = true;
+            this.rewardsCountry.FillWeight = 90F;
+            this.rewardsCountry.HeaderText = "Державна нагорода";
+            this.rewardsCountry.Name = "rewardsCountry";
+            this.rewardsCountry.ReadOnly = true;
             // 
             // numberProtocol
             // 
+            this.numberProtocol.FillWeight = 50F;
             this.numberProtocol.HeaderText = "№ протоколу ВР КПІ ім. Ігоря Сікорського про відзначення";
             this.numberProtocol.Name = "numberProtocol";
             this.numberProtocol.ReadOnly = true;
             // 
-            // yearKpi
+            // yearsKpi
             // 
-            this.yearKpi.HeaderText = "Рік відзначення КПІ";
-            this.yearKpi.Name = "yearKpi";
-            this.yearKpi.ReadOnly = true;
+            this.yearsKpi.FillWeight = 50F;
+            this.yearsKpi.HeaderText = "Рік відзначення КПІ";
+            this.yearsKpi.Name = "yearsKpi";
+            this.yearsKpi.ReadOnly = true;
             // 
-            // yearCountry
+            // yearsCountry
             // 
-            this.yearCountry.HeaderText = "Рік призначення державою";
-            this.yearCountry.Name = "yearCountry";
-            this.yearCountry.ReadOnly = true;
+            this.yearsCountry.FillWeight = 50F;
+            this.yearsCountry.HeaderText = "Рік призначення державою";
+            this.yearsCountry.Name = "yearsCountry";
+            this.yearsCountry.ReadOnly = true;
+            // 
+            // backBut
+            // 
+            this.backBut.BorderColor = System.Drawing.Color.Indigo;
+            this.backBut.BorderRadius = 15;
+            this.backBut.BorderThickness = 2;
+            this.backBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.backBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.backBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.backBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.backBut.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.backBut.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
+            this.backBut.ForeColor = System.Drawing.Color.White;
+            this.backBut.Location = new System.Drawing.Point(1236, 40);
+            this.backBut.Name = "backBut";
+            this.backBut.Size = new System.Drawing.Size(200, 60);
+            this.backBut.TabIndex = 15;
+            this.backBut.Text = "Назад";
+            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBut_MouseClick);
             // 
             // BadUsersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(886, 612);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(1482, 853);
             this.Controls.Add(this.backBut);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "BadUsersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BadUsersForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private Guna.UI2.WinForms.Guna2Button backBut;
 
-        public System.Windows.Forms.DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn facultet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rewardKpi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rewardCountry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rewardsKpi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rewardsCountry;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberProtocol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearKpi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearCountry;
-
-        private System.Windows.Forms.Button backBut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearsKpi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearsCountry;
 
         #endregion
     }

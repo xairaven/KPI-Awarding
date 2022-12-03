@@ -94,12 +94,8 @@
         <Compile Include="Forms\AddRewardsForm.Designer.cs">
             <DependentUpon>AddRewardsForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="Forms\BadUsersForm.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="Forms\BadUsersForm.Designer.cs">
-          <DependentUpon>BadUsersForm.cs</DependentUpon>
-        </Compile>
+        <Compile Include="Forms\BadUsersForm.cs" />
+        <Compile Include="Forms\BadUsersForm.Designer.cs" />
         <Compile Include="Forms\DevelopersForm.cs">
             <SubType>Form</SubType>
         </Compile>
@@ -138,9 +134,7 @@
         <EmbeddedResource Include="Forms\AddRewardsForm.resx">
             <DependentUpon>AddRewardsForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Forms\BadUsersForm.resx">
-          <DependentUpon>BadUsersForm.cs</DependentUpon>
-        </EmbeddedResource>
+        <EmbeddedResource Include="Forms\BadUsersForm.resx" />
         <EmbeddedResource Include="Forms\DevelopersForm.resx">
             <DependentUpon>DevelopersForm.cs</DependentUpon>
         </EmbeddedResource>
