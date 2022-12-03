@@ -49,10 +49,10 @@ namespace Program.Forms
             this.backBut.BackColor = System.Drawing.Color.Lavender;
             this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.backBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backBut.Location = new System.Drawing.Point(923, 33);
-            this.backBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.backBut.Location = new System.Drawing.Point(1231, 41);
+            this.backBut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.backBut.Name = "backBut";
-            this.backBut.Size = new System.Drawing.Size(112, 41);
+            this.backBut.Size = new System.Drawing.Size(149, 50);
             this.backBut.TabIndex = 10;
             this.backBut.Text = "Назад";
             this.backBut.UseVisualStyleBackColor = false;
@@ -64,12 +64,12 @@ namespace Program.Forms
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.number, this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
-            this.dataGridView1.Location = new System.Drawing.Point(38, 79);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(51, 97);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(998, 580);
+            this.dataGridView1.Size = new System.Drawing.Size(1331, 714);
             this.dataGridView1.TabIndex = 11;
             // 
             // number
@@ -122,16 +122,16 @@ namespace Program.Forms
             // 
             // FullScreenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1066, 693);
+            this.ClientSize = new System.Drawing.Size(1421, 853);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.backBut);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Location = new System.Drawing.Point(15, 15);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FullScreenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FullScreenForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }
