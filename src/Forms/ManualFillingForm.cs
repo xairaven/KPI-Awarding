@@ -39,7 +39,7 @@ namespace Program.Forms
             if (nu == -1) nu++;
             y = MainForm.YearsList.IndexOf(yearsStateText.Text);
             if (y == -1) y++;
-            var reward1 = new Rewards(id);
+            var reward1 = new Rewards(id," ");
             reward1.Name = nu;
             reward1.Year = y;
 
@@ -47,7 +47,7 @@ namespace Program.Forms
             if (nu == -1) nu++;
             y = MainForm.YearsList.IndexOf(yearsKPIText.Text);
             if (y == -1) y++;
-            var reward2 = new Rewards(id);
+            var reward2 = new Rewards(id,protocolNumberText.Text);
             reward2.Name = nu;
             reward2.Year = y;
 
