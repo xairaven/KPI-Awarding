@@ -561,12 +561,12 @@ namespace Program.DataBase
          * Всі методи наведені далі шукають та зберігають в список одновимірних масивів
          * типу string інформацію по заданим полям та їх значенням
          */
-        public static List<string[]> FindUser(int id)
+public static List<string[]> FindUser(int id)
         {
             var UserInfo = new List<string[]>();
-            string[] row = new string[6];
+            string[] row = new string[7];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -581,19 +581,21 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[6];
+                    row = new string[7];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
                     row[1] = fac;
                     string reward = reader.GetString(2);
-                    row[2] = reward;
+                    row[3] = reward;
                     string yearR = reader.GetString(3);
-                    row[3] = yearR;
-                    string yearK = reader.GetString(4);
-                    row[4] = yearK;
-                    string kpi = reader.GetString(5);
-                    row[5] = kpi;
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
                     UserInfo.Add(row);
                 }
             }
@@ -601,12 +603,12 @@ namespace Program.DataBase
             return UserInfo;
         }
 
-        public List<string[]> FindFac(int id)
+        public static List<string[]> FindFac(int id)
         {
             var FacInfo = new List<string[]>();
-            string[] row = new string[6];
+            string[] row = new string[7];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -621,19 +623,21 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[6];
+                    row = new string[7];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
                     row[1] = fac;
                     string reward = reader.GetString(2);
-                    row[2] = reward;
+                    row[3] = reward;
                     string yearR = reader.GetString(3);
-                    row[3] = yearR;
-                    string yearK = reader.GetString(4);
-                    row[4] = yearK;
-                    string kpi = reader.GetString(5);
-                    row[5] = kpi;
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
                     FacInfo.Add(row);
                 }
             }
@@ -641,12 +645,12 @@ namespace Program.DataBase
             return FacInfo;
         }
 
-        public List<string[]> FindRew(int id)
+public static List<string[]> FindRew(int id)
         {
             var RewInfo = new List<string[]>();
             string[] row = new string[6];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -661,19 +665,21 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[6];
+                    row = new string[7];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
                     row[1] = fac;
                     string reward = reader.GetString(2);
-                    row[2] = reward;
+                    row[3] = reward;
                     string yearR = reader.GetString(3);
-                    row[3] = yearR;
-                    string yearK = reader.GetString(4);
-                    row[4] = yearK;
-                    string kpi = reader.GetString(5);
-                    row[5] = kpi;
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
                     RewInfo.Add(row);
                 }
             }
@@ -681,12 +687,12 @@ namespace Program.DataBase
             return RewInfo;
         }
 
-        public List<string[]> FindKPI(int id)
+        public static  List<string[]> FindKPI(int id)
         {
             var KPIInfo = new List<string[]>();
             string[] row = new string[6];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -701,19 +707,21 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[6];
+                    row = new string[7];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
                     row[1] = fac;
                     string reward = reader.GetString(2);
-                    row[2] = reward;
+                    row[3] = reward;
                     string yearR = reader.GetString(3);
-                    row[3] = yearR;
-                    string yearK = reader.GetString(4);
-                    row[4] = yearK;
-                    string kpi = reader.GetString(5);
-                    row[5] = kpi;
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
                     KPIInfo.Add(row);
                 }
             }

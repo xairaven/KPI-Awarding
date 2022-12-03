@@ -18,13 +18,14 @@ namespace Program.Forms
             {
                 searchComboBox.Items.Add(dataGridView1.Columns[i].HeaderText);
             }
+
             UserList = new Dictionary<int, Users>();
 
-            RealizeData();
+            RealizeDefaultData();
         }
 
 
-        private void RealizeData()
+        private void RealizeDefaultData()
         {
             var dt = new DataTable();
 
@@ -35,21 +36,21 @@ namespace Program.Forms
 
             for (int i = 1; i <= DataWork.GetRewdNum(); i++)
             {
-                string[] arr =  DataWork.GetUsRewards(i);
-               
+                string[] arr = DataWork.GetUsRewards(i);
+
                 var dtRow = dt.NewRow();
 
                 dtRow[0] = i.ToString();
-                
+
                 for (int j = 0; j < arr.Length; j++)
                 {
                     dtRow[j + 1] = arr[j];
                 }
-                
+
                 dt.Rows.Add(dtRow);
             }
 
-            
+
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dt;
         }
@@ -70,7 +71,8 @@ namespace Program.Forms
                 GC.Collect();
             }
         }
-        public static Dictionary<int,Users> UserList;
+
+        public static Dictionary<int, Users> UserList;
         public static List<string> FacList = DataWork.GetFacs();
         public static List<string> RewList = DataWork.GetRews();
         public static List<string> KPIList = DataWork.GetKPI();
@@ -78,7 +80,6 @@ namespace Program.Forms
 
         private void importExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             var ofd = new OpenFileDialog();
             ofd.Multiselect = false;
             ofd.DefaultExt = "*.xls;*.xlsx";
@@ -138,19 +139,17 @@ namespace Program.Forms
                 }
 
 
-                
                 var row = UserList.Take(UserList.Count).Count(x => x.Value.Name == dtRow[1].ToString());
-                
 
-                int indexFac = FacList.IndexOf(dtRow[2].ToString())+1;
+
+                int indexFac = FacList.IndexOf(dtRow[2].ToString()) + 1;
 
 
                 int id;
                 if (row == 0)
                 {
                     Users user = new Users(dtRow[1].ToString(), indexFac);
-                     id = DataWork.Adduser(user);
-                    
+                    id = DataWork.Adduser(user);
                 }
                 else
                 {
@@ -158,39 +157,38 @@ namespace Program.Forms
                 }
 
                 int nu, y;
-                nu=RewList.IndexOf(dtRow[4].ToString());
+                nu = RewList.IndexOf(dtRow[4].ToString());
                 if (nu == -1) nu++;
                 y = YearsList.IndexOf(dtRow[7].ToString());
                 if (y == -1) y++;
-                var reward1 = new Rewards(id,"");
+                var reward1 = new Rewards(id, "");
                 reward1.Name = nu;
                 reward1.Year = y;
-                
+
                 nu = KPIList.IndexOf(dtRow[3].ToString());
                 if (nu == -1) nu++;
                 y = YearsList.IndexOf(dtRow[6].ToString());
                 if (y == -1) y++;
-                var reward2 = new Rewards(id,dtRow[5].ToString());
+                var reward2 = new Rewards(id, dtRow[5].ToString());
                 reward2.Name = nu;
                 reward2.Year = y;
 
-                DataWork.AddReward(reward1,reward2);
-
+                DataWork.AddReward(reward1, reward2);
             }
-            
+
             for (int i = 1; i <= DataWork.GetRewdNum(); i++)
             {
-                string[] arr =  DataWork.GetUsRewards(i);
-               
+                string[] arr = DataWork.GetUsRewards(i);
+
                 var dtRow = dt.NewRow();
 
                 dtRow[0] = i.ToString();
-                
+
                 for (int j = 0; j < arr.Length; j++)
                 {
                     dtRow[j + 1] = arr[j];
                 }
-                
+
                 dt.Rows.Add(dtRow);
             }
 
@@ -214,28 +212,12 @@ namespace Program.Forms
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                @"При виході втрачаються всі дані.
-Ви впевнені?",
-                "",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button2,
-                MessageBoxOptions.DefaultDesktopOnly);
 
-            if (result == DialogResult.Yes)
-            {
-                var startForm = new StartForm();
-                startForm.TopMost = true;
-                startForm.Show();
-                startForm.TopMost = false;
-                Hide();
-            }
-            else
-            {
-                TopMost = true;
-                TopMost = false;
-            }
+            var startForm = new StartForm();
+            startForm.TopMost = true;
+            startForm.Show();
+            startForm.TopMost = false;
+            Hide();
         }
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
@@ -314,17 +296,126 @@ namespace Program.Forms
         }
 
 
-        private DataTable _defaultData;
-        private void button2_MouseClick(object sender, MouseEventArgs e)
-        {
-            _defaultData = (DataTable)dataGridView1.DataSource;
-        }
+        
+
 
         private void badUserBut_MouseClick(object sender, MouseEventArgs e)
         {
             var badUserForms = new BadUsersForm();
             badUserForms.Show();
             Hide();
+        }
+
+        private void searchBut_MouseClick(object sender, MouseEventArgs e)
+        {
+            string choise = searchTextBox.Text;
+            string category = searchComboBox.Text;
+
+            string[] categoreArray = new string[dataGridView1.ColumnCount];
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                categoreArray[i] = dataGridView1.Columns[i].HeaderText;
+            }
+
+            switch (category)
+            {
+                case "№":
+                    
+                    break;
+
+                case "Прізвище, ім'я, по батькові співробітника":
+                    editDB(DataWork.FindUser(DataWork.GetIdUser(choise)));
+                    break;
+
+                case "Факультет/ННІ":
+                    editDB(DataWork.FindFac(FacList.IndexOf(choise) + 1));
+                    break;
+
+                case "Нагорода (Почесне звання, відзнака та грамота)":
+                    editDB(DataWork.FindKPI(KPIList.IndexOf(choise)));
+                    break;
+
+                case "Державна нагорода":
+                    editDB(DataWork.FindRew(RewList.IndexOf(choise)));
+                    break;
+
+                case "№ протоколу ВР КПІ ім. Ігоря Сікорського про відзначення":
+
+                    break;
+
+                case "Рік відзначення КПІ":
+
+                    break;
+
+                case "Рік призначення державою":
+
+                    break;
+            }
+        }
+
+
+        private void editDB(List<string[]> list)
+        {
+            var dt = new DataTable();
+
+            for (var i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+            }
+
+
+            for (int i = 1; i <= list.Count; i++)
+            {
+                string[] arr = list[i - 1];
+
+                var dtRow = dt.NewRow();
+
+                dtRow[0] = i.ToString();
+
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    dtRow[j + 1] = arr[j];
+                }
+
+                dt.Rows.Add(dtRow);
+            }
+
+
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = dt;
+        }
+
+        private void restartDefaultDB_MouseClick(object sender, MouseEventArgs e)
+        {
+            RealizeDefaultData();
+        }
+
+        private void clearDbBut_MouseClick(object sender, MouseEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                @"При натисканні очиститься уся база даних.
+Ви впевнені?",
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2,
+                MessageBoxOptions.DefaultDesktopOnly);
+
+            if (result == DialogResult.Yes)
+            {
+                DataWork.ClearDB();
+                var startForm = new StartForm();
+                startForm.TopMost = true;
+                startForm.Show();
+                startForm.TopMost = false;
+                Hide();
+            }
+            else
+            {
+                TopMost = true;
+                TopMost = false;
+            }
+
         }
     }
 }

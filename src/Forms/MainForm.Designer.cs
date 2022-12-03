@@ -48,9 +48,11 @@ namespace Program.Forms
             this.backBut = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.searchBut = new System.Windows.Forms.Button();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.badUserBut = new System.Windows.Forms.Button();
+            this.restartDefaultDB = new System.Windows.Forms.Button();
+            this.clearDbBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.miniToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -202,14 +204,15 @@ namespace Program.Forms
             this.searchTextBox.Size = new System.Drawing.Size(332, 34);
             this.searchTextBox.TabIndex = 11;
             // 
-            // button2
+            // searchBut
             // 
-            this.button2.Location = new System.Drawing.Point(258, 105);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 30);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Пошук";
-            this.button2.UseVisualStyleBackColor = true;
+            this.searchBut.Location = new System.Drawing.Point(258, 105);
+            this.searchBut.Name = "searchBut";
+            this.searchBut.Size = new System.Drawing.Size(111, 30);
+            this.searchBut.TabIndex = 13;
+            this.searchBut.Text = "Пошук";
+            this.searchBut.UseVisualStyleBackColor = true;
+            this.searchBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchBut_MouseClick);
             // 
             // searchComboBox
             // 
@@ -236,15 +239,43 @@ namespace Program.Forms
             this.badUserBut.UseVisualStyleBackColor = false;
             this.badUserBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.badUserBut_MouseClick);
             // 
+            // restartDefaultDB
+            // 
+            this.restartDefaultDB.BackColor = System.Drawing.Color.Lavender;
+            this.restartDefaultDB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.restartDefaultDB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.restartDefaultDB.Location = new System.Drawing.Point(791, 54);
+            this.restartDefaultDB.Name = "restartDefaultDB";
+            this.restartDefaultDB.Size = new System.Drawing.Size(150, 81);
+            this.restartDefaultDB.TabIndex = 16;
+            this.restartDefaultDB.Text = "Повернутися до початкової таблиці";
+            this.restartDefaultDB.UseVisualStyleBackColor = false;
+            this.restartDefaultDB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restartDefaultDB_MouseClick);
+            // 
+            // clearDbBut
+            // 
+            this.clearDbBut.BackColor = System.Drawing.Color.Red;
+            this.clearDbBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clearDbBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearDbBut.Location = new System.Drawing.Point(583, 50);
+            this.clearDbBut.Name = "clearDbBut";
+            this.clearDbBut.Size = new System.Drawing.Size(150, 88);
+            this.clearDbBut.TabIndex = 17;
+            this.clearDbBut.Text = "Очистити базу даних";
+            this.clearDbBut.UseVisualStyleBackColor = false;
+            this.clearDbBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.clearDbBut_MouseClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.clearDbBut);
+            this.Controls.Add(this.restartDefaultDB);
             this.Controls.Add(this.badUserBut);
             this.Controls.Add(this.searchComboBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.searchBut);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.backBut);
@@ -263,13 +294,19 @@ namespace Program.Forms
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button clearDbBut;
+
+        private System.Windows.Forms.Button restartDefaultDB;
+
+        private System.Windows.Forms.Button searchBut;
+
         private System.Windows.Forms.Button badUserBut;
         private System.Windows.Forms.ComboBox searchComboBox;
 
         private System.Windows.Forms.ToolStripMenuItem exportExcelFileToolStripMenuItem;
 
         private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button іу;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn numberRow;
 
