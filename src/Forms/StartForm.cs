@@ -5,11 +5,11 @@ namespace Program.Forms
     public partial class StartForm : Form
     {
         
-        public static MainForm MainForm { get; set; }
+       // public static MainForm MainForm { get; set; }
         public StartForm()
         {
             InitializeComponent();
-            MainForm = new MainForm();
+            //MainForm = new MainForm();
         }
 
         private void devBut_MouseClick(object sender, MouseEventArgs e)
@@ -21,7 +21,8 @@ namespace Program.Forms
 
         private void startBut_MouseClick(object sender, MouseEventArgs e)
         {
-            MainForm.Show();
+            var mainForm = new MainForm();
+            mainForm.Show();
             Hide();
         }
     }

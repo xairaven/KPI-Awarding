@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
+using Program.DataBase;
 
 namespace Program.Forms
 {
@@ -13,91 +15,111 @@ namespace Program.Forms
 
         private void saveBut_MouseClick(object sender, MouseEventArgs e)
         {
-            var dt = new DataTable();
 
-            for (var i = 0; i < StartForm.MainForm.dataGridView1.Columns.Count; i++)
+            string fullName = $"{lastNameText.Text} {firstNameText.Text} {middleNameText.Text}";
+
+            var row = MainForm.UserList.Take(MainForm.UserList.Count).Count(x => x.Value.Name == fullName);
+
+
+            int indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text);
+
+            int id;
+            if (row == 0)
             {
-                dt.Columns.Add(StartForm.MainForm.dataGridView1.Columns[i].HeaderText);
-            }
-
-            for (var i = 0; i < StartForm.MainForm.dataGridView1.Rows.Count; i++)
-            {
-                var dtRow = dt.NewRow();
-
-                for (var j = 0; j < StartForm.MainForm.dataGridView1.Columns.Count; j++)
-                {
-                    dtRow[j] = StartForm.MainForm.dataGridView1[j, i].Value;
-                }
-
-                dt.Rows.Add(dtRow);
-            }
-
-            dt.Rows.Add(StartForm.MainForm.dataGridView1.Rows.Count + 1,
-                $"{firstNameText.Text} {lastNameText.Text} {middleNameText.Text}",
-                facultyComboBox.Text, rewardKpiComboBox.Text, rewardCountryComboBox.Text, protocolNumberText.Text,
-                yearsKPIText.Text, yearsStateText.Text);
-            StartForm.MainForm.dataGridView1.Columns.Clear();
-            StartForm.MainForm.dataGridView1.DataSource = dt;
-            StartForm.MainForm.Show();
-            Hide();
-        }
-
-        private void backBut_MouseClick(object sender, MouseEventArgs e)
-        {
-            StartForm.MainForm.Show();
-            Hide();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            ChangeVisibleCountry(true);
-            ChangeVisibleKpi(false);
-        }
-
-        private void KpiRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            ChangeVisibleCountry(false);
-            ChangeVisibleKpi(true);
-        }
-
-        private void ChangeVisibleCountry(bool boolean)
-        {
-            rewardCountryLabel.Visible = boolean;
-            rewardCountryComboBox.Visible = boolean;
-            yearsStateLabel.Visible = boolean;
-            yearsStateText.Visible = boolean;
-        }
-
-        private void ChangeVisibleKpi(bool boolean)
-        {
-            rewardKpiLabel.Visible = boolean;
-            rewardKpiComboBox.Visible = boolean;
-            yearsKPILabel.Visible = boolean;
-            yearsKPIText.Visible = boolean;
-            if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)") && boolean)
-            {
-                protocolNumberLabel.Visible = true;
-                protocolNumberText.Visible = true;
+                Users user = new Users(fullName, indexFac);
+                id = DataWork.Adduser(user);
             }
             else
             {
-                protocolNumberLabel.Visible = false;
-                protocolNumberText.Visible = false;
+                id = DataWork.GetIdUser(fullName);
             }
-        }
 
-        private void rewardKpiComboBox_SelectedIndexChanged(object sender, EventArgs e)
+            int nu, y;
+            nu = MainForm.RewList.IndexOf(rewardCountryComboBox.Text);
+            if (nu == -1) nu++;
+            y = MainForm.YearsList.IndexOf(yearsStateText.Text);
+            if (y == -1) y++;
+            var reward1 = new Rewards(id);
+            reward1.Name = nu;
+            reward1.Year = y;
+
+            nu = MainForm.KPIList.IndexOf(rewardKpiComboBox.Text);
+            if (nu == -1) nu++;
+            y = MainForm.YearsList.IndexOf(yearsKPIText.Text);
+            if (y == -1) y++;
+            var reward2 = new Rewards(id);
+            reward2.Name = nu;
+            reward2.Year = y;
+
+            DataWork.AddReward(reward1, reward2);
+ 
+
+
+            var mainForm = new MainForm();
+            mainForm.Show();
+            Hide();
+        }
+       
+    
+
+    private void backBut_MouseClick(object sender, MouseEventArgs e)
+    {
+        MainForm mainForm = new MainForm();
+        mainForm.Show();
+        Hide();
+    }
+
+    private void radioButton2_CheckedChanged(object sender, EventArgs e)
+    {
+        ChangeVisibleCountry(true);
+        ChangeVisibleKpi(false);
+    }
+
+    private void KpiRadioButton_CheckedChanged(object sender, EventArgs e)
+    {
+        ChangeVisibleCountry(false);
+        ChangeVisibleKpi(true);
+    }
+
+    private void ChangeVisibleCountry(bool boolean)
+    {
+        rewardCountryLabel.Visible = boolean;
+        rewardCountryComboBox.Visible = boolean;
+        yearsStateLabel.Visible = boolean;
+        yearsStateText.Visible = boolean;
+    }
+
+    private void ChangeVisibleKpi(bool boolean)
+    {
+        rewardKpiLabel.Visible = boolean;
+        rewardKpiComboBox.Visible = boolean;
+        yearsKPILabel.Visible = boolean;
+        yearsKPIText.Visible = boolean;
+        if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)") && boolean)
         {
-            if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)"))
-            {
-                protocolNumberLabel.Visible = true;
-                protocolNumberText.Visible = true;
-            }
-            else
-            {
-                protocolNumberLabel.Visible = false;
-                protocolNumberText.Visible = false;
-            }
+            protocolNumberLabel.Visible = true;
+            protocolNumberText.Visible = true;
+        }
+        else
+        {
+            protocolNumberLabel.Visible = false;
+            protocolNumberText.Visible = false;
         }
     }
+
+    private void rewardKpiComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (rewardKpiComboBox.Text.Equals("почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)"))
+        {
+            protocolNumberLabel.Visible = true;
+            protocolNumberText.Visible = true;
+        }
+        else
+        {
+            protocolNumberLabel.Visible = false;
+            protocolNumberText.Visible = false;
+        }
+    }
+}
+
 }

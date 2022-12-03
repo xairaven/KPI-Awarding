@@ -17,8 +17,41 @@ namespace Program.Forms
             for (var i = 0; i < dataGridView1.ColumnCount; i++)
             {
                 searchComboBox.Items.Add(dataGridView1.Columns[i].HeaderText);
-
             }
+            UserList = new Dictionary<int, Users>();
+
+            RealizeData();
+        }
+
+
+        private void RealizeData()
+        {
+            var dt = new DataTable();
+
+            for (var i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+            }
+
+            for (int i = 1; i <= DataWork.GetRewdNum(); i++)
+            {
+                string[] arr =  DataWork.GetUsRewards(i);
+               
+                var dtRow = dt.NewRow();
+
+                dtRow[0] = i.ToString();
+                
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    dtRow[j + 1] = arr[j];
+                }
+                
+                dt.Rows.Add(dtRow);
+            }
+
+            
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = dt;
         }
 
 
@@ -46,7 +79,6 @@ namespace Program.Forms
         private void importExcelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            UserList = new Dictionary<int, Users>();
             var ofd = new OpenFileDialog();
             ofd.Multiselect = false;
             ofd.DefaultExt = "*.xls;*.xlsx";
@@ -116,7 +148,7 @@ namespace Program.Forms
                 int id;
                 if (row == 0)
                 {
-                    Users user = new Users(dtRow[1].ToString(), 1);
+                    Users user = new Users(dtRow[1].ToString(), indexFac);
                      id = DataWork.Adduser(user);
                     
                 }
@@ -152,7 +184,7 @@ namespace Program.Forms
                
                 var dtRow = dt.NewRow();
 
-                dtRow[0] = (i + 1).ToString();
+                dtRow[0] = i.ToString();
                 
                 for (int j = 0; j < arr.Length; j++)
                 {
@@ -286,6 +318,13 @@ namespace Program.Forms
         private void button2_MouseClick(object sender, MouseEventArgs e)
         {
             _defaultData = (DataTable)dataGridView1.DataSource;
+        }
+
+        private void badUserBut_MouseClick(object sender, MouseEventArgs e)
+        {
+            var badUserForms = new BadUsersForm();
+            badUserForms.Show();
+            Hide();
         }
     }
 }

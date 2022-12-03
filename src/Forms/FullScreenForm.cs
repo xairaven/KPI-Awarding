@@ -9,27 +9,27 @@ namespace Program.Forms
         {
             InitializeComponent();
             
-            var dt = new DataTable();
-
-            for (var i = 0; i < StartForm.MainForm.dataGridView1.Columns.Count; i++)
-            {
-                dt.Columns.Add(StartForm.MainForm.dataGridView1.Columns[i].HeaderText);
-            }
-
-            for (var i = 0; i < StartForm.MainForm.dataGridView1.Rows.Count; i++)
-            {
-                var dtRow = dt.NewRow();
-
-                for (var j = 0; j < StartForm.MainForm.dataGridView1.Columns.Count; j++)
-                {
-                    dtRow[j] = StartForm.MainForm.dataGridView1[j, i].Value;
-                }
-
-                dt.Rows.Add(dtRow);
-            }
-            
-            dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = dt;
+            // var dt = new DataTable();
+            //
+            // for (var i = 0; i < MainForm.dataGridView1.Columns.Count; i++)
+            // {
+            //     dt.Columns.Add(MainForm.dataGridView1.Columns[i].HeaderText);
+            // }
+            //
+            // for (var i = 0; i < MainForm.dataGridView1.Rows.Count; i++)
+            // {
+            //     var dtRow = dt.NewRow();
+            //
+            //     for (var j = 0; j < MainForm.dataGridView1.Columns.Count; j++)
+            //     {
+            //         dtRow[j] = MainForm.dataGridView1[j, i].Value;
+            //     }
+            //
+            //     dt.Rows.Add(dtRow);
+            // }
+            //
+            // dataGridView1.Columns.Clear();
+            // dataGridView1.DataSource = dt;
             InitializeDataGrid();
         }
 
@@ -41,7 +41,8 @@ namespace Program.Forms
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
-            StartForm.MainForm.Show();
+            var mainForm = new MainForm();
+            mainForm.Show();
             Hide();
         }
     }

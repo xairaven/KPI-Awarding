@@ -233,26 +233,28 @@ namespace Program.DataBase
         /*
          * Метод GetUsers використовується для виводу імені користувача та його факультету.
          */
-        public static string[] GetUsers()
+        public static List<string[]> GetUsers()
         {
+            List<string[]> list = new List<string[]>();
             string[] row = new string[2];
             string sqlExpression = "SELECT U.Username,F.Fac FROM Users U INNER JOIN Facultets F ON U.Fac=F.ID";
             var command = new SQLiteCommand(sqlExpression, Connection);
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
-                Console.WriteLine("{0}\t{1}", reader.GetName(0), reader.GetName(1));
+                // Console.WriteLine("{0}\t{1}", reader.GetName(0), reader.GetName(1));
                 while (reader.Read())
                 {
                     string name = reader.GetString(0);
                     row[0] = name;
                     string fac = reader.GetString(1);
                     row[1] = fac;
+                    list.Add(row);
                     //Console.WriteLine("{0}\t{1}",name,fac);
                 }
             }
 
-            return row;
+            return list;
         }
 
         /*
@@ -297,6 +299,48 @@ namespace Program.DataBase
 
             return row;
         }
+        
+        
+        
+        public static string[] GetBadRewards(int n)
+        {
+            string[] row = new string[6];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year FROM BadUsers RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.Id=" + n.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[2] = reward;
+                    string yearR = reader.GetString(3);
+                    row[4] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[3] = kpi;
+                    //Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}",user,fac,reward,kpi,yearR,yearK);
+                }
+            }
+
+            return row;
+        }
+        
+        
 
         /*
          * Метод GetIdFac використовується для пошуку id факультету по назві.
