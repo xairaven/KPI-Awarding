@@ -21,7 +21,7 @@ namespace Program.Forms
             var row = MainForm.UserList.Take(MainForm.UserList.Count).Count(x => x.Value.Name == fullName);
 
 
-            int indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text);
+            int indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text)+1;
 
             int id;
             if (row == 0)

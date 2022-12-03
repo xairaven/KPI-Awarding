@@ -13,12 +13,10 @@ namespace Program.Forms
             
             var dt = new DataTable();
 
-            for (var i = 0; i < dataGridView1.Columns.Count; i++)
+            for (var i = 0; i < MainForm.dataGridView1.Columns.Count; i++)
             {
-                dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+                dt.Columns.Add(MainForm.dataGridView1.Columns[i].HeaderText);
             }
-            
-            
             
             for (int i = 1; i <= DataWork.GetBadNum(); i++)
             {

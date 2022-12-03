@@ -51,6 +51,18 @@ namespace Program.DataBase
             }
         }
 
+        public static void ClearDB()
+        {
+            string sqlExpression = "DELETE FROM Users";
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            command.ExecuteNonQuery();
+            sqlExpression = "DELETE FROM RewardsAllNames";
+            command.CommandText = sqlExpression;
+            command.ExecuteNonQuery();
+            sqlExpression = "DELETE FROM BadUsers";
+            command.CommandText = sqlExpression;
+            command.ExecuteNonQuery();
+        }
         public static int Adduser(Users user)
         {
             int id = 0;
@@ -237,7 +249,9 @@ namespace Program.DataBase
         {
             List<string[]> list = new List<string[]>();
             string[] row = new string[2];
-            string sqlExpression = "SELECT U.Username,F.Fac FROM Users U INNER JOIN Facultets F ON U.Fac=F.ID";
+            string sqlExpression = "SELECT U.UserName, F.Fac FROM RewardsAllNames RE " +
+                                   "INNER JOIN Users U ON RE.User=U.Id " +
+                                   "INNER JOIN Facultets F ON U.Fac=F.Id";
             var command = new SQLiteCommand(sqlExpression, Connection);
             SQLiteDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
@@ -245,6 +259,7 @@ namespace Program.DataBase
                 // Console.WriteLine("{0}\t{1}", reader.GetName(0), reader.GetName(1));
                 while (reader.Read())
                 {
+                    row = new string[2];
                     string name = reader.GetString(0);
                     row[0] = name;
                     string fac = reader.GetString(1);

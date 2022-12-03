@@ -8,19 +8,20 @@ namespace Program.Forms
 {
     public partial class AddRewardsForm : Form
     {
+        private List<string[]> list;
         public AddRewardsForm()
         {
             InitializeComponent();
 
 
-            var list = DataWork.GetUsers();
-            // for (var i = 0; i < MainForm.dataGridView1.RowCount; i++)
-            // {
-            //     string[] a = list[i];
-            //     string name = a[0].Split(' ')[0];
-            //     string fac = a[1];
-            //     personListBox.Items.Add(name +  " " + fac );
-            // }
+             list = DataWork.GetUsers();
+            for (var i = 0; i < list.Count; i++)
+            {
+                string[] a = list[i];
+                string name = a[0].Split(' ')[0];
+                string fac = a[1];
+                personListBox.Items.Add(name +  " " + fac );
+            }
         }
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
@@ -33,6 +34,7 @@ namespace Program.Forms
 
         private void startBut_MouseClick(object sender, MouseEventArgs e)
         {
+            
             // var dt = new DataTable();
             //
             // for (var i = 0; i < MainForm.dataGridView1.Columns.Count; i++)
@@ -61,9 +63,33 @@ namespace Program.Forms
             //
             // MainForm.dataGridView1.Columns.Clear();
             // MainForm.dataGridView1.DataSource = dt;
-            // var mainForm = new MainForm();
-            // mainForm.Show();
-            // Hide();
+
+            int index = personListBox.SelectedIndex;
+            string[] a = list[index];
+            int id = DataWork.GetIdUser(a[0]);
+            
+            int nu, y;
+            nu=MainForm.RewList.IndexOf(rewardCountryComboBox.Text);
+            if (nu == -1) nu++;
+            y = MainForm.YearsList.IndexOf(yearsStateText.Text);
+            if (y == -1) y++;
+            var reward1 = new Rewards(id);
+            reward1.Name = nu;
+            reward1.Year = y;
+                
+            nu = MainForm.KPIList.IndexOf(rewardKpiComboBox.Text);
+            if (nu == -1) nu++;
+            y = MainForm.YearsList.IndexOf(yearsKPIText.Text);
+            if (y == -1) y++;
+            var reward2 = new Rewards(id);
+            reward2.Name = nu;
+            reward2.Year = y;
+
+            DataWork.AddReward(reward1,reward2);
+            
+            var mainForm = new MainForm();
+            mainForm.Show();
+            Hide();
         }
         
         private void countryRadioButton_CheckedChanged(object sender, EventArgs e)

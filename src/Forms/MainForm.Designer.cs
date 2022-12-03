@@ -31,7 +31,7 @@ namespace Program.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            MainForm.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.numberRow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultet = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,22 +51,22 @@ namespace Program.Forms
             this.button2 = new System.Windows.Forms.Button();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
             this.badUserBut = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(MainForm.dataGridView1)).BeginInit();
             this.miniToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.numberRow, this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
-            this.dataGridView1.Location = new System.Drawing.Point(37, 173);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(927, 548);
-            this.dataGridView1.TabIndex = 0;
+            MainForm.dataGridView1.AllowUserToAddRows = false;
+            MainForm.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            MainForm.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            MainForm.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.numberRow, this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
+            MainForm.dataGridView1.Location = new System.Drawing.Point(37, 173);
+            MainForm.dataGridView1.Name = "dataGridView1";
+            MainForm.dataGridView1.ReadOnly = true;
+            MainForm.dataGridView1.RowTemplate.Height = 24;
+            MainForm.dataGridView1.Size = new System.Drawing.Size(927, 548);
+            MainForm.dataGridView1.TabIndex = 0;
             // 
             // numberRow
             // 
@@ -247,13 +247,13 @@ namespace Program.Forms
             this.Controls.Add(this.backBut);
             this.Controls.Add(this.addNew);
             this.Controls.Add(this.addRewardBut);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(MainForm.dataGridView1);
             this.Controls.Add(this.miniToolStrip);
             this.MainMenuStrip = this.miniToolStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(MainForm.dataGridView1)).EndInit();
             this.miniToolStrip.ResumeLayout(false);
             this.miniToolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -290,7 +290,7 @@ namespace Program.Forms
         private System.Windows.Forms.MenuStrip miniToolStrip;
         private System.Windows.Forms.ToolStripMenuItem importExcelFileToolStripMenuItem;
 
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public static System.Windows.Forms.DataGridView dataGridView1;
 
         #endregion
     }
