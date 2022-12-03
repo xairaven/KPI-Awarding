@@ -163,6 +163,7 @@ namespace Program.DataBase
                             "'" + id.ToString() + "','" + user.ToString() + "','" +
                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
                             year2.ToString() + "','" + prot2 +"')";
+            
             command.CommandText = sqlExpression;
             command = new SQLiteCommand(sqlExpression, Connection);
             if (name1 != 0 && name2 != 0)
