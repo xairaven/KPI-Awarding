@@ -142,7 +142,7 @@ namespace Program.Forms
                 var row = UserList.Take(UserList.Count).Count(x => x.Value.Name == dtRow[1].ToString());
                 
 
-                int indexFac = FacList.IndexOf(dtRow[2].ToString());
+                int indexFac = FacList.IndexOf(dtRow[2].ToString())+1;
 
 
                 int id;
