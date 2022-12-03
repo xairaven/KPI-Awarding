@@ -5,8 +5,8 @@
             public int Id{ get; set; }
             public int Name{ get; set; }
             public int Year { get; set; }
-            public int Prot { get; set; }
-            public Rewards(int id)
+            public string Prot { get; set; }
+            public Rewards(int id,string prot)
             {
                 Name = 0;
                 //Id = id;
@@ -14,7 +14,7 @@
                 // Prot = protocol;
                 Id = id;
                 Year = 0;
-                Prot = 0;
+                Prot = prot;
             }
         }
 }
