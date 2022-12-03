@@ -33,6 +33,7 @@ namespace Program.Forms
         {
             this.backBut = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rewardKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +49,10 @@ namespace Program.Forms
             this.backBut.BackColor = System.Drawing.Color.Lavender;
             this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.backBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backBut.Location = new System.Drawing.Point(983, 35);
+            this.backBut.Location = new System.Drawing.Point(737, 28);
+            this.backBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.backBut.Name = "backBut";
-            this.backBut.Size = new System.Drawing.Size(150, 50);
+            this.backBut.Size = new System.Drawing.Size(112, 41);
             this.backBut.TabIndex = 3;
             this.backBut.Text = "Назад";
             this.backBut.UseVisualStyleBackColor = false;
@@ -61,13 +63,20 @@ namespace Program.Forms
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
-            this.dataGridView1.Location = new System.Drawing.Point(52, 119);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.number, this.fullName, this.facultet, this.rewardKpi, this.rewardCountry, this.numberProtocol, this.yearKpi, this.yearCountry });
+            this.dataGridView1.Location = new System.Drawing.Point(39, 97);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1081, 598);
+            this.dataGridView1.Size = new System.Drawing.Size(811, 486);
             this.dataGridView1.TabIndex = 12;
+            // 
+            // number
+            // 
+            this.number.HeaderText = "№";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
             // 
             // fullName
             // 
@@ -113,17 +122,20 @@ namespace Program.Forms
             // 
             // BadUsersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.ClientSize = new System.Drawing.Size(886, 612);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.backBut);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BadUsersForm";
             this.Text = "BadUsersForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
 
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullName;
