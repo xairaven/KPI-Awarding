@@ -395,13 +395,13 @@ namespace Program.DataBase
                     string fac = reader.GetString(1);
                     row[1] = fac;
                     string reward = reader.GetString(2);
-                    row[2] = reward;
+                    row[3] = reward;
                     string yearR = reader.GetString(3);
-                    row[4] = yearR;
+                    row[5] = yearR;
                     string yearK = reader.GetString(5);
-                    row[5] = yearK;
+                    row[4] = yearK;
                     string kpi = reader.GetString(4);
-                    row[3] = kpi;
+                    row[2] = kpi;
                     //Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}",user,fac,reward,kpi,yearR,yearK);
                 }
             }

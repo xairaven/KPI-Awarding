@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Windows.Forms;
+using Program.DataBase;
 
 namespace Program.Forms
 {
@@ -11,22 +12,27 @@ namespace Program.Forms
             
             var dt = new DataTable();
             
-            for (var i = 0; i < MainForm.dataGridView1.Columns.Count; i++)
+            for (var i = 0; i < dataGridView1.Columns.Count; i++)
             {
-                dt.Columns.Add(MainForm.dataGridView1.Columns[i].HeaderText);
+                dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
             }
             
-            for (var i = 0; i < MainForm.dataGridView1.Rows.Count; i++)
+            for (int i = 1; i <= DataWork.GetRewdNum(); i++)
             {
+                string[] arr =  DataWork.GetUsRewards(i);
+               
                 var dtRow = dt.NewRow();
-            
-                for (var j = 0; j < MainForm.dataGridView1.Columns.Count; j++)
+
+                dtRow[0] = i.ToString();
+                
+                for (int j = 0; j < arr.Length; j++)
                 {
-                    dtRow[j] = MainForm.dataGridView1[j, i].Value;
+                    dtRow[j + 1] = arr[j];
                 }
-            
+                
                 dt.Rows.Add(dtRow);
             }
+
             
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dt;
