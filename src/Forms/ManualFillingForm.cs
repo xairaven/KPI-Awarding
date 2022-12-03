@@ -64,7 +64,7 @@ namespace Program.Forms
 
     private void backBut_MouseClick(object sender, MouseEventArgs e)
     {
-        MainForm mainForm = new MainForm();
+        var mainForm = new MainForm();
         mainForm.Show();
         Hide();
     }
