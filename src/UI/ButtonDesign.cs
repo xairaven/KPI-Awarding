@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Program.UI
@@ -10,7 +12,7 @@ namespace Program.UI
     {
         private int  BorderSize, BorderRadius;
         private Color BorderColor;
-        private int defaultWidth, defaultHeight;
+        private int defaultBorderSize, startBorderSize;
         public ButtonDesign(int width, int height, Color backColor, Color foreColor, int borderRadius, int borderSize, Color borderColor)
         {
             this.BorderColor = borderColor;
@@ -22,8 +24,8 @@ namespace Program.UI
             this.BackColor = backColor;
             this.ForeColor = foreColor;
             this.Resize += new EventHandler(Button_Resize);
-            this.defaultWidth =  (int)(Size.Width - Size.Width * 0.25);
-            this.defaultHeight = (int)(Size.Height - Size.Height * 0.2);
+            this.startBorderSize = BorderSize + 2;
+            this.defaultBorderSize = BorderSize - 2;
         }
         
         private void Button_Resize(object sender, EventArgs e)
@@ -99,7 +101,7 @@ namespace Program.UI
         }
         protected override void OnMouseHover(System.EventArgs e)
         {
-            Size = new Size(Size.Width+5, Size.Height+5);
+            this.BorderSize = startBorderSize;
             this.ForeColor = Color.White;
             base.OnMouseHover(e);
         }
@@ -110,9 +112,8 @@ namespace Program.UI
         }
         protected override void OnMouseLeave(System.EventArgs e)
         {
-            Size = new Size(defaultWidth, defaultHeight);
+            this.BorderSize = defaultBorderSize;
             this.ForeColor = Color.Black;
-            
             base.OnMouseLeave(e);
         }
     }
