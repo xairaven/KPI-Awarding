@@ -342,7 +342,7 @@ namespace Program.Forms
             this.Controls.Add(this.personListBox);
             this.Name = "AddRewardsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddRewardsForm";
+            this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
         }
 

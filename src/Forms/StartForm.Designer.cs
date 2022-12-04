@@ -98,7 +98,7 @@ namespace Program.Forms
             this.Controls.Add(this.startBut);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Start";
+            this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
         }
 
