@@ -22,8 +22,11 @@ namespace Program.Forms
             UserList = new Dictionary<int, Users>();
 
             RealizeDefaultData();
-          InitializeDataGrid();
+            InitializeDataGrid();
         }
+
+
+        
         
         private void InitializeDataGrid()
         {
@@ -31,11 +34,11 @@ namespace Program.Forms
             dataGridView1.Columns[1].FillWeight = 130;
             dataGridView1.Columns[2].FillWeight = 100;
             dataGridView1.Columns[3].FillWeight = 110;
-            dataGridView1.Columns[4].FillWeight = 120;
+            dataGridView1.Columns[4].FillWeight = 110;
             dataGridView1.Columns[5].FillWeight = 130;
             dataGridView1.Columns[6].FillWeight = 120;
             dataGridView1.Columns[7].FillWeight = 120;
-           // dataGridView1.Columns[8].FillWeight += 40;
+           dataGridView1.Columns[8].FillWeight = 130;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         
         }
