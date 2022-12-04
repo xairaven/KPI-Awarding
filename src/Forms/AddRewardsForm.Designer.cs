@@ -47,6 +47,7 @@ namespace Program.Forms
             this.KpiRadioButton = new System.Windows.Forms.RadioButton();
             this.backBut = new Guna.UI2.WinForms.Guna2Button();
             this.startBut = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // personListBox
@@ -135,7 +136,7 @@ namespace Program.Forms
             this.rewardKpiComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardKpiComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardKpiComboBox.ItemHeight = 22;
-            this.rewardKpiComboBox.Items.AddRange(new object[] { "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
+            this.rewardKpiComboBox.Items.AddRange(new object[] { "-", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
             this.rewardKpiComboBox.Location = new System.Drawing.Point(472, 219);
             this.rewardKpiComboBox.Name = "rewardKpiComboBox";
             this.rewardKpiComboBox.Size = new System.Drawing.Size(243, 28);
@@ -208,7 +209,7 @@ namespace Program.Forms
             this.rewardCountryComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardCountryComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardCountryComboBox.ItemHeight = 22;
-            this.rewardCountryComboBox.Items.AddRange(new object[] { "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
+            this.rewardCountryComboBox.Items.AddRange(new object[] { "-", "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
             this.rewardCountryComboBox.Location = new System.Drawing.Point(883, 219);
             this.rewardCountryComboBox.Name = "rewardCountryComboBox";
             this.rewardCountryComboBox.Size = new System.Drawing.Size(243, 28);
@@ -306,12 +307,22 @@ namespace Program.Forms
             this.startBut.Text = "Зберегти";
             this.startBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startBut_MouseClick);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(460, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(430, 65);
+            this.label1.TabIndex = 70;
+            // 
             // AddRewardsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.startBut);
             this.Controls.Add(this.backBut);
             this.Controls.Add(this.countryRadioButton);
@@ -333,6 +344,8 @@ namespace Program.Forms
             this.Text = "AddRewardsForm";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label label1;
 
         private Guna.UI2.WinForms.Guna2GradientButton startBut;
 

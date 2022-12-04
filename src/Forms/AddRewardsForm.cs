@@ -34,36 +34,39 @@ namespace Program.Forms
 
         private void startBut_MouseClick(object sender, MouseEventArgs e)
         {
-            
-            // var dt = new DataTable();
-            //
-            // for (var i = 0; i < MainForm.dataGridView1.Columns.Count; i++)
-            // {
-            //     dt.Columns.Add(MainForm.dataGridView1.Columns[i].Name);
-            // }
-            //
-            // for (var i = 0; i < MainForm.dataGridView1.Rows.Count; i++)
-            // {
-            //     var dtRow = dt.NewRow();
-            //
-            //     for (var j = 0; j < MainForm.dataGridView1.Columns.Count; j++)
-            //     {
-            //         dtRow[j] = MainForm.dataGridView1[j, i].Value;
-            //     }
-            //
-            //     dt.Rows.Add(dtRow);
-            // }
-            //
-            // dt.Rows.Add(MainForm.dataGridView1.Rows.Count+1,MainForm.dataGridView1[1, personListBox.SelectedIndex].Value,
-            //     MainForm.dataGridView1[2, personListBox.SelectedIndex].Value, rewardKpiComboBox.Text,
-            //     rewardCountryComboBox.Text, protocolNumberText.Text,
-            //     yearsKPIText.Text, yearsStateText.Text);
-            //
-            //
-            //
-            // MainForm.dataGridView1.Columns.Clear();
-            // MainForm.dataGridView1.DataSource = dt;
 
+            label1.Text = personListBox.Text;
+
+            if (personListBox.Text == "")
+            {
+                label1.Text = "Оберіть співробітника";
+                return;
+            }
+            if (KpiRadioButton.Checked)
+            {
+            
+                if (rewardKpiComboBox.Text == "" || rewardKpiComboBox.Text == "-" || yearsKPIText.Text=="")
+                {
+                    label1.Text = @"Оберіть нагороду та рік призначення";
+                    return;
+                }
+                if (rewardKpiComboBox.Text == @"почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)")
+                {
+                    if (protocolNumberText.Text=="")
+                    {
+                        label1.Text = @"Оберіть номер протоколу";
+                        return;
+                    }
+                }
+                        
+            }else if (countryRadioButton.Checked)
+            {
+                if (rewardCountryComboBox.Text == "" || rewardCountryComboBox.Text == "-" || yearsStateText.Text=="")
+                {
+                    label1.Text = @"Оберіть нагороду та рік призначення";
+                    return;
+                } 
+            }
             int index = personListBox.SelectedIndex;
             string[] a = list[index];
             int id = DataWork.GetIdUser(a[0]);
@@ -96,11 +99,16 @@ namespace Program.Forms
         {
             ChangeVisibleCountry(true);
             ChangeVisibleKpi(false);
+            rewardKpiComboBox.SelectedIndex = 0;
+            yearsKPIText.Text = "";
+            protocolNumberText.Text = "";
         }
 
         private void KpiRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             ChangeVisibleCountry(false);
+            rewardCountryComboBox.SelectedIndex = 0;
+            yearsStateText.Text = "";
             ChangeVisibleKpi(true);
         }
 
@@ -127,6 +135,7 @@ namespace Program.Forms
             {
                 protocolNumberLabel.Visible = false;
                 protocolNumberText.Visible = false;
+                protocolNumberText.Text = "";
             }
         }
 
@@ -141,6 +150,8 @@ namespace Program.Forms
             {
                 protocolNumberLabel.Visible = false;
                 protocolNumberText.Visible = false;
+                protocolNumberText.Text = "";
+
             }
         }
 
