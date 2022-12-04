@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.Windows.Forms;
+using Program.UI;
 
 namespace Program.Forms
 {
@@ -40,7 +42,7 @@ namespace Program.Forms
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telegram = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backBut1 = new Guna.UI2.WinForms.Guna2Button();
+            this.backBut1 = new ButtonZoom();
             ((System.ComponentModel.ISupportInitialize)(this.dataDev)).BeginInit();
             this.SuspendLayout();
             // 

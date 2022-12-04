@@ -33,23 +33,19 @@ namespace Program.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.startBut = new ButtonDesign(300,100, Color.Coral, Color.Black);
-            this.devBut = new ButtonDesign(150, 50, Color.Coral, Color.Black);
+            this.startBut = new ButtonDesign(300,100, Color.Coral, Color.Black, 30, 4, Color.Brown);
+            this.devBut = new ButtonDesign(150, 50, Color.Coral, Color.Black, 15, 2, Color.Brown);
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            ButtonDesign.borderColor = Color.Brown;
-            ButtonDesign.borderSize = 4;
-            ButtonDesign.borderRadius = 30;
+            
+            //
             this.startBut.Font = new System.Drawing.Font("Open Sans", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.startBut.Location = new System.Drawing.Point(435, 257);
             this.startBut.Text = "Розпочати";
             this.startBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startBut_MouseClick);
-    
+            //
             // devBut
             // 
-            ButtonDesign.borderColor = Color.Brown;
-            ButtonDesign.borderSize = 2;
-            ButtonDesign.borderRadius = 15;
             this.devBut.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.devBut.Location = new System.Drawing.Point(1002, 473);
             this.devBut.Text = "Розробники";

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Program.UI;
 
 namespace Program.Forms
 {
@@ -43,7 +44,7 @@ namespace Program.Forms
             this.numberProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backBut = new Guna.UI2.WinForms.Guna2Button();
+            this.backBut = new ButtonZoom();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 

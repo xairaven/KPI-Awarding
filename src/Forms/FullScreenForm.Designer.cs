@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Program.UI;
 
 namespace Program.Forms
 {
@@ -34,7 +35,7 @@ namespace Program.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.backBut = new Guna.UI2.WinForms.Guna2Button();
+            this.backBut = new ButtonZoom();
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
