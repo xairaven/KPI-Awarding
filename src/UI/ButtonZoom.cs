@@ -9,12 +9,12 @@ namespace Program.UI
 {
     public class ButtonZoom : Guna2Button
     {
-        private int defaultWidth, defaultHeight;
+        private int defaultBorderSize, startBorderSize;
 
         public ButtonZoom()
         {
-            this.defaultWidth =  (int)(Size.Width - Size.Width * 0.25);
-            this.defaultHeight = (int)(Size.Height - Size.Height * 0.2);
+            this.defaultBorderSize = this.BorderThickness - 5;
+            this.startBorderSize = this.BorderThickness + 5;
         }
         private void Container_BackColorChanged(object sender, EventArgs e)
         {
@@ -22,25 +22,20 @@ namespace Program.UI
         }
         protected override void OnMouseHover(System.EventArgs e)
         {
-            float fontSize = Font.SizeInPoints;
-            fontSize += 1;
-            System.Drawing.Size buttonSize = Size;
+            this.BorderThickness = startBorderSize;
             this.ForeColor = Color.White;
-            Size = new Size(Size.Width+5, Size.Height+5);
             base.OnMouseHover(e);
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
+            this.BorderThickness = startBorderSize;
             Cursor = Cursors.Hand;
             base.OnMouseMove(e);
         }
         protected override void OnMouseLeave(System.EventArgs e)
         {
-            float fontSize = Font.SizeInPoints;
-            fontSize -= 1;
+            this.BorderThickness = defaultBorderSize;
             this.ForeColor = Color.Black;
-            System.Drawing.Size buttonSize = Size;
-            Size = new Size(defaultWidth, defaultHeight);
             base.OnMouseLeave(e);
         }
     }
