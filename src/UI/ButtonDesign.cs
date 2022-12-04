@@ -8,22 +8,29 @@ namespace Program.UI
 {
     public class ButtonDesign  : Button
     {
-        public static int width, height, borderSize, borderRadius;
-        public static Color borderColor, backColor, foreColor;
-        public ButtonDesign(int width, int height, Color backColor, Color foreColor)
+        private int  BorderSize, BorderRadius;
+        private readonly int  InitialHeight;
+        private readonly int InitialWidth;
+        private Color BorderColor;
+        public ButtonDesign(int width, int height, Color backColor, Color foreColor, int borderRadius, int borderSize, Color borderColor)
         {
+            this.BorderColor = borderColor;
+            this.BorderRadius = borderRadius;
+            this.BorderSize = borderSize;
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(width, height);
             this.BackColor = backColor;
             this.ForeColor = foreColor;
             this.Resize += new EventHandler(Button_Resize);
+            this.InitialWidth = this.Size.Width;
+            this.InitialHeight = this.Size.Height;
         }
         
         private void Button_Resize(object sender, EventArgs e)
         {
-            if (borderRadius > this.Height)
-                borderRadius = this.Height;
+            if (BorderRadius > this.Height)
+                BorderRadius = this.Height;
         }
 
         private GraphicsPath GetFigurePath(RectangleF rect, float radius)
@@ -44,23 +51,23 @@ namespace Program.UI
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             RectangleF rectSurface = this.ClientRectangle;
-            RectangleF rectBorder = RectangleF.Inflate(rectSurface, -borderSize, -borderSize);
+            RectangleF rectBorder = RectangleF.Inflate(rectSurface, -BorderSize, -BorderSize);
             int smoothSize = 2;
-            if (borderSize > 0)
+            if (BorderSize > 0)
             {
-                smoothSize = borderSize;
+                smoothSize = BorderSize;
             }
-            if (borderRadius > 2) 
+            if (BorderRadius > 2) 
             {
-                using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
-                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius-borderSize))
+                using (GraphicsPath pathSurface = GetFigurePath(rectSurface, BorderRadius))
+                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, BorderRadius-BorderSize))
                 using (Pen penSurface = new Pen(this.Parent.BackColor, smoothSize))
-                using (Pen penBorder = new Pen(borderColor, borderSize))
+                using (Pen penBorder = new Pen(BorderColor, BorderSize))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     this.Region = new Region(pathSurface);
                     e.Graphics.DrawPath(penSurface, pathSurface);
-                    if (borderSize >= 1)
+                    if (BorderSize >= 1)
                     {
                         e.Graphics.DrawPath(penBorder, pathBorder);
                     }
@@ -70,9 +77,9 @@ namespace Program.UI
             {
                 e.Graphics.SmoothingMode = SmoothingMode.None;
                 this.Region = new Region(rectSurface);
-                if (borderSize >= 1)
+                if (BorderSize >= 1)
                 {
-                    using (Pen penBorder = new Pen(borderColor, borderSize))
+                    using (Pen penBorder = new Pen(BorderColor, BorderSize))
                     {
                         penBorder.Alignment = PenAlignment.Inset;
                         e.Graphics.DrawRectangle(penBorder, 0, 0, this.Width-1, this.Height-1);
@@ -94,10 +101,8 @@ namespace Program.UI
         protected override void OnMouseHover(System.EventArgs e)
         {
             float fontSize = Font.SizeInPoints;
-            fontSize += 1;
-            System.Drawing.Size buttonSize = Size;
+            this.Size = new System.Drawing.Size(this.Width+5, this.Height+5);
             this.ForeColor = Color.White;
-            Size = new System.Drawing.Size(Size.Width+5, Size.Height+5);
             base.OnMouseHover(e);
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -108,10 +113,9 @@ namespace Program.UI
         protected override void OnMouseLeave(System.EventArgs e)
         {
             float fontSize = Font.SizeInPoints;
-            fontSize -= 1;
-            System.Drawing.Size buttonSize = Size;
-            this.ForeColor = foreColor;
-            Size = new System.Drawing.Size(Size.Width-5, Size.Height-5);
+            this.Size = new System.Drawing.Size(this.Width-5, this.Height-5);
+            this.ForeColor = Color.Black;
+            
             base.OnMouseLeave(e);
         }
     }

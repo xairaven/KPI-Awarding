@@ -1,4 +1,6 @@
-﻿namespace Program.Forms
+﻿using Program.UI;
+
+namespace Program.Forms
 {
     partial class MainForm
     {
@@ -47,7 +49,7 @@
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.clearDbBut = new Guna.UI2.WinForms.Guna2Button();
+            this.clearDbBut = new ButtonZoom();
             this.button1 = new Guna.UI2.WinForms.Guna2Button();
             this.badUserBut = new Guna.UI2.WinForms.Guna2Button();
             this.addRewardBut = new Guna.UI2.WinForms.Guna2Button();

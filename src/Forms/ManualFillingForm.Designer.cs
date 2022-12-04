@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Program.UI;
 
 namespace Program.Forms
 {
@@ -43,8 +44,8 @@ namespace Program.Forms
             this.KpiRadioButton = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.backBut = new Guna.UI2.WinForms.Guna2Button();
-            this.saveBut = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.backBut = new ButtonZoom();
+            this.saveBut = new GradientZoom();
             this.lastNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.firstNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.middleNameText = new Guna.UI2.WinForms.Guna2TextBox();
