@@ -8,25 +8,24 @@ namespace Program.Forms
 {
     public partial class AddRewardsForm : Form
     {
-        private List<string[]> list;
+        private List<string[]> _list;
         public AddRewardsForm()
         {
             InitializeComponent();
 
 
-             list = DataWork.GetUsers();
-            for (var i = 0; i < list.Count; i++)
+             _list = DataWork.GetUsers();
+            foreach (var a in _list)
             {
-                string[] a = list[i];
-                string name = a[0].Split(' ')[0];
-                string fac = a[1];
+                var name = a[0].Split(' ')[0];
+                var fac = a[1];
                 personListBox.Items.Add(name +  " " + fac );
             }
         }
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
         {
-            MainForm mainForm = new MainForm();
+            var mainForm = new MainForm();
             mainForm.Show();
             Hide();
             
@@ -39,7 +38,7 @@ namespace Program.Forms
 
             if (personListBox.Text == "")
             {
-                label1.Text = "Оберіть співробітника";
+                label1.Text = @"Оберіть співробітника";
                 return;
             }
             if (KpiRadioButton.Checked)
@@ -67,26 +66,29 @@ namespace Program.Forms
                     return;
                 } 
             }
-            int index = personListBox.SelectedIndex;
-            string[] a = list[index];
-            int id = DataWork.GetIdUser(a[0]);
-            
-            int nu, y;
-            nu=MainForm.RewList.IndexOf(rewardCountryComboBox.Text);
+            var index = personListBox.SelectedIndex;
+            var a = _list[index];
+            var id = DataWork.GetIdUser(a[0]);
+
+            var nu = MainForm.RewList.IndexOf(rewardCountryComboBox.Text);
             if (nu == -1) nu++;
-            y = MainForm.YearsList.IndexOf(yearsStateText.Text);
+            var y = MainForm.YearsList.IndexOf(yearsStateText.Text);
             if (y == -1) y++;
-            var reward1 = new Rewards(id," ");
-            reward1.Name = nu;
-            reward1.Year = y;
-                
+            var reward1 = new Rewards(id," ")
+            {
+                Name = nu,
+                Year = y
+            };
+
             nu = MainForm.KPIList.IndexOf(rewardKpiComboBox.Text);
             if (nu == -1) nu++;
             y = MainForm.YearsList.IndexOf(yearsKPIText.Text);
             if (y == -1) y++;
-            var reward2 = new Rewards(id,protocolNumberText.Text);
-            reward2.Name = nu;
-            reward2.Year = y;
+            var reward2 = new Rewards(id,protocolNumberText.Text)
+            {
+                Name = nu,
+                Year = y
+            };
 
             DataWork.AddReward(reward1,reward2);
             

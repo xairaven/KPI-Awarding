@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using Program.UI;
+﻿using System.ComponentModel;
 
 namespace Program.Forms
 {
@@ -9,7 +7,7 @@ namespace Program.Forms
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -33,42 +31,70 @@ namespace Program.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.startBut = new ButtonDesign(300,100, Color.Coral, Color.Black, 30, 4, Color.Brown);
-            this.devBut = new ButtonDesign(150, 50, Color.Coral, Color.Black, 15, 2, Color.Brown);
+            this.startBut = new Program.UI.GradientZoom();
+            this.backBut = new Program.UI.ButtonZoom();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            
-            //
-            this.startBut.Font = new System.Drawing.Font("Open Sans", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startBut.Location = new System.Drawing.Point(435, 257);
+            // 
+            // startBut
+            // 
+            this.startBut.BorderColor = System.Drawing.Color.SeaGreen;
+            this.startBut.BorderRadius = 20;
+            this.startBut.BorderThickness = 2;
+            this.startBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.startBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.startBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.startBut.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.startBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.startBut.FillColor = System.Drawing.Color.LightGreen;
+            this.startBut.FillColor2 = System.Drawing.Color.MediumAquamarine;
+            this.startBut.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.startBut.ForeColor = System.Drawing.Color.White;
+            this.startBut.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.startBut.Location = new System.Drawing.Point(404, 302);
+            this.startBut.Name = "startBut";
+            this.startBut.Size = new System.Drawing.Size(320, 120);
+            this.startBut.TabIndex = 70;
             this.startBut.Text = "Розпочати";
             this.startBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.startBut_MouseClick);
-            //
-            // devBut
             // 
-            this.devBut.Font = new System.Drawing.Font("Open Sans", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.devBut.Location = new System.Drawing.Point(1002, 473);
-            this.devBut.Text = "Розробники";
-            this.devBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.devBut_MouseClick);
+            // backBut
+            // 
+            this.backBut.BorderColor = System.Drawing.Color.Indigo;
+            this.backBut.BorderRadius = 15;
+            this.backBut.BorderThickness = 2;
+            this.backBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.backBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.backBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.backBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.backBut.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.backBut.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backBut.ForeColor = System.Drawing.Color.White;
+            this.backBut.Location = new System.Drawing.Point(973, 477);
+            this.backBut.Name = "backBut";
+            this.backBut.Size = new System.Drawing.Size(173, 48);
+            this.backBut.TabIndex = 71;
+            this.backBut.Text = "Розробники";
+            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.devBut_MouseClick);
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Open Sans", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(278, 31);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(96)))), ((int)(((byte)(199)))));
+            this.label1.Location = new System.Drawing.Point(257, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(706, 121);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "КПІ - Нагороди";
-            this.label1.ForeColor = Color.Coral;
+            this.label1.Size = new System.Drawing.Size(725, 143);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "КПІ-нагороди";
             // 
-            // StartForm
+            // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PeachPuff;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1182, 553);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.devBut);
+            this.Controls.Add(this.backBut);
             this.Controls.Add(this.startBut);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -78,9 +104,9 @@ namespace Program.Forms
 
         private System.Windows.Forms.Label label1;
 
-        private System.Windows.Forms.Button devBut;
+        private Program.UI.ButtonZoom backBut;
 
-        private System.Windows.Forms.Button startBut;
+        private Program.UI.GradientZoom startBut;
 
         #endregion
     }

@@ -102,7 +102,7 @@ namespace Program.UI
         protected override void OnMouseHover(System.EventArgs e)
         {
             this.BorderSize = startBorderSize;
-            this.ForeColor = Color.White;
+            this.ForeColor = Color.Black;
             base.OnMouseHover(e);
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -113,7 +113,7 @@ namespace Program.UI
         protected override void OnMouseLeave(System.EventArgs e)
         {
             this.BorderSize = defaultBorderSize;
-            this.ForeColor = Color.Black;
+            this.ForeColor = Color.White;
             base.OnMouseLeave(e);
         }
     }
