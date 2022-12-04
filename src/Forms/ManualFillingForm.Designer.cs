@@ -54,6 +54,7 @@ namespace Program.Forms
             this.rewardCountryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.yearsStateText = new Guna.UI2.WinForms.Guna2TextBox();
             this.protocolNumberText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lastNameLabel
@@ -349,7 +350,7 @@ namespace Program.Forms
             this.rewardKpiComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardKpiComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardKpiComboBox.ItemHeight = 22;
-            this.rewardKpiComboBox.Items.AddRange(new object[] { "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
+            this.rewardKpiComboBox.Items.AddRange(new object[] { "-", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
             this.rewardKpiComboBox.Location = new System.Drawing.Point(379, 204);
             this.rewardKpiComboBox.Name = "rewardKpiComboBox";
             this.rewardKpiComboBox.Size = new System.Drawing.Size(243, 28);
@@ -371,7 +372,7 @@ namespace Program.Forms
             this.rewardCountryComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardCountryComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardCountryComboBox.ItemHeight = 22;
-            this.rewardCountryComboBox.Items.AddRange(new object[] { "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
+            this.rewardCountryComboBox.Items.AddRange(new object[] { "-", "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
             this.rewardCountryComboBox.Location = new System.Drawing.Point(720, 204);
             this.rewardCountryComboBox.Name = "rewardCountryComboBox";
             this.rewardCountryComboBox.Size = new System.Drawing.Size(243, 28);
@@ -430,12 +431,23 @@ namespace Program.Forms
             this.protocolNumberText.TabIndex = 37;
             this.protocolNumberText.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(726, 386);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(422, 60);
+            this.label1.TabIndex = 38;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ManualFillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.protocolNumberText);
             this.Controls.Add(this.yearsStateText);
             this.Controls.Add(this.rewardCountryComboBox);
@@ -464,6 +476,8 @@ namespace Program.Forms
             this.Text = "KPI-Awarding";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label label1;
 
         private Guna.UI2.WinForms.Guna2TextBox protocolNumberText;
 

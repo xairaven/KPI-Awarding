@@ -16,48 +16,91 @@ namespace Program.Forms
         private void saveBut_MouseClick(object sender, MouseEventArgs e)
         {
 
-            string fullName = $"{lastNameText.Text} {firstNameText.Text} {middleNameText.Text}";
-
-            var row = MainForm.UserList.Take(MainForm.UserList.Count).Count(x => x.Value.Name == fullName);
-
-
-            int indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text)+1;
-
-            int id;
-            if (row == 0)
+            if (lastNameText.Text == "" || firstNameText.Text == "" || middleNameText.Text == "")
             {
-                Users user = new Users(fullName, indexFac);
-                id = DataWork.Adduser(user);
+                label1.Text = @"Впишіть прізвище, ім'я та по-батькові співробітника";
             }
             else
             {
-                id = DataWork.GetIdUser(fullName);
-            }
 
-            int nu, y;
-            nu = MainForm.RewList.IndexOf(rewardCountryComboBox.Text);
-            if (nu == -1) nu++;
-            y = MainForm.YearsList.IndexOf(yearsStateText.Text);
-            if (y == -1) y++;
-            var reward1 = new Rewards(id," ");
-            reward1.Name = nu;
-            reward1.Year = y;
+                if (facultyComboBox.Text == "")
+                {
+                    label1.Text = @"Оберіть факультет";
+                }
+                else
+                {
+                    if (KpiRadioButton.Checked)
+                    {
 
-            nu = MainForm.KPIList.IndexOf(rewardKpiComboBox.Text);
-            if (nu == -1) nu++;
-            y = MainForm.YearsList.IndexOf(yearsKPIText.Text);
-            if (y == -1) y++;
-            var reward2 = new Rewards(id,protocolNumberText.Text);
-            reward2.Name = nu;
-            reward2.Year = y;
+                        if (rewardKpiComboBox.Text == "" || rewardKpiComboBox.Text == "-" || yearsKPIText.Text=="")
+                        {
+                            label1.Text = @"Оберіть нагороду та рік призначення";
+                            return;
+                        }
+                        if (rewardKpiComboBox.Text == @"почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)")
+                        {
+                            if (protocolNumberText.Text=="")
+                            {
+                                label1.Text = @"Оберіть номер протоколу";
+                                return;
+                            }
+                        }
+                        
+                    }else if (radioButton2.Checked)
+                    {
+                        if (rewardCountryComboBox.Text == "" || rewardCountryComboBox.Text == "-" || yearsStateText.Text=="")
+                        {
+                            label1.Text = @"Оберіть нагороду та рік призначення";
+                            return;
+                        } 
+                    }
+                    string fullName = $"{lastNameText.Text} {firstNameText.Text} {middleNameText.Text}";
 
-            DataWork.AddReward(reward1, reward2);
+                    var row = MainForm.UserList.Take(MainForm.UserList.Count).Count(x => x.Value.Name == fullName);
+
+
+                    int indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text)+1;
+
+                    int id;
+                    if (row == 0)
+                    {
+                        Users user = new Users(fullName, indexFac);
+                        id = DataWork.Adduser(user);
+                    }
+                    else
+                    {
+                        id = DataWork.GetIdUser(fullName);
+                    }
+
+                    int nu, y;
+                    nu = MainForm.RewList.IndexOf(rewardCountryComboBox.Text);
+                    if (nu == -1) nu++;
+                    y = MainForm.YearsList.IndexOf(yearsStateText.Text);
+                    if (y == -1) y++;
+                    var reward1 = new Rewards(id," ");
+                    reward1.Name = nu;
+                    reward1.Year = y;
+
+                    nu = MainForm.KPIList.IndexOf(rewardKpiComboBox.Text);
+                    if (nu == -1) nu++;
+                    y = MainForm.YearsList.IndexOf(yearsKPIText.Text);
+                    if (y == -1) y++;
+                    var reward2 = new Rewards(id,protocolNumberText.Text);
+                    reward2.Name = nu;
+                    reward2.Year = y;
+
+                    DataWork.AddReward(reward1, reward2);
  
 
 
-            var mainForm = new MainForm();
-            mainForm.Show();
-            Hide();
+                    var mainForm = new MainForm();
+                    mainForm.Show();
+                    Hide();
+                }
+               
+            }
+            
+           
         }
        
     
@@ -73,11 +116,17 @@ namespace Program.Forms
     {
         ChangeVisibleCountry(true);
         ChangeVisibleKpi(false);
+        rewardKpiComboBox.SelectedIndex = 0;
+        yearsKPIText.Text = "";
+        protocolNumberText.Text = "";
+
     }
 
     private void KpiRadioButton_CheckedChanged(object sender, EventArgs e)
     {
         ChangeVisibleCountry(false);
+        rewardCountryComboBox.SelectedIndex = 0;
+        yearsStateText.Text = "";
         ChangeVisibleKpi(true);
     }
 
@@ -104,6 +153,8 @@ namespace Program.Forms
         {
             protocolNumberLabel.Visible = false;
             protocolNumberText.Visible = false;
+            protocolNumberText.Text = "";
+
         }
     }
 
