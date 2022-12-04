@@ -49,7 +49,7 @@ namespace Program.Forms
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.clearDbBut = new ButtonZoom();
+            this.clearDbBut = new Guna.UI2.WinForms.Guna2Button();
             this.button1 = new Guna.UI2.WinForms.Guna2Button();
             this.badUserBut = new Guna.UI2.WinForms.Guna2Button();
             this.addRewardBut = new Guna.UI2.WinForms.Guna2Button();

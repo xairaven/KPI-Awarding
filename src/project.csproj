@@ -117,10 +117,10 @@
             <DependentUpon>ManualFillingForm.cs</DependentUpon>
         </Compile>
         <Compile Include="Forms\StartForm.cs">
-            <SubType>Form</SubType>
+          <SubType>Form</SubType>
         </Compile>
         <Compile Include="Forms\StartForm.Designer.cs">
-            <DependentUpon>StartForm.cs</DependentUpon>
+          <DependentUpon>StartForm.cs</DependentUpon>
         </Compile>
         <Compile Include="FormUtils.cs" />
         <Compile Include="Program.cs" />
@@ -148,7 +148,7 @@
             <DependentUpon>ManualFillingForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Forms\StartForm.resx">
-            <DependentUpon>StartForm.cs</DependentUpon>
+          <DependentUpon>StartForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
