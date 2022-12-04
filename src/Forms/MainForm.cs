@@ -35,7 +35,7 @@ namespace Program.Forms
             dataGridView1.Columns[5].FillWeight = 130;
             dataGridView1.Columns[6].FillWeight = 120;
             dataGridView1.Columns[7].FillWeight = 120;
-            dataGridView1.Columns[8].FillWeight += 40;
+           // dataGridView1.Columns[8].FillWeight += 40;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         
         }
@@ -68,6 +68,7 @@ namespace Program.Forms
 
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dt;
+            InitializeDataGrid();
         }
 
 
@@ -348,7 +349,7 @@ namespace Program.Forms
                     editDB(DataWork.FindUser(DataWork.GetIdUser(choise)));
                     break;
 
-                case "Факультет/ННІ":
+                case "Факультет /ННІ":
                     editDB(DataWork.FindFac(FacList.IndexOf(choise) + 1));
                     break;
 
@@ -372,6 +373,8 @@ namespace Program.Forms
                     editDB(DataWork.FindYRew(YearsList.IndexOf(choise)));
                     break;
             }
+            
+            InitializeDataGrid();
         }
 
 
