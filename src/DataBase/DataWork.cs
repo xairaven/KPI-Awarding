@@ -573,7 +573,7 @@ namespace Program.DataBase
          * Всі методи наведені далі шукають та зберігають в список одновимірних масивів
          * типу string інформацію по заданим полям та їх значенням
          */
-public static List<string[]> FindUser(int id)
+        public static List<string[]> FindUser(int id)
         {
             var UserInfo = new List<string[]>();
             string[] row = new string[7];
@@ -657,7 +657,7 @@ public static List<string[]> FindUser(int id)
             return FacInfo;
         }
 
-public static List<string[]> FindRew(int id)
+        public static List<string[]> FindRew(int id)
         {
             var RewInfo = new List<string[]>();
             string[] row = new string[6];
@@ -740,6 +740,131 @@ public static List<string[]> FindRew(int id)
 
             return KPIInfo;
         }
+        
+        public static List<string[]> FindProt(string protoc)
+        {
+            var ProtInfo = new List<string[]>();
+            string[] row = new string[7];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.Prot=" + protoc;
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    row = new string[7];
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[3] = reward;
+                    string yearR = reader.GetString(3);
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
+                    ProtInfo.Add(row);
+                }
+            }
+
+            return ProtInfo;
+        }
+        public static List<string[]> FindYRew(int id)
+        {
+            var YrewInfo = new List<string[]>();
+            string[] row = new string[7];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.YRew=" + id.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    row = new string[7];
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[3] = reward;
+                    string yearR = reader.GetString(3);
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
+                    YrewInfo.Add(row);
+                }
+            }
+
+            return YrewInfo;
+        }
+        public static List<string[]> FindYKPI(int id)
+        {
+            var YKPIInfo = new List<string[]>();
+            string[] row = new string[7];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.YKPI=" + id.ToString();
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    row = new string[7];
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[3] = reward;
+                    string yearR = reader.GetString(3);
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
+                    YKPIInfo.Add(row);
+                }
+            }
+
+            return YKPIInfo;
+        }
+        
 
         public static int GetBadNum()
         {
