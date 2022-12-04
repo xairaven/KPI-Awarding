@@ -280,7 +280,7 @@ namespace Program.Forms
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.FillWeight = 250F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Прізвище, ім\'я, по батькові співробітника";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
