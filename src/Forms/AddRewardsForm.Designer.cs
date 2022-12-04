@@ -46,8 +46,8 @@ namespace Program.Forms
             this.yearsStateText = new Guna.UI2.WinForms.Guna2TextBox();
             this.countryRadioButton = new System.Windows.Forms.RadioButton();
             this.KpiRadioButton = new System.Windows.Forms.RadioButton();
-            this.backBut = new ButtonZoom();
-            this.startBut = new GradientZoom();
+            this.backBut = new Program.UI.ButtonZoom();
+            this.startBut = new Program.UI.GradientZoom();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -248,7 +248,7 @@ namespace Program.Forms
             this.countryRadioButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.countryRadioButton.Location = new System.Drawing.Point(611, 144);
             this.countryRadioButton.Name = "countryRadioButton";
-            this.countryRadioButton.Size = new System.Drawing.Size(124, 24);
+            this.countryRadioButton.Size = new System.Drawing.Size(132, 24);
             this.countryRadioButton.TabIndex = 67;
             this.countryRadioButton.Text = "Державна";
             this.countryRadioButton.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@ namespace Program.Forms
             this.KpiRadioButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.KpiRadioButton.Location = new System.Drawing.Point(611, 114);
             this.KpiRadioButton.Name = "KpiRadioButton";
-            this.KpiRadioButton.Size = new System.Drawing.Size(124, 24);
+            this.KpiRadioButton.Size = new System.Drawing.Size(132, 24);
             this.KpiRadioButton.TabIndex = 66;
             this.KpiRadioButton.TabStop = true;
             this.KpiRadioButton.Text = "КПІ";

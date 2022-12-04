@@ -136,6 +136,7 @@ namespace Program.Forms
             this.dataGridViewTextBoxColumn1.HeaderText = "Прізвище, ім\'я, по батькові співробітника";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -149,6 +150,7 @@ namespace Program.Forms
             this.rewardsKpi.HeaderText = "Нагорода (Почесне звання, відзнака та грамота)";
             this.rewardsKpi.Name = "rewardsKpi";
             this.rewardsKpi.ReadOnly = true;
+            this.rewardsKpi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // rewardsCountry
             // 
@@ -156,6 +158,7 @@ namespace Program.Forms
             this.rewardsCountry.HeaderText = "Державна нагорода";
             this.rewardsCountry.Name = "rewardsCountry";
             this.rewardsCountry.ReadOnly = true;
+            this.rewardsCountry.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -255,7 +258,7 @@ namespace Program.Forms
             this.clearDbBut.Name = "clearDbBut";
             this.clearDbBut.Size = new System.Drawing.Size(180, 80);
             this.clearDbBut.TabIndex = 8;
-            this.clearDbBut.Text = "Стерти базу даних";
+            this.clearDbBut.Text = "Очистити       базу даних";
             this.clearDbBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.clearDbBut.TextOffset = new System.Drawing.Point(4, 0);
             this.clearDbBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.clearDbBut_MouseClick);
@@ -400,7 +403,7 @@ namespace Program.Forms
             this.searchBut.ImageSize = new System.Drawing.Size(18, 18);
             this.searchBut.Location = new System.Drawing.Point(640, 115);
             this.searchBut.Name = "searchBut";
-            this.searchBut.Size = new System.Drawing.Size(52, 46);
+            this.searchBut.Size = new System.Drawing.Size(52, 42);
             this.searchBut.TabIndex = 23;
             this.searchBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchBut_MouseClick);
             // 
@@ -419,10 +422,10 @@ namespace Program.Forms
             this.searchComboBox.ForeColor = System.Drawing.Color.White;
             this.searchComboBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchComboBox.ItemHeight = 40;
+            this.searchComboBox.ItemHeight = 36;
             this.searchComboBox.Location = new System.Drawing.Point(381, 115);
             this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(253, 46);
+            this.searchComboBox.Size = new System.Drawing.Size(253, 42);
             this.searchComboBox.TabIndex = 24;
             this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
             // 
@@ -468,7 +471,7 @@ namespace Program.Forms
             this.restartDefaultDB.ImageSize = new System.Drawing.Size(23, 23);
             this.restartDefaultDB.Location = new System.Drawing.Point(323, 115);
             this.restartDefaultDB.Name = "restartDefaultDB";
-            this.restartDefaultDB.Size = new System.Drawing.Size(52, 46);
+            this.restartDefaultDB.Size = new System.Drawing.Size(52, 42);
             this.restartDefaultDB.TabIndex = 26;
             this.restartDefaultDB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restartDefaultDB_MouseClick);
             // 
