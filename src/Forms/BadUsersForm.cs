@@ -35,6 +35,21 @@ namespace Program.Forms
             }
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dt; //заполняем dataGridView
+            InitializeDataGrid();
+        }
+        
+        private void InitializeDataGrid()
+        {
+            dataGridView1.Columns[0].FillWeight = 30;
+            dataGridView1.Columns[1].FillWeight = 170;
+            dataGridView1.Columns[2].FillWeight = 80;
+            dataGridView1.Columns[3].FillWeight = 150;
+            dataGridView1.Columns[4].FillWeight = 150;
+            dataGridView1.Columns[5].FillWeight = 150;
+            dataGridView1.Columns[6].FillWeight = 100;
+            dataGridView1.Columns[7].FillWeight = 100;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
         }
 
         private void backBut_MouseClick(object sender, MouseEventArgs e)
