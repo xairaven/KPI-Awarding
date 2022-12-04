@@ -102,6 +102,9 @@ namespace Program.DataBase
             int id1 = 0;
             int c = 0;
             int y = 0;
+            string rew = "";
+            string year = "";
+            string pred = "";
             string  prot2=" ";
             string sqlExpression;
             string sqlExpression1;
@@ -115,6 +118,7 @@ namespace Program.DataBase
             {
                 prot2 = reward2.Prot;
             }
+            
             else prot2 =" ";
             //Перевіряємо, чи є вже такий юзер в основній таблиці
             sqlExpression1 = "SELECT COUNT(User) FROM GoodUsers WHERE User=" + user.ToString();
@@ -177,9 +181,50 @@ namespace Program.DataBase
                                 name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
                                 year2.ToString() + "','" + prot2 +"')";
             }
-            //Перевіряємо чи є назва у державної нагороди
-            else if (name1 != 0)
+            if ((year1 == 0 && year2 == 0) || (year1 != 0 && year2 != 0))
             {
+                sqlExpression = "INSERT INTO BadUsers (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                                "'" + id1.ToString() + "','" + user.ToString() + "','" +
+                                name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() + "','" +
+                                year2.ToString() + "','" + prot2 +"')";
+            }
+            //Перевіряємо чи є назва у державної нагороди
+            else if (name1 != 0 && year1!=0 && year2==0)
+            {
+                int lvl1 = name1 + 1;
+                sqlExpression = "SELECT RewName FROM Rewards WHERE Id=" + lvl1.ToString();
+                command.CommandText = sqlExpression;
+                command = new SQLiteCommand(sqlExpression, Connection);
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        rew = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+                command.Cancel();
+
+                int yea = year1 + 1;
+                sqlExpression = "SELECT Year FROM Years WHERE Id=" + yea.ToString();
+                command.CommandText = sqlExpression;
+                command = new SQLiteCommand(sqlExpression, Connection);
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        year = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+                command.Cancel();
+
+                pred = "В " + year + " отримає " + rew;
+
                 sqlExpression =
                     "SELECT Reward FROM RewardsAllnames WHERE id=(SELECT max(Id) FROM RewardsAllNames WHERE Reward <>" +
                     0.ToString() + " AND User =" + user.ToString() + ")";
@@ -218,11 +263,11 @@ namespace Program.DataBase
                         object lvlt = reader.GetValue(0);
                         if (lvlt == DBNull.Value)
                         {
-                            sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                            sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot,Prediction) VALUES (" +
                                             "'" + id.ToString() + "','" + user.ToString() + "','" +
                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                             "','" +
-                                            year2.ToString() + "','" + prot1 +"')";
+                                            year2.ToString() + "','" + prot1 + "','"+ pred + "')";
                             if (c == 0)
                             {
                                 sqlExpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() + ")";
@@ -241,16 +286,45 @@ namespace Program.DataBase
                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                             "','" +
                                             year2.ToString() + "','" + prot1 +"')";
+                            break;
                         }
-                        
+                        sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot,Prediction) VALUES (" +
+                                        "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                        name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
+                                        "','" +
+                                        year2.ToString() + "','" + prot1 + "','"+ pred +"')";
                     }
-                }else
+                }
+                else
                 {
-                    sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                    sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot,Prediction) VALUES (" +
                                     "'" + id.ToString() + "','" + user.ToString() + "','" +
                                     name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                     "','" +
-                                    year2.ToString() + "','" + prot2 +"')";
+                                    year2.ToString() + "','" + prot1 + "','"+ pred +"')";
+                    sqlExpression1 = "SELECT COUNT(Id) FROM RewardsAllNames WHERE User=" + user.ToString() +
+                                     " AND (YRew=" + year1.ToString() + " OR YKPI=" + year1.ToString() + ")";
+                    command1.CommandText = sqlExpression1;
+                    command1 = new SQLiteCommand(sqlExpression1, Connection);
+                    reader1 = command1.ExecuteReader();
+                    if (reader1.HasRows)
+                    {
+                        while (reader1.Read())
+                        {
+                            y = reader1.GetInt32(0);
+                        }
+                    }
+
+                    command1.Cancel();
+                    reader1.Close();
+                    if (y != 0)
+                    {
+                        sqlExpression = "INSERT INTO BadUsers (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                                        "'" + id1.ToString() + "','" + user.ToString() + "','" +
+                                        name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
+                                        "','" +
+                                        year2.ToString() + "','" + prot2 + "')";
+                    }
                     if (c == 0)
                     {
                         sqlExpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() + ")";
@@ -264,8 +338,43 @@ namespace Program.DataBase
                 command.Cancel();
             }
             //Перевіряємо чи є назва у нагороди виданою КПІ
-            else if (name2 != 0)
+            else if (name2 != 0 && year2!=0 && year1==0)
             {
+                int lvl1 = name2 + 1;
+                sqlExpression = "SELECT KPIName FROM KPI WHERE Id=" + lvl1.ToString();
+                command.CommandText = sqlExpression;
+                command = new SQLiteCommand(sqlExpression, Connection);
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        rew = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+                command.Cancel();
+
+                int yea = year2 + 1;
+                sqlExpression = "SELECT Year FROM Years WHERE Id=" + yea.ToString();
+                command.CommandText = sqlExpression;
+                command = new SQLiteCommand(sqlExpression, Connection);
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        year = reader.GetString(0);
+                    }
+                }
+                reader.Close();
+                command.Cancel();
+
+                pred = "В " + year + " отримає " + rew;
+                
+                
                 sqlExpression =
                     "SELECT KPI FROM RewardsAllnames WHERE id=(SELECT max(Id) FROM RewardsAllNames WHERE KPI <>" +
                     0.ToString() + " AND User =" + user.ToString() + ")";
@@ -304,11 +413,11 @@ namespace Program.DataBase
                         object lvlt = reader.GetValue(0);
                         if (lvlt == DBNull.Value)
                         {
-                            sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                            sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot,Prediction) VALUES (" +
                                             "'" + id.ToString() + "','" + user.ToString() + "','" +
                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                             "','" +
-                                            year2.ToString() + "','" + prot2 + "')";
+                                            year2.ToString() + "','" + prot2 + "','" + pred +"')";
                             if (c == 0)
                             {
                                 sqlExpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() + ")";
@@ -332,21 +441,43 @@ namespace Program.DataBase
                             break;
                         }
 
-                        sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                        sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot,Prediction) VALUES (" +
                                         "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                        name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
+                                        "','" +
+                                        year2.ToString() + "','" + prot2 + "','" + pred + "')";
+                    }
+                }
+                else
+                {
+                    sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot,Prediction) VALUES (" +
+                                    "'" + id.ToString() + "','" + user.ToString() + "','" +
+                                    name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
+                                    "','" +
+                                    year2.ToString() + "','" + prot2 + "','" + pred + "')";
+                    sqlExpression1 = "SELECT COUNT(Id) FROM RewardsAllNames WHERE User=" + user.ToString() +
+                                     " AND (YRew=" + year2.ToString() + " OR YKPI=" + year2.ToString() + ")";
+                    command1.CommandText = sqlExpression1;
+                    command1 = new SQLiteCommand(sqlExpression1, Connection);
+                    reader1 = command1.ExecuteReader();
+                    if (reader1.HasRows)
+                    {
+                        while (reader1.Read())
+                        {
+                            y = reader1.GetInt32(0);
+                        }
+                    }
+
+                    command1.Cancel();
+                    reader1.Close();
+                    if (y != 0)
+                    {
+                        sqlExpression = "INSERT INTO BadUsers (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
+                                        "'" + id1.ToString() + "','" + user.ToString() + "','" +
                                         name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                         "','" +
                                         year2.ToString() + "','" + prot2 + "')";
                     }
-                }
-
-                else
-                {
-                    sqlExpression = "INSERT INTO RewardsAllNames (Id,User,Reward,KPI,YRew,YKPI,Prot) VALUES (" +
-                                    "'" + id.ToString() + "','" + user.ToString() + "','" +
-                                    name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
-                                    "','" +
-                                    year2.ToString() + "','" + prot2 + "')";
                     if (c == 0)
                     {
                         sqlExpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() + ")";
@@ -406,9 +537,9 @@ namespace Program.DataBase
          */
         public static string[] GetUsRewards(int n)
         {
-            string[] row = new string[7];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -437,6 +568,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     //Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}",user,fac,reward,kpi,yearR,yearK);
                 }
             }
@@ -573,12 +706,56 @@ namespace Program.DataBase
          * Всі методи наведені далі шукають та зберігають в список одновимірних масивів
          * типу string інформацію по заданим полям та їх значенням
          */
+        public static List<string[]> FindNum(string id)
+        {
+            var NumInfo = new List<string[]>();
+            string[] row = new string[8];
+            string sqlExpression =
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
+                "INNER JOIN Users U ON U.Id=RE.User " +
+                "INNER JOIN Facultets F ON U.Fac=F.Id " +
+                "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
+                "LEFT JOIN Years Y1 ON RE.YKPI=Y1.Id " +
+                "LEFT JOIN Rewards R ON RE.Reward=R.Id " +
+                "LEFT JOIN KPI K ON RE.KPI=K.Id " +
+                "WHERE RE.Id=" + id;
+
+            var command = new SQLiteCommand(sqlExpression, Connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    row = new string[8];
+                    string user = reader.GetString(0);
+                    row[0] = user;
+                    string fac = reader.GetString(1);
+                    row[1] = fac;
+                    string reward = reader.GetString(2);
+                    row[3] = reward;
+                    string yearR = reader.GetString(3);
+                    row[6] = yearR;
+                    string yearK = reader.GetString(5);
+                    row[5] = yearK;
+                    string kpi = reader.GetString(4);
+                    row[2] = kpi;
+                    string prot = reader.GetString(6);
+                    row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
+                    NumInfo.Add(row);
+                }
+            }
+
+            return NumInfo;
+        }
+        
         public static List<string[]> FindUser(int id)
         {
             var UserInfo = new List<string[]>();
-            string[] row = new string[7];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -593,7 +770,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -608,6 +785,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     UserInfo.Add(row);
                 }
             }
@@ -618,9 +797,9 @@ namespace Program.DataBase
         public static List<string[]> FindFac(int id)
         {
             var FacInfo = new List<string[]>();
-            string[] row = new string[7];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -635,7 +814,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -650,6 +829,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     FacInfo.Add(row);
                 }
             }
@@ -660,9 +841,9 @@ namespace Program.DataBase
         public static List<string[]> FindRew(int id)
         {
             var RewInfo = new List<string[]>();
-            string[] row = new string[6];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -677,7 +858,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -692,6 +873,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     RewInfo.Add(row);
                 }
             }
@@ -702,9 +885,9 @@ namespace Program.DataBase
         public static  List<string[]> FindKPI(int id)
         {
             var KPIInfo = new List<string[]>();
-            string[] row = new string[6];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -719,7 +902,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -734,6 +917,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     KPIInfo.Add(row);
                 }
             }
@@ -744,9 +929,9 @@ namespace Program.DataBase
         public static List<string[]> FindProt(string protoc)
         {
             var ProtInfo = new List<string[]>();
-            string[] row = new string[7];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -761,7 +946,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -776,6 +961,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     ProtInfo.Add(row);
                 }
             }
@@ -785,9 +972,9 @@ namespace Program.DataBase
         public static List<string[]> FindYRew(int id)
         {
             var YrewInfo = new List<string[]>();
-            string[] row = new string[7];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -802,7 +989,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -817,6 +1004,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     YrewInfo.Add(row);
                 }
             }
@@ -826,9 +1015,9 @@ namespace Program.DataBase
         public static List<string[]> FindYKPI(int id)
         {
             var YKPIInfo = new List<string[]>();
-            string[] row = new string[7];
+            string[] row = new string[8];
             string sqlExpression =
-                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot FROM RewardsAllNames RE " +
+                "SELECT U.Username,F.Fac,R.RewName,Y.Year,K.KPIName,Y1.Year,RE.Prot,RE.Prediction FROM RewardsAllNames RE " +
                 "INNER JOIN Users U ON U.Id=RE.User " +
                 "INNER JOIN Facultets F ON U.Fac=F.Id " +
                 "LEFT JOIN Years Y ON RE.YRew=Y.Id " +
@@ -843,7 +1032,7 @@ namespace Program.DataBase
             {
                 while (reader.Read())
                 {
-                    row = new string[7];
+                    row = new string[8];
                     string user = reader.GetString(0);
                     row[0] = user;
                     string fac = reader.GetString(1);
@@ -858,6 +1047,8 @@ namespace Program.DataBase
                     row[2] = kpi;
                     string prot = reader.GetString(6);
                     row[4] = prot;
+                    string pred = reader.GetString(7);
+                    row[7] = pred;
                     YKPIInfo.Add(row);
                 }
             }

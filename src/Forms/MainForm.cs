@@ -14,7 +14,7 @@ namespace Program.Forms
         public MainForm()
         {
             InitializeComponent();
-            for (var i = 0; i < dataGridView1.ColumnCount; i++)
+            for (var i = 0; i < dataGridView1.ColumnCount-1; i++)
             {
                 searchComboBox.Items.Add(dataGridView1.Columns[i].HeaderText);
             }
@@ -342,7 +342,7 @@ namespace Program.Forms
             switch (category)
             {
                 case "№":
-                    
+                    editDB(DataWork.FindNum(choise));
                     break;
 
                 case "Прізвище, ім'я, по батькові співробітника":
