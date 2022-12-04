@@ -1,13 +1,11 @@
-﻿using System.ComponentModel;
-
-namespace Program.Forms
+﻿namespace Program.Forms
 {
     partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private IContainer components = null;
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -34,19 +32,7 @@ namespace Program.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.miniToolStrip = new System.Windows.Forms.MenuStrip();
-            this.importExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportExcelFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addRewardBut = new System.Windows.Forms.Button();
-            this.addNew = new System.Windows.Forms.Button();
-            this.backBut = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.searchBut = new System.Windows.Forms.Button();
-            this.searchComboBox = new System.Windows.Forms.ComboBox();
-            this.badUserBut = new System.Windows.Forms.Button();
-            this.restartDefaultDB = new System.Windows.Forms.Button();
-            this.clearDbBut = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,159 +43,24 @@ namespace Program.Forms
             this.yearsKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prediction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.miniToolStrip.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.clearDbBut = new Guna.UI2.WinForms.Guna2Button();
+            this.button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.badUserBut = new Guna.UI2.WinForms.Guna2Button();
+            this.addRewardBut = new Guna.UI2.WinForms.Guna2Button();
+            this.addNew = new Guna.UI2.WinForms.Guna2Button();
+            this.backBut = new Guna.UI2.WinForms.Guna2Button();
+            this.searchBut = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.searchComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.searchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.restartDefaultDB = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // miniToolStrip
-            // 
-            this.miniToolStrip.AutoSize = false;
-            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.miniToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.importExcelFileToolStripMenuItem, this.exportExcelFileToolStripMenuItem });
-            this.miniToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.miniToolStrip.Name = "miniToolStrip";
-            this.miniToolStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.miniToolStrip.Size = new System.Drawing.Size(1182, 27);
-            this.miniToolStrip.TabIndex = 0;
-            this.miniToolStrip.TabStop = true;
-            this.miniToolStrip.Text = "miniToolStrip";
-            // 
-            // importExcelFileToolStripMenuItem
-            // 
-            this.importExcelFileToolStripMenuItem.Name = "importExcelFileToolStripMenuItem";
-            this.importExcelFileToolStripMenuItem.Size = new System.Drawing.Size(127, 23);
-            this.importExcelFileToolStripMenuItem.Text = "Import ExcelFile";
-            this.importExcelFileToolStripMenuItem.Click += new System.EventHandler(this.importExcelFileToolStripMenuItem_Click);
-            // 
-            // exportExcelFileToolStripMenuItem
-            // 
-            this.exportExcelFileToolStripMenuItem.Name = "exportExcelFileToolStripMenuItem";
-            this.exportExcelFileToolStripMenuItem.Size = new System.Drawing.Size(125, 23);
-            this.exportExcelFileToolStripMenuItem.Text = "Export ExcelFile";
-            this.exportExcelFileToolStripMenuItem.Click += new System.EventHandler(this.exportExcelFileToolStripMenuItem_Click);
-            // 
-            // addRewardBut
-            // 
-            this.addRewardBut.BackColor = System.Drawing.Color.Lavender;
-            this.addRewardBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addRewardBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addRewardBut.Location = new System.Drawing.Point(1005, 173);
-            this.addRewardBut.Name = "addRewardBut";
-            this.addRewardBut.Size = new System.Drawing.Size(150, 74);
-            this.addRewardBut.TabIndex = 7;
-            this.addRewardBut.Text = "Додати нагороду";
-            this.addRewardBut.UseVisualStyleBackColor = false;
-            this.addRewardBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addRewardBut_MouseClick);
-            // 
-            // addNew
-            // 
-            this.addNew.BackColor = System.Drawing.Color.Lavender;
-            this.addNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addNew.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addNew.Location = new System.Drawing.Point(1005, 311);
-            this.addNew.Name = "addNew";
-            this.addNew.Size = new System.Drawing.Size(150, 74);
-            this.addNew.TabIndex = 8;
-            this.addNew.Text = "Додати";
-            this.addNew.UseVisualStyleBackColor = false;
-            this.addNew.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addNew_MouseClick);
-            // 
-            // backBut
-            // 
-            this.backBut.BackColor = System.Drawing.Color.Lavender;
-            this.backBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.backBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backBut.Location = new System.Drawing.Point(1005, 54);
-            this.backBut.Name = "backBut";
-            this.backBut.Size = new System.Drawing.Size(150, 50);
-            this.backBut.TabIndex = 9;
-            this.backBut.Text = "Назад";
-            this.backBut.UseVisualStyleBackColor = false;
-            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBut_MouseClick);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Lavender;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(1005, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 74);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Повний екран";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.searchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchTextBox.Location = new System.Drawing.Point(37, 54);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(332, 34);
-            this.searchTextBox.TabIndex = 11;
-            // 
-            // searchBut
-            // 
-            this.searchBut.Location = new System.Drawing.Point(258, 105);
-            this.searchBut.Name = "searchBut";
-            this.searchBut.Size = new System.Drawing.Size(111, 30);
-            this.searchBut.TabIndex = 13;
-            this.searchBut.Text = "Пошук";
-            this.searchBut.UseVisualStyleBackColor = true;
-            this.searchBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchBut_MouseClick);
-            // 
-            // searchComboBox
-            // 
-            this.searchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchComboBox.DropDownWidth = 420;
-            this.searchComboBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(37, 105);
-            this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(190, 30);
-            this.searchComboBox.TabIndex = 14;
-            this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
-            // 
-            // badUserBut
-            // 
-            this.badUserBut.BackColor = System.Drawing.Color.Lavender;
-            this.badUserBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.badUserBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.badUserBut.Location = new System.Drawing.Point(1005, 563);
-            this.badUserBut.Name = "badUserBut";
-            this.badUserBut.Size = new System.Drawing.Size(150, 74);
-            this.badUserBut.TabIndex = 15;
-            this.badUserBut.Text = "Bad users";
-            this.badUserBut.UseVisualStyleBackColor = false;
-            this.badUserBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.badUserBut_MouseClick);
-            // 
-            // restartDefaultDB
-            // 
-            this.restartDefaultDB.BackColor = System.Drawing.Color.Lavender;
-            this.restartDefaultDB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.restartDefaultDB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.restartDefaultDB.Location = new System.Drawing.Point(791, 54);
-            this.restartDefaultDB.Name = "restartDefaultDB";
-            this.restartDefaultDB.Size = new System.Drawing.Size(150, 81);
-            this.restartDefaultDB.TabIndex = 16;
-            this.restartDefaultDB.Text = "Повернутися до початкової таблиці";
-            this.restartDefaultDB.UseVisualStyleBackColor = false;
-            this.restartDefaultDB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restartDefaultDB_MouseClick);
-            // 
-            // clearDbBut
-            // 
-            this.clearDbBut.BackColor = System.Drawing.Color.Red;
-            this.clearDbBut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.clearDbBut.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearDbBut.Location = new System.Drawing.Point(583, 50);
-            this.clearDbBut.Name = "clearDbBut";
-            this.clearDbBut.Size = new System.Drawing.Size(150, 88);
-            this.clearDbBut.TabIndex = 17;
-            this.clearDbBut.Text = "Очистити базу даних";
-            this.clearDbBut.UseVisualStyleBackColor = false;
-            this.clearDbBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.clearDbBut_MouseClick);
             // 
             // dataGridView1
             // 
@@ -240,13 +91,13 @@ namespace Program.Forms
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 173);
+            this.dataGridView1.Location = new System.Drawing.Point(224, 204);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.Size = new System.Drawing.Size(946, 537);
-            this.dataGridView1.TabIndex = 18;
+            this.dataGridView1.TabIndex = 19;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -331,37 +182,317 @@ namespace Program.Forms
             this.prediction.Name = "prediction";
             this.prediction.ReadOnly = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.importToolStripMenuItem, this.exportToolStripMenuItem });
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1182, 28);
+            this.menuStrip1.TabIndex = 20;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.importToolStripMenuItem.Text = "Import Excel";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importExcelFileToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(102, 24);
+            this.exportToolStripMenuItem.Text = "Export Excel";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportExcelFileToolStripMenuItem_Click);
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.guna2Panel1.Controls.Add(this.clearDbBut);
+            this.guna2Panel1.Controls.Add(this.button1);
+            this.guna2Panel1.Controls.Add(this.badUserBut);
+            this.guna2Panel1.Controls.Add(this.addRewardBut);
+            this.guna2Panel1.Controls.Add(this.addNew);
+            this.guna2Panel1.Controls.Add(this.backBut);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 28);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(182, 725);
+            this.guna2Panel1.TabIndex = 22;
+            // 
+            // clearDbBut
+            // 
+            this.clearDbBut.BorderColor = System.Drawing.Color.Red;
+            this.clearDbBut.BorderThickness = 2;
+            this.clearDbBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.clearDbBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.clearDbBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.clearDbBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.clearDbBut.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clearDbBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.clearDbBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.clearDbBut.ForeColor = System.Drawing.Color.Red;
+            this.clearDbBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.clearDbBut.ImageOffset = new System.Drawing.Point(4, 0);
+            this.clearDbBut.ImageSize = new System.Drawing.Size(30, 30);
+            this.clearDbBut.Location = new System.Drawing.Point(0, 645);
+            this.clearDbBut.Name = "clearDbBut";
+            this.clearDbBut.Size = new System.Drawing.Size(182, 80);
+            this.clearDbBut.TabIndex = 8;
+            this.clearDbBut.Text = "Стерти базу даних";
+            this.clearDbBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.clearDbBut.TextOffset = new System.Drawing.Point(4, 0);
+            this.clearDbBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.clearDbBut_MouseClick);
+            // 
+            // button1
+            // 
+            this.button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.button1.BorderThickness = 2;
+            this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.button1.ImageOffset = new System.Drawing.Point(8, 0);
+            this.button1.Location = new System.Drawing.Point(0, 242);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 83);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Таблиця у    більшому     розмірі";
+            this.button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.button1.TextOffset = new System.Drawing.Point(10, 0);
+            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
+            // 
+            // badUserBut
+            // 
+            this.badUserBut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.badUserBut.BorderThickness = 2;
+            this.badUserBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.badUserBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.badUserBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.badUserBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.badUserBut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.badUserBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.badUserBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.badUserBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.badUserBut.Image = ((System.Drawing.Image)(resources.GetObject("badUserBut.Image")));
+            this.badUserBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.badUserBut.ImageOffset = new System.Drawing.Point(8, 0);
+            this.badUserBut.Location = new System.Drawing.Point(0, 178);
+            this.badUserBut.Name = "badUserBut";
+            this.badUserBut.Size = new System.Drawing.Size(182, 64);
+            this.badUserBut.TabIndex = 3;
+            this.badUserBut.Text = "Список    дефектів";
+            this.badUserBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.badUserBut.TextOffset = new System.Drawing.Point(10, 0);
+            this.badUserBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.badUserBut_MouseClick);
+            // 
+            // addRewardBut
+            // 
+            this.addRewardBut.BorderColor = System.Drawing.Color.Indigo;
+            this.addRewardBut.BorderThickness = 2;
+            this.addRewardBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addRewardBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addRewardBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addRewardBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addRewardBut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addRewardBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.addRewardBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.addRewardBut.ForeColor = System.Drawing.Color.Indigo;
+            this.addRewardBut.Image = ((System.Drawing.Image)(resources.GetObject("addRewardBut.Image")));
+            this.addRewardBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addRewardBut.ImageOffset = new System.Drawing.Point(8, 0);
+            this.addRewardBut.Location = new System.Drawing.Point(0, 114);
+            this.addRewardBut.Name = "addRewardBut";
+            this.addRewardBut.Size = new System.Drawing.Size(182, 64);
+            this.addRewardBut.TabIndex = 2;
+            this.addRewardBut.Text = "Додати    нагороду";
+            this.addRewardBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addRewardBut.TextOffset = new System.Drawing.Point(10, 0);
+            this.addRewardBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addRewardBut_MouseClick);
+            // 
+            // addNew
+            // 
+            this.addNew.BorderColor = System.Drawing.Color.Indigo;
+            this.addNew.BorderThickness = 2;
+            this.addNew.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addNew.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addNew.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNew.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addNew.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addNew.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.addNew.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.addNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.addNew.Image = ((System.Drawing.Image)(resources.GetObject("addNew.Image")));
+            this.addNew.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addNew.ImageOffset = new System.Drawing.Point(8, 0);
+            this.addNew.Location = new System.Drawing.Point(0, 51);
+            this.addNew.Name = "addNew";
+            this.addNew.Size = new System.Drawing.Size(182, 63);
+            this.addNew.TabIndex = 1;
+            this.addNew.Text = "Додати";
+            this.addNew.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addNew.TextOffset = new System.Drawing.Point(10, 0);
+            this.addNew.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addNew_MouseClick);
+            // 
+            // backBut
+            // 
+            this.backBut.BorderColor = System.Drawing.Color.Indigo;
+            this.backBut.BorderThickness = 2;
+            this.backBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.backBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.backBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.backBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.backBut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.backBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.backBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.backBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.backBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.backBut.ImageOffset = new System.Drawing.Point(8, 0);
+            this.backBut.Location = new System.Drawing.Point(0, 0);
+            this.backBut.Name = "backBut";
+            this.backBut.Size = new System.Drawing.Size(182, 51);
+            this.backBut.TabIndex = 0;
+            this.backBut.Text = "На головну";
+            this.backBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.backBut.TextOffset = new System.Drawing.Point(10, 0);
+            this.backBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.backBut_MouseClick);
+            // 
+            // searchBut
+            // 
+            this.searchBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.searchBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.searchBut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.searchBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchBut.FillColor = System.Drawing.Color.SlateBlue;
+            this.searchBut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchBut.ForeColor = System.Drawing.Color.White;
+            this.searchBut.Image = ((System.Drawing.Image)(resources.GetObject("searchBut.Image")));
+            this.searchBut.ImageSize = new System.Drawing.Size(18, 18);
+            this.searchBut.Location = new System.Drawing.Point(908, 118);
+            this.searchBut.Name = "searchBut";
+            this.searchBut.Size = new System.Drawing.Size(52, 46);
+            this.searchBut.TabIndex = 23;
+            this.searchBut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchBut_MouseClick);
+            // 
+            // searchComboBox
+            // 
+            this.searchComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.searchComboBox.BorderColor = System.Drawing.Color.Plum;
+            this.searchComboBox.BorderRadius = 20;
+            this.searchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.searchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(162)))), ((int)(((byte)(229)))));
+            this.searchComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.searchComboBox.ForeColor = System.Drawing.Color.White;
+            this.searchComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.searchComboBox.ItemHeight = 40;
+            this.searchComboBox.Location = new System.Drawing.Point(649, 118);
+            this.searchComboBox.Name = "searchComboBox";
+            this.searchComboBox.Size = new System.Drawing.Size(253, 46);
+            this.searchComboBox.TabIndex = 24;
+            this.searchComboBox.SelectedIndexChanged += new System.EventHandler(this.searchComboBox_SelectedIndexChanged);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.searchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.searchTextBox.AutoRoundedCorners = true;
+            this.searchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.searchTextBox.BorderRadius = 22;
+            this.searchTextBox.BorderThickness = 2;
+            this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.searchTextBox.DefaultText = "";
+            this.searchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(162)))), ((int)(((byte)(229)))));
+            this.searchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F);
+            this.searchTextBox.ForeColor = System.Drawing.Color.White;
+            this.searchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchTextBox.Location = new System.Drawing.Point(591, 56);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.PasswordChar = '\0';
+            this.searchTextBox.PlaceholderForeColor = System.Drawing.Color.White;
+            this.searchTextBox.PlaceholderText = "Пошук";
+            this.searchTextBox.SelectedText = "";
+            this.searchTextBox.Size = new System.Drawing.Size(369, 46);
+            this.searchTextBox.TabIndex = 25;
+            // 
+            // restartDefaultDB
+            // 
+            this.restartDefaultDB.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.restartDefaultDB.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.restartDefaultDB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.restartDefaultDB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.restartDefaultDB.FillColor = System.Drawing.Color.SlateBlue;
+            this.restartDefaultDB.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.restartDefaultDB.ForeColor = System.Drawing.Color.White;
+            this.restartDefaultDB.Image = ((System.Drawing.Image)(resources.GetObject("restartDefaultDB.Image")));
+            this.restartDefaultDB.ImageSize = new System.Drawing.Size(23, 23);
+            this.restartDefaultDB.Location = new System.Drawing.Point(591, 118);
+            this.restartDefaultDB.Name = "restartDefaultDB";
+            this.restartDefaultDB.Size = new System.Drawing.Size(52, 46);
+            this.restartDefaultDB.TabIndex = 26;
+            this.restartDefaultDB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.restartDefaultDB_MouseClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1182, 753);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.clearDbBut);
             this.Controls.Add(this.restartDefaultDB);
-            this.Controls.Add(this.badUserBut);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.searchBut);
-            this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.backBut);
-            this.Controls.Add(this.addNew);
-            this.Controls.Add(this.addRewardBut);
-            this.Controls.Add(this.miniToolStrip);
-            this.Location = new System.Drawing.Point(15, 15);
+            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.miniToolStrip.ResumeLayout(false);
-            this.miniToolStrip.PerformLayout();
+            this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2CircleButton restartDefaultDB;
 
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2TextBox searchTextBox;
+
+        private Guna.UI2.WinForms.Guna2ComboBox searchComboBox;
+
+        private Guna.UI2.WinForms.Guna2Button clearDbBut;
+        private Guna.UI2.WinForms.Guna2Button button1;
+
+        private Guna.UI2.WinForms.Guna2CircleButton searchBut;
+
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button badUserBut;
+        private Guna.UI2.WinForms.Guna2Button addRewardBut;
+        private Guna.UI2.WinForms.Guna2Button addNew;
+        private Guna.UI2.WinForms.Guna2Button backBut;
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+
+        private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -371,31 +502,6 @@ namespace Program.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn yearsKpi;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearsCountry;
         private System.Windows.Forms.DataGridViewTextBoxColumn prediction;
-
-        private System.Windows.Forms.Button clearDbBut;
-
-        private System.Windows.Forms.Button restartDefaultDB;
-
-        private System.Windows.Forms.Button searchBut;
-
-        private System.Windows.Forms.Button badUserBut;
-        private System.Windows.Forms.ComboBox searchComboBox;
-
-        private System.Windows.Forms.ToolStripMenuItem exportExcelFileToolStripMenuItem;
-
-        private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Button іу;
-
-        private System.Windows.Forms.Button button1;
-
-        private System.Windows.Forms.Button backBut;
-
-        private System.Windows.Forms.Button addNew;
-
-        private System.Windows.Forms.Button addRewardBut;
-
-        private System.Windows.Forms.MenuStrip miniToolStrip;
-        private System.Windows.Forms.ToolStripMenuItem importExcelFileToolStripMenuItem;
 
         #endregion
     }
