@@ -361,15 +361,15 @@ namespace Program.Forms
                     break;
 
                 case "№ протоколу ВР КПІ ім. Ігоря Сікорського про відзначення":
-
+                    editDB(DataWork.FindProt(choise));
                     break;
 
                 case "Рік відзначення КПІ":
-
+                    editDB(DataWork.FindYKPI(YearsList.IndexOf(choise)));
                     break;
 
                 case "Рік призначення державою":
-
+                    editDB(DataWork.FindYRew(YearsList.IndexOf(choise)));
                     break;
             }
         }

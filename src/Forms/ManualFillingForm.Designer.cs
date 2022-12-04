@@ -350,7 +350,7 @@ namespace Program.Forms
             this.rewardKpiComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardKpiComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardKpiComboBox.ItemHeight = 22;
-            this.rewardKpiComboBox.Items.AddRange(new object[] { "-", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ» ", "почесне звання «Заслужений професор КПІ» ", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ» ", "почесна відзнака «За заслуги  перед КПІ» " });
+            this.rewardKpiComboBox.Items.AddRange(new object[] { "-", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ»", "почесне звання «Заслужений професор КПІ»","почесне звання «Заслужений науковець КПІ»", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ»", "почесна відзнака «За заслуги  перед КПІ»" });
             this.rewardKpiComboBox.Location = new System.Drawing.Point(379, 204);
             this.rewardKpiComboBox.Name = "rewardKpiComboBox";
             this.rewardKpiComboBox.Size = new System.Drawing.Size(243, 28);
@@ -372,7 +372,7 @@ namespace Program.Forms
             this.rewardCountryComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardCountryComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardCountryComboBox.ItemHeight = 22;
-            this.rewardCountryComboBox.Items.AddRange(new object[] { "-", "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»  ", "Подяка КМ України ", "Грамота КМ України " });
+            this.rewardCountryComboBox.Items.AddRange(new object[] { "-", "Подяка МОН України", "Грамота МОН України", "Почесна грамота МОН України", "нагрудний знак «Відмінник освіти»", "почесне звання «Заслужений діяч науки і техніки України»", "Подяка КМ України", "Грамота КМ України" });
             this.rewardCountryComboBox.Location = new System.Drawing.Point(720, 204);
             this.rewardCountryComboBox.Name = "rewardCountryComboBox";
             this.rewardCountryComboBox.Size = new System.Drawing.Size(243, 28);
