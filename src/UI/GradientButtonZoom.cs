@@ -8,6 +8,13 @@ namespace Program.UI
 {
     public class GradientZoom : Guna2GradientButton
     {
+        private int defaultWidth, defaultHeight;
+        
+        public GradientZoom()
+        {
+            this.defaultWidth =  (int)(Size.Width - Size.Width * 0.25);
+            this.defaultHeight = (int)(Size.Height - Size.Height * 0.2);
+        }
         private void Container_BackColorChanged(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -18,7 +25,7 @@ namespace Program.UI
             fontSize += 1;
             System.Drawing.Size buttonSize = Size;
             this.ForeColor = Color.White;
-            Size = new Size(this.Width + 5, this.Height + 5);
+            Size = new Size(Size.Width + 5, Size.Height + 5);
             base.OnMouseHover(e);
         }
         protected override void OnMouseMove(MouseEventArgs e)
@@ -32,7 +39,7 @@ namespace Program.UI
             fontSize -= 1;
             this.ForeColor = Color.Black;
             System.Drawing.Size buttonSize = Size;
-            Size = new Size(this.Width - 5, this.Height - 5);
+            Size = new Size(defaultWidth, defaultHeight);
             base.OnMouseLeave(e);
         }
     }
