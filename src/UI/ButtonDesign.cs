@@ -9,9 +9,8 @@ namespace Program.UI
     public class ButtonDesign  : Button
     {
         private int  BorderSize, BorderRadius;
-        private readonly int  InitialHeight;
-        private readonly int InitialWidth;
         private Color BorderColor;
+        private int defaultWidth, defaultHeight;
         public ButtonDesign(int width, int height, Color backColor, Color foreColor, int borderRadius, int borderSize, Color borderColor)
         {
             this.BorderColor = borderColor;
@@ -23,8 +22,8 @@ namespace Program.UI
             this.BackColor = backColor;
             this.ForeColor = foreColor;
             this.Resize += new EventHandler(Button_Resize);
-            this.InitialWidth = this.Size.Width;
-            this.InitialHeight = this.Size.Height;
+            this.defaultWidth =  (int)(Size.Width - Size.Width * 0.25);
+            this.defaultHeight = (int)(Size.Height - Size.Height * 0.2);
         }
         
         private void Button_Resize(object sender, EventArgs e)
@@ -100,8 +99,7 @@ namespace Program.UI
         }
         protected override void OnMouseHover(System.EventArgs e)
         {
-            float fontSize = Font.SizeInPoints;
-            this.Size = new System.Drawing.Size(this.Width+5, this.Height+5);
+            Size = new Size(Size.Width+5, Size.Height+5);
             this.ForeColor = Color.White;
             base.OnMouseHover(e);
         }
@@ -112,8 +110,7 @@ namespace Program.UI
         }
         protected override void OnMouseLeave(System.EventArgs e)
         {
-            float fontSize = Font.SizeInPoints;
-            this.Size = new System.Drawing.Size(this.Width-5, this.Height-5);
+            Size = new Size(defaultWidth, defaultHeight);
             this.ForeColor = Color.Black;
             
             base.OnMouseLeave(e);
