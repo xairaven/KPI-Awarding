@@ -91,7 +91,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridView1.Location = new System.Drawing.Point(224, 204);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 181);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -184,40 +184,52 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.importToolStripMenuItem, this.exportToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1182, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1182, 31);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // importToolStripMenuItem
             // 
+            this.importToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.importToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.importToolStripMenuItem.Image = global::Program.Properties.Resources.import;
+            this.importToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(136, 27);
             this.importToolStripMenuItem.Text = "Import Excel";
+            this.importToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importExcelFileToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
+            this.exportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.exportToolStripMenuItem.Image = global::Program.Properties.Resources.export;
+            this.exportToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(102, 24);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(134, 27);
             this.exportToolStripMenuItem.Text = "Export Excel";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportExcelFileToolStripMenuItem_Click);
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.clearDbBut);
             this.guna2Panel1.Controls.Add(this.button1);
             this.guna2Panel1.Controls.Add(this.badUserBut);
             this.guna2Panel1.Controls.Add(this.addRewardBut);
             this.guna2Panel1.Controls.Add(this.addNew);
             this.guna2Panel1.Controls.Add(this.backBut);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 28);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Panel1.Location = new System.Drawing.Point(1002, 31);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(182, 725);
+            this.guna2Panel1.Size = new System.Drawing.Size(180, 722);
             this.guna2Panel1.TabIndex = 22;
             // 
             // clearDbBut
@@ -230,14 +242,16 @@
             this.clearDbBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.clearDbBut.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.clearDbBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
-            this.clearDbBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.clearDbBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.clearDbBut.ForeColor = System.Drawing.Color.Red;
+            this.clearDbBut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(249)))));
+            this.clearDbBut.Image = global::Program.Properties.Resources.clean;
             this.clearDbBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.clearDbBut.ImageOffset = new System.Drawing.Point(4, 0);
-            this.clearDbBut.ImageSize = new System.Drawing.Size(30, 30);
-            this.clearDbBut.Location = new System.Drawing.Point(0, 645);
+            this.clearDbBut.ImageSize = new System.Drawing.Size(25, 25);
+            this.clearDbBut.Location = new System.Drawing.Point(0, 642);
             this.clearDbBut.Name = "clearDbBut";
-            this.clearDbBut.Size = new System.Drawing.Size(182, 80);
+            this.clearDbBut.Size = new System.Drawing.Size(180, 80);
             this.clearDbBut.TabIndex = 8;
             this.clearDbBut.Text = "Стерти базу даних";
             this.clearDbBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -246,7 +260,7 @@
             // 
             // button1
             // 
-            this.button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
             this.button1.BorderThickness = 2;
             this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -254,14 +268,15 @@
             this.button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(249)))));
+            this.button1.Image = global::Program.Properties.Resources.resize;
             this.button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button1.ImageOffset = new System.Drawing.Point(8, 0);
             this.button1.Location = new System.Drawing.Point(0, 242);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 83);
+            this.button1.Size = new System.Drawing.Size(180, 83);
             this.button1.TabIndex = 7;
             this.button1.Text = "Таблиця у    більшому     розмірі";
             this.button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -270,7 +285,7 @@
             // 
             // badUserBut
             // 
-            this.badUserBut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
+            this.badUserBut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
             this.badUserBut.BorderThickness = 2;
             this.badUserBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.badUserBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -278,14 +293,16 @@
             this.badUserBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.badUserBut.Dock = System.Windows.Forms.DockStyle.Top;
             this.badUserBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
-            this.badUserBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.badUserBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(21)))), ((int)(((byte)(122)))));
-            this.badUserBut.Image = ((System.Drawing.Image)(resources.GetObject("badUserBut.Image")));
+            this.badUserBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.badUserBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.badUserBut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(249)))));
+            this.badUserBut.Image = global::Program.Properties.Resources.list;
             this.badUserBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.badUserBut.ImageOffset = new System.Drawing.Point(8, 0);
+            this.badUserBut.ImageSize = new System.Drawing.Size(25, 25);
             this.badUserBut.Location = new System.Drawing.Point(0, 178);
             this.badUserBut.Name = "badUserBut";
-            this.badUserBut.Size = new System.Drawing.Size(182, 64);
+            this.badUserBut.Size = new System.Drawing.Size(180, 64);
             this.badUserBut.TabIndex = 3;
             this.badUserBut.Text = "Список    дефектів";
             this.badUserBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -294,7 +311,7 @@
             // 
             // addRewardBut
             // 
-            this.addRewardBut.BorderColor = System.Drawing.Color.Indigo;
+            this.addRewardBut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
             this.addRewardBut.BorderThickness = 2;
             this.addRewardBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addRewardBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -302,14 +319,16 @@
             this.addRewardBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addRewardBut.Dock = System.Windows.Forms.DockStyle.Top;
             this.addRewardBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
-            this.addRewardBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.addRewardBut.ForeColor = System.Drawing.Color.Indigo;
-            this.addRewardBut.Image = ((System.Drawing.Image)(resources.GetObject("addRewardBut.Image")));
+            this.addRewardBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addRewardBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.addRewardBut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(249)))));
+            this.addRewardBut.Image = global::Program.Properties.Resources.rewards;
             this.addRewardBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addRewardBut.ImageOffset = new System.Drawing.Point(8, 0);
+            this.addRewardBut.ImageSize = new System.Drawing.Size(25, 25);
             this.addRewardBut.Location = new System.Drawing.Point(0, 114);
             this.addRewardBut.Name = "addRewardBut";
-            this.addRewardBut.Size = new System.Drawing.Size(182, 64);
+            this.addRewardBut.Size = new System.Drawing.Size(180, 64);
             this.addRewardBut.TabIndex = 2;
             this.addRewardBut.Text = "Додати    нагороду";
             this.addRewardBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -318,7 +337,7 @@
             // 
             // addNew
             // 
-            this.addNew.BorderColor = System.Drawing.Color.Indigo;
+            this.addNew.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
             this.addNew.BorderThickness = 2;
             this.addNew.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addNew.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -326,14 +345,15 @@
             this.addNew.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.addNew.Dock = System.Windows.Forms.DockStyle.Top;
             this.addNew.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
-            this.addNew.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.addNew.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.addNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
-            this.addNew.Image = ((System.Drawing.Image)(resources.GetObject("addNew.Image")));
+            this.addNew.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(249)))));
+            this.addNew.Image = global::Program.Properties.Resources.add;
             this.addNew.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addNew.ImageOffset = new System.Drawing.Point(8, 0);
             this.addNew.Location = new System.Drawing.Point(0, 51);
             this.addNew.Name = "addNew";
-            this.addNew.Size = new System.Drawing.Size(182, 63);
+            this.addNew.Size = new System.Drawing.Size(180, 63);
             this.addNew.TabIndex = 1;
             this.addNew.Text = "Додати";
             this.addNew.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -342,7 +362,7 @@
             // 
             // backBut
             // 
-            this.backBut.BorderColor = System.Drawing.Color.Indigo;
+            this.backBut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
             this.backBut.BorderThickness = 2;
             this.backBut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.backBut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -350,13 +370,15 @@
             this.backBut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.backBut.Dock = System.Windows.Forms.DockStyle.Top;
             this.backBut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
-            this.backBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.backBut.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.backBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(55)))), ((int)(((byte)(167)))));
+            this.backBut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(249)))));
+            this.backBut.Image = global::Program.Properties.Resources.home;
             this.backBut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.backBut.ImageOffset = new System.Drawing.Point(8, 0);
             this.backBut.Location = new System.Drawing.Point(0, 0);
             this.backBut.Name = "backBut";
-            this.backBut.Size = new System.Drawing.Size(182, 51);
+            this.backBut.Size = new System.Drawing.Size(180, 51);
             this.backBut.TabIndex = 0;
             this.backBut.Text = "На головну";
             this.backBut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -374,7 +396,7 @@
             this.searchBut.ForeColor = System.Drawing.Color.White;
             this.searchBut.Image = ((System.Drawing.Image)(resources.GetObject("searchBut.Image")));
             this.searchBut.ImageSize = new System.Drawing.Size(18, 18);
-            this.searchBut.Location = new System.Drawing.Point(908, 118);
+            this.searchBut.Location = new System.Drawing.Point(640, 115);
             this.searchBut.Name = "searchBut";
             this.searchBut.Size = new System.Drawing.Size(52, 46);
             this.searchBut.TabIndex = 23;
@@ -385,6 +407,7 @@
             this.searchComboBox.BackColor = System.Drawing.Color.Transparent;
             this.searchComboBox.BorderColor = System.Drawing.Color.Plum;
             this.searchComboBox.BorderRadius = 20;
+            this.searchComboBox.BorderThickness = 2;
             this.searchComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.searchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(162)))), ((int)(((byte)(229)))));
@@ -392,9 +415,10 @@
             this.searchComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.searchComboBox.ForeColor = System.Drawing.Color.White;
+            this.searchComboBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.searchComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.searchComboBox.ItemHeight = 40;
-            this.searchComboBox.Location = new System.Drawing.Point(649, 118);
+            this.searchComboBox.Location = new System.Drawing.Point(381, 115);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(253, 46);
             this.searchComboBox.TabIndex = 24;
@@ -419,7 +443,7 @@
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F);
             this.searchTextBox.ForeColor = System.Drawing.Color.White;
             this.searchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.searchTextBox.Location = new System.Drawing.Point(591, 56);
+            this.searchTextBox.Location = new System.Drawing.Point(323, 50);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.PasswordChar = '\0';
@@ -440,7 +464,7 @@
             this.restartDefaultDB.ForeColor = System.Drawing.Color.White;
             this.restartDefaultDB.Image = ((System.Drawing.Image)(resources.GetObject("restartDefaultDB.Image")));
             this.restartDefaultDB.ImageSize = new System.Drawing.Size(23, 23);
-            this.restartDefaultDB.Location = new System.Drawing.Point(591, 118);
+            this.restartDefaultDB.Location = new System.Drawing.Point(323, 115);
             this.restartDefaultDB.Name = "restartDefaultDB";
             this.restartDefaultDB.Size = new System.Drawing.Size(52, 46);
             this.restartDefaultDB.TabIndex = 26;

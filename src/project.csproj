@@ -170,6 +170,15 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="bin\Debug\Rewards" />
+      <Content Include="Resources\add.png" />
+      <Content Include="Resources\clean.png" />
+      <Content Include="Resources\download.png" />
+      <Content Include="Resources\export.png" />
+      <Content Include="Resources\home.png" />
+      <Content Include="Resources\import.png" />
+      <Content Include="Resources\list.png" />
+      <Content Include="Resources\resize.png" />
+      <Content Include="Resources\rewards.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
