@@ -161,7 +161,7 @@ namespace Program.Forms
                 if (nu == -1) nu++;
                 y = YearsList.IndexOf(dtRow[7].ToString());
                 if (y == -1) y++;
-                var reward1 = new Rewards(id, "");
+                var reward1 = new Rewards(id, " ");
                 reward1.Name = nu;
                 reward1.Year = y;
 
