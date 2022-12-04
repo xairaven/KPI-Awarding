@@ -22,6 +22,22 @@ namespace Program.Forms
             UserList = new Dictionary<int, Users>();
 
             RealizeDefaultData();
+          InitializeDataGrid();
+        }
+        
+        private void InitializeDataGrid()
+        {
+            dataGridView1.Columns[0].FillWeight = 30;
+            dataGridView1.Columns[1].FillWeight = 130;
+            dataGridView1.Columns[2].FillWeight = 100;
+            dataGridView1.Columns[3].FillWeight = 110;
+            dataGridView1.Columns[4].FillWeight = 120;
+            dataGridView1.Columns[5].FillWeight = 130;
+            dataGridView1.Columns[6].FillWeight = 120;
+            dataGridView1.Columns[7].FillWeight = 120;
+            dataGridView1.Columns[8].FillWeight += 40;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        
         }
 
 
@@ -46,7 +62,6 @@ namespace Program.Forms
                 {
                     dtRow[j + 1] = arr[j];
                 }
-
                 dt.Rows.Add(dtRow);
             }
 
@@ -92,6 +107,7 @@ namespace Program.Forms
                 return;
             }
 
+            DataWork.ClearDB();
             dataGridView1.Columns.Clear();
             var xlFileName = ofd.FileName; //имя нашего Excel файла
 
@@ -126,6 +142,9 @@ namespace Program.Forms
             //добавляем столбцы в DataTable
             for (var i = 1; i <= dataArr.GetUpperBound(1); i++)
                 dt.Columns.Add((string)dataArr[1, i]);
+            
+            dt.Columns.Add("Прогнозування");
+
 
             //цикл по строкам массива
             for (var i = 2; i <= dataArr.GetUpperBound(0); i++)
@@ -161,7 +180,7 @@ namespace Program.Forms
                 if (nu == -1) nu++;
                 y = YearsList.IndexOf(dtRow[7].ToString());
                 if (y == -1) y++;
-                var reward1 = new Rewards(id, " ");
+                var reward1 = new Rewards(id, "");
                 reward1.Name = nu;
                 reward1.Year = y;
 
@@ -193,6 +212,8 @@ namespace Program.Forms
             }
 
             dataGridView1.DataSource = dt; //заполняем dataGridView
+            InitializeDataGrid();
+
         }
 
 
@@ -222,7 +243,7 @@ namespace Program.Forms
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-            var fullScreenForm = new FullScreenForm();
+            var fullScreenForm = new FullScreenForm(dataGridView1);
             fullScreenForm.Show();
             Hide();
         }

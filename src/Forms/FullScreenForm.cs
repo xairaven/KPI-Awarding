@@ -6,10 +6,10 @@ namespace Program.Forms
 {
     public partial class FullScreenForm : Form
     {
-        public FullScreenForm()
+        public FullScreenForm(DataGridView dataGridView)
         {
             InitializeComponent();
-            
+
             var dt = new DataTable();
             
             for (var i = 0; i < dataGridView1.Columns.Count; i++)
@@ -17,22 +17,20 @@ namespace Program.Forms
                 dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
             }
             
-            for (int i = 1; i <= DataWork.GetRewdNum(); i++)
+            for (int i = 0; i < dataGridView.RowCount; i++)
             {
-                string[] arr =  DataWork.GetUsRewards(i);
                
                 var dtRow = dt.NewRow();
 
-                dtRow[0] = i.ToString();
                 
-                for (int j = 0; j < arr.Length; j++)
+                for (int j = 0; j < dataGridView.ColumnCount; j++)
                 {
-                    dtRow[j + 1] = arr[j];
+                    dtRow[j] = dataGridView[j,i].Value;
                 }
                 
                 dt.Rows.Add(dtRow);
             }
-
+            
             
             dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dt;
@@ -42,6 +40,15 @@ namespace Program.Forms
         private void InitializeDataGrid()
         {
             dataGridView1.Columns[0].FillWeight = 30;
+            dataGridView1.Columns[1].FillWeight = 170;
+            dataGridView1.Columns[2].FillWeight = 80;
+            dataGridView1.Columns[3].FillWeight = 150;
+            dataGridView1.Columns[4].FillWeight = 150;
+            dataGridView1.Columns[5].FillWeight = 150;
+            dataGridView1.Columns[6].FillWeight = 100;
+            dataGridView1.Columns[7].FillWeight = 100;
+            dataGridView1.Columns[8].FillWeight += 20;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 
         }
 

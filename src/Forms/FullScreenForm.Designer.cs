@@ -44,6 +44,7 @@ namespace Program.Forms
             this.numberProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prediction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,8 +70,7 @@ namespace Program.Forms
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
@@ -86,7 +86,7 @@ namespace Program.Forms
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeight = 129;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.number, this.fullName, this.facultet, this.rewardsKpi, this.rewardsCountry, this.numberProtocol, this.yearsKpi, this.yearsCountry });
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.number, this.fullName, this.facultet, this.rewardsKpi, this.rewardsCountry, this.numberProtocol, this.yearsKpi, this.yearsCountry, this.prediction });
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -127,59 +127,65 @@ namespace Program.Forms
             // 
             // number
             // 
-            this.number.FillWeight = 20F;
+            this.number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.number.FillWeight = 30F;
             this.number.HeaderText = "№";
             this.number.Name = "number";
             this.number.ReadOnly = true;
             // 
             // fullName
             // 
-            this.fullName.FillWeight = 120F;
+            this.fullName.FillWeight = 250F;
             this.fullName.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
             this.fullName.Name = "fullName";
             this.fullName.ReadOnly = true;
             // 
             // facultet
             // 
-            this.facultet.FillWeight = 50F;
             this.facultet.HeaderText = "Факультет /ННІ";
             this.facultet.Name = "facultet";
             this.facultet.ReadOnly = true;
             // 
             // rewardsKpi
             // 
-            this.rewardsKpi.FillWeight = 90F;
+            this.rewardsKpi.FillWeight = 150F;
             this.rewardsKpi.HeaderText = "Нагорода (Почесне звання, відзнака та грамота)";
             this.rewardsKpi.Name = "rewardsKpi";
             this.rewardsKpi.ReadOnly = true;
             // 
             // rewardsCountry
             // 
-            this.rewardsCountry.FillWeight = 90F;
+            this.rewardsCountry.FillWeight = 150F;
             this.rewardsCountry.HeaderText = "Державна нагорода";
             this.rewardsCountry.Name = "rewardsCountry";
             this.rewardsCountry.ReadOnly = true;
             // 
             // numberProtocol
             // 
-            this.numberProtocol.FillWeight = 50F;
+            this.numberProtocol.FillWeight = 200F;
             this.numberProtocol.HeaderText = "№ протоколу ВР КПІ ім. Ігоря Сікорського про відзначення";
             this.numberProtocol.Name = "numberProtocol";
             this.numberProtocol.ReadOnly = true;
             // 
             // yearsKpi
             // 
-            this.yearsKpi.FillWeight = 50F;
+            this.yearsKpi.FillWeight = 200F;
             this.yearsKpi.HeaderText = "Рік відзначення КПІ";
             this.yearsKpi.Name = "yearsKpi";
             this.yearsKpi.ReadOnly = true;
             // 
             // yearsCountry
             // 
-            this.yearsCountry.FillWeight = 50F;
+            this.yearsCountry.FillWeight = 200F;
             this.yearsCountry.HeaderText = "Рік призначення державою";
             this.yearsCountry.Name = "yearsCountry";
             this.yearsCountry.ReadOnly = true;
+            // 
+            // prediction
+            // 
+            this.prediction.HeaderText = "Прогнозування";
+            this.prediction.Name = "prediction";
+            this.prediction.ReadOnly = true;
             // 
             // FullScreenForm
             // 
@@ -196,6 +202,8 @@ namespace Program.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn prediction;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullName;

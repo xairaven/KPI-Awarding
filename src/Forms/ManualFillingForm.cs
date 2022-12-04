@@ -169,6 +169,8 @@ namespace Program.Forms
         {
             protocolNumberLabel.Visible = false;
             protocolNumberText.Visible = false;
+            protocolNumberText.Text = "";
+
         }
     }
 }
