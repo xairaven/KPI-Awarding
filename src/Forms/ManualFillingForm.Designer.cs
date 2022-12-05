@@ -305,7 +305,7 @@ namespace Program.Forms
             this.facultyComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.facultyComboBox.ForeColor = System.Drawing.Color.Black;
             this.facultyComboBox.ItemHeight = 22;
-            this.facultyComboBox.Items.AddRange(new object[] { "IAT", "ІАТЕ", "ІЕЕ", "ІМЗ", "ІПСА", "ІТС", "ММІ", "ФТІ", "ІХФ", "ПБФ", "РТФ", "ФБМІ", "ФБТ", "ФЕА", "ФЕЛ", "ФІОТ", "ФЛ", "ФММ", "ФМФ", "ФПМ", "ФСП", "ХТФ", "ІСЗЗІ" });
+            this.facultyComboBox.Items.AddRange(new object[] { "ІАТ", "ІАТЕ", "ІЕЕ", "ІМЗ", "ІПСА", "ІТС", "ММІ", "ФТІ", "ІХФ", "ПБФ", "РТФ", "ФБМІ", "ФБТ", "ФЕА", "ФЕЛ", "ФІОТ", "ФЛ", "ФММ", "ФМФ", "ФПМ", "ФСП", "ХТФ", "ІСЗЗІ" });
             this.facultyComboBox.Location = new System.Drawing.Point(41, 422);
             this.facultyComboBox.Name = "facultyComboBox";
             this.facultyComboBox.Size = new System.Drawing.Size(242, 28);
