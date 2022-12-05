@@ -343,6 +343,7 @@ namespace Program.Forms
             this.Name = "AddRewardsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPI-Awarding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddRewardsForm_FormClosing);
             this.ResumeLayout(false);
         }
 

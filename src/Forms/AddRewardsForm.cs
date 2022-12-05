@@ -158,5 +158,9 @@ namespace Program.Forms
         }
 
 
+        private void AddRewardsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -164,6 +164,11 @@ namespace Program.Forms
 
         }
     }
-}
+
+    private void ManualFillingForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        Close();
+    }
+    }
 
 }

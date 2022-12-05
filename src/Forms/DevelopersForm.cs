@@ -25,5 +25,10 @@ namespace Program.Forms
             startForm.Show();
             Hide();
         }
+
+        private void DevelopersForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -44,8 +44,8 @@ namespace Program.Forms
             this.KpiRadioButton = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.backBut = new ButtonZoom();
-            this.saveBut = new GradientZoom();
+            this.backBut = new Program.UI.ButtonZoom();
+            this.saveBut = new Program.UI.GradientZoom();
             this.lastNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.firstNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.middleNameText = new Guna.UI2.WinForms.Guna2TextBox();
@@ -351,7 +351,7 @@ namespace Program.Forms
             this.rewardKpiComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.rewardKpiComboBox.ForeColor = System.Drawing.Color.Black;
             this.rewardKpiComboBox.ItemHeight = 22;
-            this.rewardKpiComboBox.Items.AddRange(new object[] { "-", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ»", "почесне звання «Заслужений професор КПІ»","почесне звання «Заслужений науковець КПІ»", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ»", "почесна відзнака «За заслуги  перед КПІ»" });
+            this.rewardKpiComboBox.Items.AddRange(new object[] { "-", "Грамота Вченої ради", "Почесна грамота Вченої ради", "Почесна відзнака Вченої ради", "почесне звання «Заслужений викладач КПІ»", "почесне звання «Заслужений професор КПІ»", "почесне звання «Заслужений науковець КПІ»", "почесне звання «Заслужений працівник КПІ»", "почесна відзнака «Видатний діяч КПІ»", "почесне звання «Почесний доктор КПІ» (№ протоколу ВР КПІ)", "почесна відзнака «За служіння та відданість КПІ»", "почесна відзнака «За заслуги  перед КПІ»" });
             this.rewardKpiComboBox.Location = new System.Drawing.Point(379, 204);
             this.rewardKpiComboBox.Name = "rewardKpiComboBox";
             this.rewardKpiComboBox.Size = new System.Drawing.Size(243, 28);
@@ -475,6 +475,7 @@ namespace Program.Forms
             this.Name = "ManualFillingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPI-Awarding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManualFillingForm_FormClosing);
             this.ResumeLayout(false);
         }
 
