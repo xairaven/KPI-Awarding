@@ -271,7 +271,7 @@ namespace Program.DataBase
                                             "'" + id1.ToString() + "','" + user.ToString() + "','" +
                                             name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                             "','" +
-                                            year2.ToString() + "','" + prot1 + "')";
+                                            year2.ToString() + "','" + prot2 + "')";
                             break;
                         }
 
@@ -301,7 +301,7 @@ namespace Program.DataBase
                                     "'" + id.ToString() + "','" + user.ToString() + "','" +
                                     name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                     "','" +
-                                    year2.ToString() + "','" + prot1 + "','" + pred + "')";
+                                    year2.ToString() + "','" + prot2 + "','" + pred + "')";
                                 if (c == 0)
                                 {
                                     sqlExpression1 = "INSERT INTO GoodUsers(User) VALUES (" + user.ToString() + ")";
@@ -320,7 +320,7 @@ namespace Program.DataBase
                                                 "'" + id1.ToString() + "','" + user.ToString() + "','" +
                                                 name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                                 "','" +
-                                                year2.ToString() + "','" + prot1 + "')";
+                                                year2.ToString() + "','" + prot2 + "')";
                                 break;
                             }
 
@@ -331,7 +331,7 @@ namespace Program.DataBase
                                     "'" + id.ToString() + "','" + user.ToString() + "','" +
                                     name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                     "','" +
-                                    year2.ToString() + "','" + prot1 + "','" + pred + "')";
+                                    year2.ToString() + "','" + prot2 + "','" + pred + "')";
                                 break;
                             }
                             sqlExpression =
@@ -339,7 +339,7 @@ namespace Program.DataBase
                                 "'" + id.ToString() + "','" + user.ToString() + "','" +
                                 name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                 "','" +
-                                year2.ToString() + "','" + prot1 + "','" + pred + "')";
+                                year2.ToString() + "','" + prot2 + "','" + pred + "')";
                         }
                     }
                 }
@@ -349,7 +349,7 @@ namespace Program.DataBase
                                     "'" + id.ToString() + "','" + user.ToString() + "','" +
                                     name1.ToString() + "','" + name2.ToString() + "','" + year1.ToString() +
                                     "','" +
-                                    year2.ToString() + "','" + prot1 + "','"+ pred +"')";
+                                    year2.ToString() + "','" + prot2 + "','"+ pred +"')";
                     sqlExpression1 = "SELECT COUNT(Id) FROM RewardsAllNames WHERE User=" + user.ToString() +
                                      " AND (YRew=" + year1.ToString() + " OR YKPI=" + year1.ToString() + ")";
                     command1.CommandText = sqlExpression1;
