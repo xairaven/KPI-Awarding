@@ -176,6 +176,7 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="bin\Debug\Rewards" />
+      <Content Include="bin\Release\Rewards" />
       <Content Include="Resources\add.png" />
       <Content Include="Resources\clean.png" />
       <Content Include="Resources\download.png" />
