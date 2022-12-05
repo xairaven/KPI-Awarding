@@ -44,7 +44,7 @@ namespace Program.Forms
             this.numberProtocol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsKpi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearsCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backBut = new ButtonZoom();
+            this.backBut = new Program.UI.ButtonZoom();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,6 +194,7 @@ namespace Program.Forms
             this.Name = "BadUsersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPI-Awarding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BadUsersForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }

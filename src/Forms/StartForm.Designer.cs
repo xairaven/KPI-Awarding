@@ -87,7 +87,7 @@ namespace Program.Forms
             this.label1.TabIndex = 72;
             this.label1.Text = "КПІ-нагороди";
             // 
-            // Start
+            // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,6 +99,7 @@ namespace Program.Forms
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPI-Awarding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartForm_FormClosing);
             this.ResumeLayout(false);
         }
 

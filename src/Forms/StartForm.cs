@@ -22,5 +22,10 @@ namespace Program.Forms
             mainForm.Show();
             Hide();
         }
+
+        private void StartForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Close();
+        }
     }
 }

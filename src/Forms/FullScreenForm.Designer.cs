@@ -35,7 +35,7 @@ namespace Program.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.backBut = new ButtonZoom();
+            this.backBut = new Program.UI.ButtonZoom();
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,6 +201,7 @@ namespace Program.Forms
             this.Name = "FullScreenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPI-Awarding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FullScreenForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
         }

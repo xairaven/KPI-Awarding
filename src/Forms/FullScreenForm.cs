@@ -61,5 +61,10 @@ namespace Program.Forms
             mainForm.Show();
             Hide();
         }
+
+        private void FullScreenForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Close();
+        }
     }
 }

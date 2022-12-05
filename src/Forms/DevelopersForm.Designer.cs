@@ -42,7 +42,7 @@ namespace Program.Forms
             this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telegram = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backBut1 = new ButtonZoom();
+            this.backBut1 = new Program.UI.ButtonZoom();
             ((System.ComponentModel.ISupportInitialize)(this.dataDev)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +164,7 @@ namespace Program.Forms
             this.Name = "DevelopersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KPI-Awarding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DevelopersForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataDev)).EndInit();
             this.ResumeLayout(false);
         }
