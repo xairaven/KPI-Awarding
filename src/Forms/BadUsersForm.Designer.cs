@@ -117,7 +117,7 @@ namespace Program.Forms
             // fullName
             // 
             this.fullName.FillWeight = 120F;
-            this.fullName.HeaderText = "Призвіще, ім\'я, по батькові співробітника";
+            this.fullName.HeaderText = "Прізвище, ім\'я, по батькові співробітника";
             this.fullName.Name = "fullName";
             this.fullName.ReadOnly = true;
             // 
