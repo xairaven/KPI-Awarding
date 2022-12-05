@@ -115,7 +115,6 @@ namespace Program.Forms
             }
 
             DataWork.ClearDB();
-            dataGridView1.Columns.Clear();
             var xlFileName = ofd.FileName;
 
 
@@ -141,15 +140,12 @@ namespace Program.Forms
 
             var dt = new DataTable();
 
-            dt.Columns.Add("№");
+            for (var i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                dt.Columns.Add(dataGridView1.Columns[i].HeaderText);
+            }
+
             var count = 1;
-
-            for (var i = 1; i <= dataArr.GetUpperBound(1); i++)
-                dt.Columns.Add((string)dataArr[1, i]);
-            
-            dt.Columns.Add("Прогнозування");
-
-
             
             for (var i = 2; i <= dataArr.GetUpperBound(0); i++)
             {
@@ -210,7 +206,7 @@ namespace Program.Forms
 
                 dt.Rows.Add(dtRow);
             }
-
+            dataGridView1.Columns.Clear();
             dataGridView1.DataSource = dt; 
             InitializeDataGrid();
 
