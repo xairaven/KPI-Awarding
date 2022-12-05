@@ -444,7 +444,7 @@ namespace Program.Forms
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {git g
+        {
             Close();
         }
     }
