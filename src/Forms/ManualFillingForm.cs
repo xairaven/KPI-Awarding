@@ -58,7 +58,7 @@ namespace Program.Forms
                     var row = MainForm.UserList.Take(MainForm.UserList.Count).Count(x => x.Value.Name == fullName);
 
 
-                    var indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text);
+                    var indexFac = MainForm.FacList.IndexOf(facultyComboBox.Text)+1;
 
                     var user = new Users(fullName, indexFac);
                     var id = row == 0 ? DataWork.Adduser(user) : DataWork.GetIdUser(fullName);
