@@ -26,12 +26,12 @@ Not for commercial use.
 
 <h2>How to use</h2>
 
-**Technical specifications:** [\*Link\*](https://github.com/xairaven/KPI-Awarding/tree/main/readme-res/Task.docx)
+**Technical specifications:** [\*Link\*](./readme-res/Task.pdf)
 
 User interface is **intuitive**:<br><br>
 <img src="readme-res/img/main-form.png" alt="Main form" align="center"><br><br>
 
-But anyway, you can read the **manual**: [\*Link\*](https://github.com/xairaven/KPI-Awarding/tree/main/readme-res/Manual.docx)
+But anyway, you can read the **manual**: [\*Link\*](./readme-res/Manual.pdf)
 
 <h2>Requirements</h2>
 <h3>For use:</h3>
